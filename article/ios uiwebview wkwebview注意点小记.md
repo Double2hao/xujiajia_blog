@@ -1,0 +1,39 @@
+#ios uiwebview wkwebview注意点小记
+# 概述
+
+wkwebview是苹果公司推出的替代uiwebview的方案，它在内存占用和稳定性方面有很大的优势，性能对比此篇文章就不讲了。 但是就目前情况而言，uiwebview还有有一些不能被完全替代的原因，比如wkwebview无法用NSURLProtocol拦截请求，因此无法通过NSURLProtocol实现加载离线化资源。 本文主要是记录自己在使用的时候碰到的一些坑。
+
+# 方法注入
+
+uiwebview目前的方式就是直接通过JS定义方法，然后使用JSC来获得JS方法的回调。 wkwebview可以直接使用addScriptMessageHandler来添加需要监听的方法，然后在userContentController中处理监听事件。 主要的区别是，uiwebview的注入只对当前界面生效，在加载新的url或者界面刷新后就会失效。而wkwebview的注入对整个wkwebview生效，界面刷新不会对其有影响。 所以在uiwebview上如果有注入全局方法的需求，通过直接运行JS代码注入不可行，一般可以使用拦截自定scheme和host的方式来做方法注入。
+
+# cookie
+
+uiwebview的cookie与NSHTTPCookieStorage 同步，每次访问都会带上NSHTTPCookieStorage 中的内容，包括在页面中输入document.cookie也能获取到NSHTTPCookieStorage 中的cookie。
+
+## wkwebview不是及时同步
+
+但是wkwebview的cookie和NSHTTPCookieStorage 就不能及时同步，注意是不能及时同步，并不是不同步。主要体现在以下两个方面： 1、当NSHTTPCookieStorage 的中的cookie被修改了，cookie是会同步到wkwebview的，但是不是及时同步的，比如说我修改了NSHTTPCookieStorage的值之后然后马上打开一个wkwebview，wkwebview不一定能获取到我刚刚修改的cookie。 2、当我使用document.cookie在wkwebview中设置cookie的时候，我当前设置的cookie是会回写到NSHTTPCookieStorage中，但是也不是及时的。
+
+由于不及时同步，我们就说一下可能会有的问题，举例两个场景： 1、wkwebview没有获取到cookie，然后触发登陆逻辑后修改NSHTTPCookieStorage 跳回wkwebview，这时候wkwebview很有可能还是没有cookie的，因为wkwebview的cookie不是及时同步的。 2、某一模块为了满足自己的需求，修改了NSHTTPCookieStorage 中的一个cookie，而这个cookie刚好和其他模块重名了，由于wkwebview会回写cookie到NSHTTPCookieStorage 中，因此它会把原来这个名字的cookie给覆盖掉。而不仅仅存在cookie的value被修改，导致其他模块cookie错误的的问题，如果expire被修改了，也同时会给其他模块带去cookie过期的问题。
+
+## wkwebview对cookie的处理
+
+目前网上的处理方法主要有以下两种： 1、在webview发起请求的时候附带cookie。 2、在webview创建的时候js注入cookie。
+
+这两个方法都能解决wkwebview不能及时同步NSHTTPCookieStorage 的问题，但是无法解决wkwebview的cookie修改后不能及时回写到NSHTTPCookieStorage 的问题。 还是举个例子： 第一个wkwebview中的JS修改了一段cookie之后，没过多久又打开了第二个wkwebview，第二个wkwebview是很可能获取不到第一个wkwebview对cookie的修改的。最根本原因就是由于wkwebview的cookie无法及时回写到NSHTTPCookieStorage 。
+
+那么这种情况如何解决呢？答案就是wkProcessPool。
+
+## WKProcessPool
+
+使用同一个WKProcessPool的wkwebview可以共享cookie数据，但是WKProcessPool中的cookie并不和NSHTTPCookieStorage 一样会本地存储。在APP重启后WKProcessPool中的cookie会被重置。
+
+## cookie仍然存在的问题
+
+1、 第一个wkwebview中的JS修改了一段cookie之后，没过多久又打开了一个uiwebview，uiwebview如何能及时同步到wkwebview对cookie的修改？ 2、如果某个模块在wkwebview中修改了cookie的值，导致NSHTTPCookieStorage 中的cookie被篡改或者过期，如何定位到该模块的问题？
+
+>  
+ 本文参照： 
+ 如果对此块内容有其他见解的小伙伴欢迎私信或者留言。 
+
