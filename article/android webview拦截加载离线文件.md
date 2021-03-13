@@ -126,10 +126,10 @@ public class TestWebViewClient extends WebViewClient {<!-- -->
 &lt;body&gt;
 
 &lt;p id="testP"&gt;null&lt;/p&gt;
-&lt;img src="http://xujiajia.blog.csdn.net/test.png" alt="test img"/&gt;
+&lt;img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2241.png" alt="test img"/&gt;
 
 &lt;/body&gt;
-&lt;script src="http://xujiajia.blog.csdn.net/test.js"&gt;&lt;/script&gt;
+&lt;script src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2242.png"&gt;&lt;/script&gt;
 &lt;/html&gt;
 
 ```

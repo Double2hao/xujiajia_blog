@@ -9,7 +9,7 @@
 
 # 主从服务器和sentinel
 
-我们要搭建一个数据库服务器，最简单的就是直接一台服务器部署数据库的功能，如下： <img src="https://img-blog.csdnimg.cn/20190330160659749.png" alt="在这里插入图片描述"> 后来发现这样部署会有一个问题，如果数据库服务器意外宕机，数据就会丢失，并且服务也会中断。 而为了避免数据丢失和服务中断，就引入了“主从服务器”和sentinel，如下图： <img src="https://img-blog.csdnimg.cn/20190330161924403.png" alt="在这里插入图片描述"> sentinel一直监控master服务器，查看是否宕机，如果宕机了，就从slave服务器中选出一台作为新的master服务器，这样就能保证服务器的功能一直不会断。（这里主从切换用到的知识是“VIP漂移”） 当然sentinel也是可能会宕机的，所以要部署多台sentinel，多台sentinel之间也可以互相监控是否宕机。
+我们要搭建一个数据库服务器，最简单的就是直接一台服务器部署数据库的功能，如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/60.png" alt="在这里插入图片描述"> 后来发现这样部署会有一个问题，如果数据库服务器意外宕机，数据就会丢失，并且服务也会中断。 而为了避免数据丢失和服务中断，就引入了“主从服务器”和sentinel，如下图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/61.png" alt="在这里插入图片描述"> sentinel一直监控master服务器，查看是否宕机，如果宕机了，就从slave服务器中选出一台作为新的master服务器，这样就能保证服务器的功能一直不会断。（这里主从切换用到的知识是“VIP漂移”） 当然sentinel也是可能会宕机的，所以要部署多台sentinel，多台sentinel之间也可以互相监控是否宕机。
 
 # codis-group
 

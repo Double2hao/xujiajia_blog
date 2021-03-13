@@ -90,4 +90,3 @@ context.getExternalFilesDir(null) filepath:/storage/emulated/0/Android/data/com.
 >  
  在Android 11 的机型上，如果继续使用Environment.getExternalStorageDirectory() 在sdcard根目录操作文件，读写会非常慢。 
  笔者个人操作经验：**删除200MB的文件需要30s左右** 
-

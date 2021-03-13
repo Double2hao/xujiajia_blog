@@ -202,4 +202,3 @@ public class MyAdapter extends RecyclerView.Adapter&lt;MyAdapter.ViewHolder&gt; 
 
 ```
 
-

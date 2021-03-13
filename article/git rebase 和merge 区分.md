@@ -13,7 +13,7 @@
 
 比如现在在某个子分支执行git rebase(merge) master操作。
 
-merge:将在子分支的所有提交记录成一次commit，保留在记录中。（下图的E即为该记录） rebase:不会保留commit记录，直接将分支中的内容排到master的记录之后 <img src="https://img-blog.csdnimg.cn/20190309104942350.png" alt="在这里插入图片描述"> merge： <img src="https://img-blog.csdnimg.cn/2019030910500899.png" alt="在这里插入图片描述"> rebase： <img src="https://img-blog.csdnimg.cn/20190309105027313.png" alt="在这里插入图片描述">
+merge:将在子分支的所有提交记录成一次commit，保留在记录中。（下图的E即为该记录） rebase:不会保留commit记录，直接将分支中的内容排到master的记录之后 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/00.png" alt="在这里插入图片描述"> merge： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/01.png" alt="在这里插入图片描述"> rebase： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/02.png" alt="在这里插入图片描述">
 
 # 使用场景：
 

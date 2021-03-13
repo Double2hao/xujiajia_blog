@@ -21,7 +21,7 @@
 
 # 思路
 
-<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwNjE0MTUxMjMyODI1" alt="这里写图片描述"> <img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwNjE0MTUxMjQ0Njg1" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1060.png" alt="这里写图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1061.png" alt="这里写图片描述">
 
 # 程序理解
 

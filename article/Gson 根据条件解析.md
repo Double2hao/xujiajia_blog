@@ -165,4 +165,3 @@ public class DataThree {<!-- -->
 
 >  
  2020-08-20 15:48:26.214 1620-1620/com.example.gsontest I/System.out: dataOne1:type:0 name:testname age:19 2020-08-20 15:48:26.215 1620-1620/com.example.gsontest I/System.out: dataOne2:type:1 height:100 width:200 
-

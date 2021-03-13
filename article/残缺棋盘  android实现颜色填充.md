@@ -5,7 +5,7 @@
 
  残缺棋盘是一个2^k*2^个方格的棋盘，其中恰有1个方格残缺。图中给出，其中残缺部分用阴影表示。
 
- <img src="https://img-blog.csdn.net/20151024115056458" alt="" style="border:none; max-width:100%"> 
+ <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2070.png" alt="" style="border:none; max-width:100%"> 
 
  这样的棋盘称为"三格板"，残缺棋盘问题就是用这四种三格板覆盖更大的残缺棋盘。再次覆盖中要求:
 

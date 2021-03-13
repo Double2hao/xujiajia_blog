@@ -71,7 +71,7 @@ ChannelOutboundBuffer中的数据结构不多，最主要的就是两个数组�
 
 # write源码
 
-write的调用方法栈如下，最终会走到AbstractChannel的write方法中。 （ProtocolOutHandler是笔者demo 的ChannelOutboundHandlerAdapter） <img src="https://img-blog.csdnimg.cn/20190713143844805.png" alt="在这里插入图片描述"> AbstractChannel的write源码如下，最终会调用到ChannelOutboundBuffer的addMessage方法。
+write的调用方法栈如下，最终会走到AbstractChannel的write方法中。 （ProtocolOutHandler是笔者demo 的ChannelOutboundHandlerAdapter） <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1980.png" alt="在这里插入图片描述"> AbstractChannel的write源码如下，最终会调用到ChannelOutboundBuffer的addMessage方法。
 
 ```
         public void write(Object msg, ChannelPromise promise) {
@@ -122,7 +122,7 @@ ChannelOutboundBuffer的addMessage方法如下。 源码中的逻辑就是将wri
 
 flush的主要逻辑会多一些，在此先说结果，有兴趣的读者可以自己走下源码的流程。 flush主要做了两件事：
 1. 调用ChannelOutboundBuffer的addFlush方法，将unflushed中的内容交换到flushed数组中。1. 将ChannelOutboundBuffer的flushed数组中的内容通过Channel传输出去。
-首先定位到AbstractChannel的flush方法，方法调用栈和源码如下。 <img src="https://img-blog.csdnimg.cn/20190713145011741.png" alt="在这里插入图片描述">
+首先定位到AbstractChannel的flush方法，方法调用栈和源码如下。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1981.png" alt="在这里插入图片描述">
 
 ```
         public void flush() {
@@ -335,4 +335,3 @@ addFlush源码逻辑很简单，就是将unflushed中的内容放到flushed中�
 
 >  
  将数据写到Channel中这个操作为什么要用自旋？ 笔者认为这里应该是考虑到，将数据写到Channel中可能会因为网络阻塞等原因导致写失败。 但是由于netty中I/O在同一个或者几个线程中处理，是不能长时间阻塞线程的，否则会影响其他数据的处理。（很可能就一个Channel的网络阻塞了，但是其他Channel正常，正常逻辑就是应该抛弃这个消息，其他消息正常处理。） 此处使用自旋锁能在短时间内马上处理完这种异常情况。 
-

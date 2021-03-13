@@ -255,4 +255,3 @@ ThreadLocalMap我们了解的差不多了。知道了ThreadLocal存储的数据�
 
 >  
  ThreadLocal知识点比较杂乱，笔者可能有地方没有讲清楚，欢迎读者留言提醒。 
-

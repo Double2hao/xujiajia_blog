@@ -1,9 +1,9 @@
 #给自定义View添加xml属性
 笔者之前已经写过了一些自定义View的文章，在此对其也就不从头说起了，如有兴趣的读者可以看一下笔者的前两篇文章。  
 
-笔者之前的文章中仅仅介绍了**如何使用自定义View**以及**为什么要使用自定义View**等等，但是在实际操作中，我们还是希望自定义View之后，直接能够在xml中就对其进行操作，如下图： <img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwODA0MTEwMTUwNDEy" alt="这里写图片描述">
+笔者之前的文章中仅仅介绍了**如何使用自定义View**以及**为什么要使用自定义View**等等，但是在实际操作中，我们还是希望自定义View之后，直接能够在xml中就对其进行操作，如下图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/960.png" alt="这里写图片描述">
 
-<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwODA0MTEwMTM5MjU2" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/961.png" alt="这里写图片描述">
 
 # 那么如何操作呢？主要是三个步骤：
 
@@ -13,11 +13,11 @@
 
 ## 3、从第三方命名空间获取到自定义属性名称
 
-主要代码： <img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwODA0MTEwODU4ODM2" alt="这里写图片描述">
+主要代码： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/962.png" alt="这里写图片描述">
 
 ## 1、自定义属性名称
 
-首先要在values文件中创建一个xml文件，并且在其中写上你需要的自定义属性的名称以及类型。 <img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwODA0MTEwNTQ5Nzc1" alt="这里写图片描述">
+首先要在values文件中创建一个xml文件，并且在其中写上你需要的自定义属性的名称以及类型。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/963.png" alt="这里写图片描述">
 
 atts.xml中代码如下：
 
@@ -142,9 +142,9 @@ my_view.xml
 
 # 3、从第三方命名空间获取到自定义属性名称
 
-此处要注意在activity_main.xml要申明第三方命名空间(在android studio中只需要用res-auto,在eclipse中就需要加上完整的包名，如下图) 注：my_view只是使用时的一个名称而已，后方的“ <img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwODA0MTExMzI4OTQz" alt="这里写图片描述">
+此处要注意在activity_main.xml要申明第三方命名空间(在android studio中只需要用res-auto,在eclipse中就需要加上完整的包名，如下图) 注：my_view只是使用时的一个名称而已，后方的“ <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/964.png" alt="这里写图片描述">
 
-<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwODA0MTExMzQ5NTI2" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/965.png" alt="这里写图片描述">
 
 activity_main.xml
 

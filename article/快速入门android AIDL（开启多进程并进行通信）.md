@@ -19,13 +19,13 @@
 
 在Android中常用的使用多进程只有一种办法，那就是在AndroidManifest中为四大组件（Activity、Service、Broadcast Receiver、ContentProvier）指定android:process属性。笔者demo中的远程service如下图：
 
-<img src="https://img-blog.csdn.net/20160610102252613" alt="">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1130.png" alt="">
 
 
 
 最终绑定该service后在DDMS中进程的显示情况如下图：
 
-<img src="https://img-blog.csdn.net/20160610102426619" alt="">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1131.png" alt="">
 
 
 
@@ -47,15 +47,15 @@
 
 能够在当前进程中MainActivity，运行另一个进程中开启的Service中实现的方法testMethod(),方法与最终效果如下：
 
-<img src="https://img-blog.csdn.net/20160610104453800" alt="">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1132.png" alt="">
 
-<img src="https://img-blog.csdn.net/20160610104504174" alt="">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1133.png" alt="">
 
 
 
 界面上主要有两个按钮，第一个是开启远程进程中的Service，另一个为执行该方法。
 
-<img src="https://img-blog.csdn.net/20160610104227251" alt="" style="font-size:18px;">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1134.png" alt="" style="font-size:18px;">
 
 
 
@@ -159,7 +159,7 @@ btnStartMethod.setOnClickListener(new View.OnClickListener() {
 
 demo项目结构：
 
-<img src="https://img-blog.csdn.net/20160610110907131" alt="">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1135.png" alt="">
 
 
 
@@ -361,5 +361,4 @@ public class MainActivity extends AppCompatActivity {
 
 &lt;/manifest&gt;
 ```
-
 

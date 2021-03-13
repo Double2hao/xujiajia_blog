@@ -9,7 +9,7 @@ LSM-Tree（Log-structured Merge tree）是一种数据结构，它的本质是�
 
 ## 为何“随机写”改成“序列写”可以提高磁盘写入速度
 
-<img src="https://img-blog.csdnimg.cn/20190223100948837.png" alt="在这里插入图片描述"> 磁盘每次读写数据，不管你读写的数据有多小，都是会读写一个扇区的数据。
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/700.png" alt="在这里插入图片描述"> 磁盘每次读写数据，不管你读写的数据有多小，都是会读写一个扇区的数据。
 
 如果使用随机写的方式，每次都需要至少一次的“写扇区”操作。那么如果随机写 n个数据，就需要执行n次“写扇区”的操作。 改成“序列写”之后，只要这n个数据的大小没有超过一个扇区，那么只需要执行一次的“写扇区”操作。
 

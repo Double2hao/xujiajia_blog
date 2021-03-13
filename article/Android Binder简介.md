@@ -7,7 +7,7 @@
 
 Binder：是Android进程间通信的一种机制，主要包括四个组件，用户空间的三个组件Client、Server、Service Manager和内核空间的一个组件Binder驱动。
 
-Client：进程间通信的客户端 Server：进程间通信的服务端 Service Manager：是一个守护进程，用来管理Server，并向Client提供查询Server接口的能力 <img src="http://hi.csdn.net/attachment/201107/19/0_13110996490rZN.gif" alt="在这里插入图片描述">
+Client：进程间通信的客户端 Server：进程间通信的服务端 Service Manager：是一个守护进程，用来管理Server，并向Client提供查询Server接口的能力 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2290.png" alt="在这里插入图片描述">
 
 # Binder驱动
 

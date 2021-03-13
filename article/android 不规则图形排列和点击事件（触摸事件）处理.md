@@ -9,7 +9,7 @@ demo主要实现了平行四边形的排列和点击。 <img src="https://img-bl
 1. 重写onDraw，在矩形的View区域中只画出平行四边形的内容。（最终显示效果中，多个View是重叠的，下图黄色区域才是真正View的大小） <img src="https://img-blog.csdnimg.cn/2019111009074214.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly94dWppYWppYS5ibG9nLmNzZG4ubmV0,size_16,color_FFFFFF,t_70" width="40%" height="40%">1. 给第二第三个View设置leftMargin，让View重叠，这样平行四边形才能看上去是连续排列的。1. 单独处理点击事件。点击到当前View上时，先判断是否在平行四边形区域内，如果在就认为是自己的事件。如果不在平行四边形区域内，那么就把事件抛出，交给下一层处理。
 # 代码
 
-<img src="https://img-blog.csdnimg.cn/20191110090853671.jpg" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2362.png" alt="在这里插入图片描述">
 
 ## MainActivity.java
 

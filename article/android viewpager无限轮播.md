@@ -5,7 +5,7 @@
  github地址： 
 
 
-一直很好奇ViewPager无限轮播的实现方式，于是稍微研究了下，作此文记录之，效果如下： <img src="https://img-blog.csdnimg.cn/20201017105328312.gif" width="30%" height="30%">
+一直很好奇ViewPager无限轮播的实现方式，于是稍微研究了下，作此文记录之，效果如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/520.png" width="30%" height="30%">
 
 # 原理
 

@@ -23,7 +23,7 @@ android系统已经提供了一些常用的插值器，基本已经能满足大�
  个人理解： 自定义插值器一般还是要在“对动画运动规律需要细致控制”的前提下，大多数情况其实直接像Demo中的第三个动画一样就可以满足需求了。 
 
 
-<img src="https://img-blog.csdnimg.cn/20200620115907175.gif" width="30%" height="30%"> <img src="https://img-blog.csdnimg.cn/20200620115907359.gif" width="30%" height="30%"> <img src="https://img-blog.csdnimg.cn/20200620115906888.gif" width="30%" height="30%">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1150.png" width="30%" height="30%"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1151.png" width="30%" height="30%"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1152.png" width="30%" height="30%">
 
 # 代码
 

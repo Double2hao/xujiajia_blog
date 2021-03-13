@@ -48,4 +48,3 @@ LiteApp集合了Native App和Web App的优势，使用WebView+Native的开发方
 
 >  
  更多内容可以查看github官方开源项目：   
-

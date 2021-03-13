@@ -47,4 +47,3 @@
 
 >  
  为什么InnerConnection会用到IPC？ 由于createService和bindService是通过IPC来让ActivityManagerService实现的，所以在连接建立之后需要再通过IPC来告诉clinet端结果。 
-

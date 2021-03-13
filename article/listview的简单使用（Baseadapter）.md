@@ -9,7 +9,7 @@
 
 **以下是实现效果：**
 
-**<img alt="" class="has" height="476" src="http://images0.cnblogs.com/blog2015/722079/201506/161014217489740.jpg" width="268">**
+**<img alt="" class="has" height="476" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2920.png" width="268">**
 
  
 
@@ -60,4 +60,3 @@
  **//这里一定要注意，setAdapter的作用是将listview与adapter绑定，而并非是使用这个listview展示出此时adapter中的内容。也就是说，在<strong>setAdapter之后，倘若修改<strong>adapter中的内容，listview**</strong>所展示的内容就会改变。</strong> 
   } private List&lt;Map&lt;String,Object&gt;&gt; getdata() {<!-- --> List&lt;Map&lt;String,Object&gt;&gt; list=new ArrayList&lt;Map&lt;String,Object&gt;&gt;(); for(int i=0;i&lt;10;i++) {<!-- --> Map&lt;String,Object&gt; map=new HashMap&lt;String, Object&gt;(); map.put("img", R.drawable.ic_launcher); map.put("title", "hehehehehe"); map.put("info", "66666666"); list.add(map); } return list; } static class ViewHolder {<!-- --> public ImageView img; public TextView title; public TextView info; } public class MyAdapter extends **BaseAdapter**{<!-- --> private LayoutInflater mInflater=null; public **MyAdapter**(Context context) {<!-- --> // TODO Auto-generated constructor stub this.mInflater=LayoutInflater.from(context);  **//这里就是确定你listview在哪一个layout里面展示** } @Override public int **getCount()** {<!-- --> // TODO Auto-generated method stub return data.size(); **//这个决定你listview有多少个item** } @Override public Object **getItem**(int position) {<!-- --> // TODO Auto-generated method stub return position; } @Override public long **getItemId**(int position) {<!-- --> // TODO Auto-generated method stub return position; } @Override public View **getView**(int position, View convertView, ViewGroup parent) {<!-- --> // TODO Auto-generated method stub ViewHolder holder=null;  if(convertView==null) {<!-- --> holder=new ViewHolder(); convertView=mInflater.inflate(R.layout.list_item,null); **//这里确定你listview里面每一个item的layout** holder.img = (ImageView)convertView.findViewById(R.id.img);** //此处是将内容与控件绑定。** 
  holder.title = (TextView)convertView.findViewById(R.id.tv);**//注意：此处的findVIewById前要加convertView.** holder.info = (TextView)convertView.findViewById(R.id.info); convertView.setTag(holder); } else{<!-- --> holder=(ViewHolder)convertView.getTag(); **//这里是为了提高listview的运行效率** } holder.img.setBackgroundResource((Integer)data.get(position).get("img")); holder.title.setText((String)data.get(position).get("title")); holder.info.setText((String)data.get(position).get("info")); return convertView; } } } 
-

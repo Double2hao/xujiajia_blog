@@ -45,7 +45,7 @@ clientA.on('data', function(data) {
 
 ## java服务器
 
-<img src="https://img-blog.csdnimg.cn/20190720100229600.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2680.png" alt="在这里插入图片描述">
 
 ### build.gradle
 

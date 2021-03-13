@@ -5,7 +5,7 @@
 1. HTTP通信过程1. HTTPS（包括对称和非对称加密）1. 中间人攻击1. HTTP各个版本改动（包括长连接和多路复用）
 # HTTP通信过程
 
-<img src="https://img-blog.csdnimg.cn/20181124102412319.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/140.png" alt="在这里插入图片描述">
 1. 首先客户机与服务器需要建立连接。只要单击某个超级链接，HTTP的工作开始。1. 建立连接后，客户机发送一个请求给服务器，请求方式的格式为：统一资源标识符（URL）、协议版本号，后边是MIME信息包括请求修饰符、客户机信息和可能的内容。建立连接后，客户机发送一个请求给服务器，请求方式的格式为：统一资源标识符（URL）、协议版本号，后边是MIME信息包括请求修饰符、客户机信息和可能的内容。1. 服务器接到请求后，给予相应的响应信息，其格式为一个状态行，包括信息的协议版本号、一个成功或错误的代码，后边是MIME信息包括服务器信息、实体信息和可能的内容。服务器接到请求后，给予相应的响应信息，其格式为一个状态行，包括信息的协议版本号、一个成功或错误的代码，后边是MIME信息包括服务器信息、实体信息和可能的内容。1. 客户端接收服务器所返回的信息通过浏览器显示在用户的显示屏上，然后客户机与服务器断开连接。客户端接收服务器所返回的信息通过浏览器显示在用户的显示屏上，然后客户机与服务器断开连接。
 其主要原理就是TCP的三次握手和四次挥手，如下图： <img src="https://img-blog.csdnimg.cn/20181124102615969.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> <img src="https://img-blog.csdnimg.cn/20181124102559199.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
 
@@ -103,11 +103,11 @@ M=11^23 mod 187=88
 
 ## SSL证书欺骗攻击
 
-首先通过ARP欺骗、DNS劫持甚至网关劫持等等，将客户端的访问重定向到攻击者的机器，让客户端机器与攻击者机器建立HTTPS连接（使用伪造证书），而攻击者机器再跟服务端连接。 这样用户在客户端看到的是相同域名的网站，但浏览器会提示证书不可信，用户不点击继续浏览就能避免被劫持的。所以这是最简单的攻击方式，也是最容易识别的攻击方式。 <img src="https://img-blog.csdnimg.cn/20181124110221963.png" alt="在这里插入图片描述"> <img src="https://img-blog.csdnimg.cn/20181124110230356.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+首先通过ARP欺骗、DNS劫持甚至网关劫持等等，将客户端的访问重定向到攻击者的机器，让客户端机器与攻击者机器建立HTTPS连接（使用伪造证书），而攻击者机器再跟服务端连接。 这样用户在客户端看到的是相同域名的网站，但浏览器会提示证书不可信，用户不点击继续浏览就能避免被劫持的。所以这是最简单的攻击方式，也是最容易识别的攻击方式。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/149.png" alt="在这里插入图片描述"> <img src="https://img-blog.csdnimg.cn/20181124110230356.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
 
 ## SSL剥离攻击
 
-该攻击方式主要是利用用户并不会每次都直接在浏览器上输入https://xxx.xxx.com来访问网站，或者有些网站并非全网HTTPS，而是只在需要进行敏感数据传输时才使用HTTPS的漏洞。 中间人攻击者在劫持了客户端与服务端的HTTP会话后，将HTTP页面里面所有的https://超链接都换成http://，用户在点击相应的链接时，是使用HTTP协议来进行访问。 这样，就算服务器对相应的URL只支持HTTPS链接，但中间人一样可以和服务建立HTTPS连接之后，将数据使用HTTP协议转发给客户端，实现会话劫持。 <img src="https://img-blog.csdnimg.cn/20181124110308986.png" alt="在这里插入图片描述">
+该攻击方式主要是利用用户并不会每次都直接在浏览器上输入https://xxx.xxx.com来访问网站，或者有些网站并非全网HTTPS，而是只在需要进行敏感数据传输时才使用HTTPS的漏洞。 中间人攻击者在劫持了客户端与服务端的HTTP会话后，将HTTP页面里面所有的https://超链接都换成http://，用户在点击相应的链接时，是使用HTTP协议来进行访问。 这样，就算服务器对相应的URL只支持HTTPS链接，但中间人一样可以和服务建立HTTPS连接之后，将数据使用HTTP协议转发给客户端，实现会话劫持。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1411.png" alt="在这里插入图片描述">
 
 # HTTP发展史
 1. HTTP1.0 19961. HTTP1.1 19991. HTTPS 1994提出，2000左右广泛使用1. SPDY 20121. HTTP2.0 2015
@@ -115,7 +115,7 @@ M=11^23 mod 187=88
 1. **缓存处理。** 1.0只是用一个头文件的缓存策略，1.1引入了更多。1. **带宽优化及网络连接的使用**，HTTP1.0中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，HTTP1.1则在请求头引入了range头域，它允许只请求资源的某个部分，即返回码是206，这样就方便了开发者自由的选择以便于充分利用带宽和连接。1. **错误通知的管理**，在HTTP1.1中新增了24个错误状态响应码，如409表示请求的资源与资源的当前状态发生冲突；410表示服务器上的某个资源被永久性的删除。1. **Host头处理**，在HTTP1.0中认为每台服务器都绑定一个唯一的IP地址，因此，请求消息中的URL并没有传递主机名。但随着虚拟主机技术的发展，在一台物理服务器上可以存在多个虚拟主机，并且它们共享一个IP地址。HTTP1.1的请求消息和响应消息都应支持Host头域，且请求消息中如果没有Host头域会报告一个错误。1. **长连接（最大区别）**，HTTP 1.1支持长连接和请求的流水线处理，在一个TCP连接上可以传送多个HTTP请求和响应，减少了建立和关闭连接的消耗和延迟，在HTTP1.1中默认开启Connection：keep-alive，一定程度上弥补了HTTP1.0每次请求都要创建连接的缺点。很多浏览器可以设置允许最大并发连接数提高浏览速度，如果只有一个连接，上一次的Response没有收到，那么下一次的请求不能处理。空闲时会自动断开，通常300s左右。
 ## SPDY即HTTP2.0前身
 
-<img src="https://img-blog.csdnimg.cn/20181124103202464.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1412.png" alt="在这里插入图片描述">
 1. **多路复用（单一长连接）**，降低延迟。针对HTTP高延迟的问题，SPDY优雅的采取了多路复用。多路复用通过多个请求stream共享一个tcp连接的方式，解决了HOL blocking的问题，降低了延迟同时提高了带宽的利用率。1. **请求优先级。** 多路复用带来一个新的问题是，在连接共享的基础之上有可能会导致关键请求被阻塞。SPDY允许给每个request设置优先级，这样重要的请求就会优先得到响应。比如浏览器加载首页，首页的html内容应该优先展示，之后才是各种静态资源文件，脚本文件等加载，这样可以保证用户能第一时间看到网页内容。1. **header压缩**，使用静态字典压缩。前面提到HTTP1.x的header很多时候都是重复多余的。选择合适的压缩算法可以减小包的大小和数量。（比如只要从服务器拉一个int数字，但是头部却有几十个字节。）1. **基于HTTPS的加密协议传输，大大提高了传输数据的可靠性**。（HTTP2.0中不限制一定要HTTPS）1. **双端交互，服务器推送**。采用了SPDY的网页，例如我的网页有一个sytle.css的请求，在客户端收到sytle.css数据的同时，服务端会将sytle.js的文件推送给客户端，当客户端再次尝试获取sytle.js时就可以直接从缓存中获取到，不用再发请求了。
 ## 长连接和多路复用区别
 

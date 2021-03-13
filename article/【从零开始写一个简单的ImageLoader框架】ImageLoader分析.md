@@ -39,7 +39,7 @@
 
 ## 代码预览
 
-<img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwODEyMTUzOTA2NjAz" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2060.png" alt="这里写图片描述">
 
 在笔者demo中主要使用到的方法为bindBitMap，此方法使用与ImageRecyclerAdapter中
 
@@ -168,5 +168,4 @@ Handler类和Handler,Loop,MessageQueue的工作原理
 android RecyclerView布局真的只是那么简单！(笔者原创) 
 
 # 项目下载地址
-
 

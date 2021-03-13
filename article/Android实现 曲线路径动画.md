@@ -11,7 +11,7 @@
 
 # 思路
 1. 通过贝塞尔曲线计算出x和y的位置（各个点的位置需要自己微调） （此部分内容参考此文：https://www.jianshu.com/p/fea4d1f6512a）1. 通过ValueAnimator来实现动画
-demo如下： <img src="https://img-blog.csdnimg.cn/20200203183417231.gif" width="40%" height="40%">
+demo如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1330.png" width="40%" height="40%">
 
 >  
  注意： 此demo使用到了屏幕的宽高，因此如果要demo显示正常，需要把状态栏显示透明，把acitionbar去掉。 

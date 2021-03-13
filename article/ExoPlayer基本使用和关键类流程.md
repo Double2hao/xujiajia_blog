@@ -7,7 +7,7 @@
 
 极简的逻辑，界面上仅仅显示一个SimpleExoPlayerView。
 
-<img src="https://img-blog.csdnimg.cn/img_convert/a6773d8ddbfb102341aa222b653722d5.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/530.png" alt="这里写图片描述">
 
 ## 添加依赖
 
@@ -80,4 +80,4 @@ public class MainActivity extends AppCompatActivity {
  如果对播放器原理完全不理解的同学可以看下此文章：https://www.jianshu.com/p/82e778eb618b 
 
 
-<img src="https://img-blog.csdnimg.cn/img_convert/3bd7674301337ba3ebc901aaafe1ee41.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/531.png" alt="这里写图片描述">

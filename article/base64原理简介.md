@@ -28,7 +28,7 @@
 
 ## 过程如下图：
 
-<img src="http://blog.xiayf.cn/2016/01/24/base64-encoding/media/14542967158550.jpg" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/50.png" alt="在这里插入图片描述">
 
 ## 不足三字节的情况
 
@@ -38,4 +38,3 @@
 
 >  
  一个字节的情况：将这一个字节的8个二进制位，按照上面的规则转成二组，最后一组除了前面加二个0以外，后面再加4个0。这样得到一个二位的Base64编码，再在末尾补上两个"="号。 比如，“M"这个字母是一个字节，可以转化为二组00010011、00010000，对应的Base64值分别为T、Q，再补上二个”="号，因此"M"的Base64编码就是TQ==。 
-

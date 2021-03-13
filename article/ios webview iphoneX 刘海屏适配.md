@@ -5,7 +5,7 @@
 
 # 问题
 
-webview 在iphoneX中的一些表现会不满足业务预期，如下广告，头部和底部都会留有空白，而业务方真正期望是填满整个屏幕。 <img src="https://img-blog.csdnimg.cn/2019041910540161.png" alt="在这里插入图片描述"> <img src="https://img-blog.csdnimg.cn/20190419105412574.png" alt="在这里插入图片描述"> 期望效果如下： <img src="https://img-blog.csdnimg.cn/20190419105534222.png" alt="在这里插入图片描述"> <img src="https://img-blog.csdnimg.cn/20190419105541919.png" alt="在这里插入图片描述">
+webview 在iphoneX中的一些表现会不满足业务预期，如下广告，头部和底部都会留有空白，而业务方真正期望是填满整个屏幕。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1570.png" alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1571.png" alt="在这里插入图片描述"> 期望效果如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1572.png" alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1573.png" alt="在这里插入图片描述">
 
 # 解决方式
 
@@ -29,4 +29,3 @@ self.wkwebview.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentIn
 
 >  
  使用wkwebview native的方式去解决会引入其他问题。 这行代码是禁止wkwebview中的uiScrollView自动适配大小，如果页面中有输入框，在键盘把uiScrollView顶上去的情况下，wkwebview中的H5不会自动弹回。 所以还是建议能使用H5解决就让H5解决。 
-

@@ -587,4 +587,3 @@ RecyclerView的回收机制中主要是以下几个模块：
 >  
  注： 
  - 与当前的RecyclerView一一对应： mAttachedScrap、mChangedScrap、mCachedViews- 可能多个RecyclerView共享： mViewCacheExtension、mRecyclerPool 
-
