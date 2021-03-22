@@ -12,7 +12,12 @@
 # 简单Demo
 
 本文的Demo，通过动态编译实现在代码中插入一行代码。 主要实现步骤如下：
-1. 实现gradle Plugin。1. 实现Transform，并且在Plugin中注册。1. Plugin编译，并且上传到本地仓库。1. app项目应用Plugin，通过插件实现动态编译。1. 运行项目，查看动态编译结果。
+1. 实现gradle Plugin。
+1. 实现Transform，并且在Plugin中注册。
+1. Plugin编译，并且上传到本地仓库。
+1. app项目应用Plugin，通过插件实现动态编译。
+1. 运行项目，查看动态编译结果。
+
 # Demo结果
 
 ```
@@ -51,7 +56,9 @@ public class MainActivity extends AppCompatActivity {<!-- -->
 # testplugin模块
 
 这个模块主要实现了两个内容：
-1. 实现插件1. 实现Transform，编辑class文件，插入代码。
+1. 实现插件
+1. 实现Transform，编辑class文件，插入代码。
+
 ##### build.gradle
 
 ```

@@ -13,7 +13,8 @@
 
 >  
  本文的分析主要基于javac和javap的使用: 
- - 首先用javac生成java文件编译后的class文件- 再使用"javap -v xxx.class"来输出该class文件的信息 
+ - 首先用javac生成java文件编译后的class文件
+ - 再使用"javap -v xxx.class"来输出该class文件的信息 
 
 
 #### 操作数栈可以复用

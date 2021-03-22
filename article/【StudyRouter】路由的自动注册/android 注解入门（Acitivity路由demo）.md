@@ -12,15 +12,26 @@
 
 
 # 注解类型
-- @Target- @Retention- @Documented- @Inherited
+- @Target
+- @Retention
+- @Documented
+- @Inherited
 ##### @Target
 
 用于描述注解的使用范围，可能的ElementType参数如下：
-- CONSTRUCTOR:用于描述构造器- FIELD:用于描述域- LOCAL_VARIABLE:用于描述局部变量- METHOD:用于描述方法- PACKAGE:用于描述包- PARAMETER:用于描述参数- TYPE:用于描述类、接口(包括注解类型) 或enum声明
+- CONSTRUCTOR:用于描述构造器
+- FIELD:用于描述域
+- LOCAL_VARIABLE:用于描述局部变量- METHOD:用于描述方法
+- PACKAGE:用于描述包
+- PARAMETER:用于描述参数
+- TYPE:用于描述类、接口(包括注解类型) 或enum声明
 ##### @Retention
 
 表示需要在什么级别保存该注释信息。可选的RetentionPolicy参数如下：
-- SOURCE:在源文件中有效，当Java文件编译成class文件的时候，注解被遗弃。（比如@AutoService）- CLASS:在class文件中有效，jvm加载class文件时候被遗弃。（可以用来动态生成java文件等）- RUNTIME:在运行时有效，jvm加载class文件之后，仍然存在。（运行时可以通过反射获取）
+- SOURCE:在源文件中有效，当Java文件编译成class文件的时候，注解被遗弃。（比如@AutoService）
+- CLASS:在class文件中有效，jvm加载class文件时候被遗弃。（可以用来动态生成java文件等）
+- RUNTIME:在运行时有效，jvm加载class文件之后，仍然存在。（运行时可以通过反射获取）
+
 ##### @Documented
 
 表示此注解 记录在了java文档中。自定义不会使用。
@@ -31,7 +42,8 @@
 
 # Demo——Activity路由
 
-Activity路由是一个比较常见会使用到注解的场景。 此处为了演示，代码非常简略，实际实现路由不会这么简单。 <img src="https://img-blog.csdnimg.cn/20200314163542943.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" width="50%" height="50%">
+Activity路由是一个比较常见会使用到注解的场景。 此处为了演示，代码非常简略，实际实现路由不会这么简单。
+ <img src="https://img-blog.csdnimg.cn/20200314163542943.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" width="50%" height="50%">
 
 ##### 最终输出log：
 
