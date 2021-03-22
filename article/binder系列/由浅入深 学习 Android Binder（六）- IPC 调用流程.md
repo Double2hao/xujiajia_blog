@@ -2,6 +2,28 @@
 >  
  Android Binder系列文章：           
 
+>[由浅入深 学习 Android Binder（一）- AIDL](https://xujiajia.blog.csdn.net/article/details/109865496)
+
+>[由浅入深 学习 Android Binder（二）- bindService流程](https://xujiajia.blog.csdn.net/article/details/109906012)
+
+>[由浅入深 学习 Android Binder（三）- java binder深究（从java到native）](https://xujiajia.blog.csdn.net/article/details/110730526)
+
+>[由浅入深 学习 Android Binder（四）- ibinderForJavaObject 与 javaObjectForIBinder](https://xujiajia.blog.csdn.net/article/details/111027972)
+
+>[由浅入深 学习 Android Binder（五）- binder如何在进程间传递](https://xujiajia.blog.csdn.net/article/details/111057369)
+
+>[由浅入深 学习 Android Binder（六）- IPC 调用流程](https://xujiajia.blog.csdn.net/article/details/111399789)
+
+>[由浅入深 学习 Android Binder（七）- IServiceManager与ServiceManagerNative（java层）](https://xujiajia.blog.csdn.net/article/details/112131416)
+
+>[由浅入深 学习 Android Binder（八）- IServiceManager与BpServiceManager（native层）](https://xujiajia.blog.csdn.net/article/details/112131416)
+
+>[由浅入深 学习 Android Binder（九）- service_manager 与 svclist](https://xujiajia.blog.csdn.net/article/details/112733698)
+
+>[由浅入深 学习 Android Binder（十）- 总结](https://xujiajia.blog.csdn.net/article/details/112733857)
+
+>[由浅入深 学习 Android Binder（十一) binder线程池](https://xujiajia.blog.csdn.net/article/details/115054785)
+
 
 # 概述
 
@@ -34,7 +56,9 @@ Client是调用方，调用流程是从java层到native层，最终到binder dri
 ### BinderProxy.transact()
 
 BinderProxy定义在Binder.java这个文件中。 这个方法有以下逻辑:
-1. 检查Parcel数据是否合法1. 根据开关判断是否需要生成跟踪日志1. 执行transactNative方法，而transactNative则是一个JNI方法。
+1. 检查Parcel数据是否合法1. 根据开关判断是否需要生成跟踪日志
+1. 执行transactNative方法，而transactNative则是一个JNI方法。
+
 ```
 public boolean transact(int code, Parcel data, Parcel reply, int flags) throws RemoteException {<!-- -->
         Binder.checkParcel(this, code, data, "Unreasonably large binder buffer");
@@ -86,7 +110,9 @@ static const JNINativeMethod gBinderProxyMethods[] = {
 ### android_util_Binder.android_os_BinderProxy_transact
 
 主要逻辑如下：
-1. 将java层的Parcel类型数据转化成native层的Parcel1. 通过getBPNativeData() 获取到BpBinder1. 调用BpBinder的tansact方法。
+1. 将java层的Parcel类型数据转化成native层的Parcel1. 通过getBPNativeData() 获取到BpBinder
+1. 调用BpBinder的tansact方法。
+
 ```
 static jboolean android_os_BinderProxy_transact(JNIEnv* env, jobject obj,
         jint code, jobject dataObj, jobject replyObj, jint flags) // throws RemoteException
@@ -173,7 +199,9 @@ status_t BpBinder::transact(
 ### IPCThreadState.transact()
 
 主要逻辑如下：
-1. 通过writeTransactionData将需要IPC的数据转化成binder driver 通信的形式。1. 调用waitForResponse().
+1. 通过writeTransactionData将需要IPC的数据转化成binder driver 通信的形式。
+1. 调用waitForResponse().
+
 ```
 status_t IPCThreadState::transact(int32_t handle,
                                   uint32_t code, const Parcel&amp; data,
@@ -238,7 +266,9 @@ status_t IPCThreadState::transact(int32_t handle,
 ### IPCThreadState.writeTransactionData()
 
 主要逻辑如下：
-1. 将Parcel中的数据转化成binder_transaction_data_sg对象1. 将binder_transaction_data_sg对象写入 mOut。(在.h文件中可以看到mOut也是一个Parcel对象)
+1. 将Parcel中的数据转化成binder_transaction_data_sg对象
+1. 将binder_transaction_data_sg对象写入 mOut。(在.h文件中可以看到mOut也是一个Parcel对象)
+
 ```
 status_t IPCThreadState::writeTransactionData(int32_t cmd, uint32_t binderFlags,
     int32_t handle, uint32_t code, const Parcel&amp; data, status_t* statusBuffer)
@@ -283,7 +313,10 @@ status_t IPCThreadState::writeTransactionData(int32_t cmd, uint32_t binderFlags,
 ### IPCThreadState.waitForResponse
 
 主要逻辑如下：
-1. waitForResponse中有一个while的死循环，只有当收到消息后才会退出循环。1. 先会调用talkWithDriver与binder driver通信，数据会通过mIn来接收，mIn也是一个Parcel对象。1. 通过mIn获取到cmd，根据cmd来区分不同的通信逻辑。如果是正常结束的话，会直接走到BR_TRANSACTION_COMPLETE的逻辑中。通过goto到finish的位置，如果没有错误就会直接return。
+1. waitForResponse中有一个while的死循环，只有当收到消息后才会退出循环。
+1. 先会调用talkWithDriver与binder driver通信，数据会通过mIn来接收，mIn也是一个Parcel对象。
+1. 通过mIn获取到cmd，根据cmd来区分不同的通信逻辑。如果是正常结束的话，会直接走到BR_TRANSACTION_COMPLETE的逻辑中。通过goto到finish的位置，如果没有错误就会直接return。
+
 ```
 status_t IPCThreadState::waitForResponse(Parcel *reply, status_t *acquireResult)
 {
@@ -381,7 +414,10 @@ finish:
 ### IPCThreadState.talkWithDriver
 
 主要逻辑如下：
-1. 先从mOut对象中读取需要传输的数据。1. 通过ioctl方法来与binder driver通信。1. 通信结束后，使用mIn对象来接收数据。
+1. 先从mOut对象中读取需要传输的数据。
+1. 通过ioctl方法来与binder driver通信。
+1. 通信结束后，使用mIn对象来接收数据。
+
 ```
 status_t IPCThreadState::talkWithDriver(bool doReceive)
 {
@@ -493,7 +529,9 @@ Server是被调用方，因此与Client的流程正好想法，先从binder driv
 ### IPCThreadState.waitForResponse
 
 waitForResponse前面在client中已经分析过，此处就放最关键的代码。 主要逻辑：
-1. waitForResponse中有一个while的死循环，只有当收到消息后才会退出循环。1. server接受到数据后，会进入到defalut的逻辑中，最终会执行到executeCommand方法。
+1. waitForResponse中有一个while的死循环，只有当收到消息后才会退出循环。
+1. server接受到数据后，会进入到defalut的逻辑中，最终会执行到executeCommand方法。
+
 ```
 
 status_t IPCThreadState::waitForResponse(Parcel *reply, status_t *acquireResult)
@@ -512,7 +550,9 @@ status_t IPCThreadState::waitForResponse(Parcel *reply, status_t *acquireResult)
 ### IPCThreadState.executeCommand
 
 此方法中的逻辑有很多，我们就直接看下server被调用时的BR_TRANSACTION的逻辑：
-1. 通过mIn对象来获取binder driver传来的数据1. 在前面的文章中，我们了解到，如果binder是本地进程时，binder_transaction_data.cookie其实存储的是JavaBBinder对象。此处是server进程接收到client的远程调用在本地进程调用自己的逻辑，因此最终执行到的是JavaBBinder.tansact逻辑。
+1. 通过mIn对象来获取binder driver传来的数据
+1. 在前面的文章中，我们了解到，如果binder是本地进程时，binder_transaction_data.cookie其实存储的是JavaBBinder对象。此处是server进程接收到client的远程调用在本地进程调用自己的逻辑，因此最终执行到的是JavaBBinder.tansact逻辑。
+
 >  
  前文地址：   
 
@@ -728,7 +768,9 @@ static int int_register_android_os_Binder(JNIEnv* env)
 ### Binder.execTransactInternal
 
 主要逻辑如下：
-1. 通过Parcel.obtain()将native层的Parcel数据转化成java层的的Parcel对象。1. 调用Binder.onTransact方法，如果这个Binder通过aidl生成的，那么就是Stub的onTransact方法。
+1. 通过Parcel.obtain()将native层的Parcel数据转化成java层的的Parcel对象。
+1. 调用Binder.onTransact方法，如果这个Binder通过aidl生成的，那么就是Stub的onTransact方法。
+
 ```
     private boolean execTransactInternal(int code, long dataObj, long replyObj, int flags,
             int callingUid) {<!-- -->
@@ -749,7 +791,9 @@ static int int_register_android_os_Binder(JNIEnv* env)
 ### Binder.onTransact
 
 我们此处直接看下笔者demo中的Stub.onTransact方法的实现,主要逻辑如下：
-1. 从data中取出参数1. 把参数传入IPC方法中执行。1. 将执行结果通过reply，也就是Parcel对象写回去。
+1. 从data中取出参数1. 把参数传入IPC方法中执行。
+1. 将执行结果通过reply，也就是Parcel对象写回去。
+
 >  
  对demo有兴趣，或者对aidl不了解读者可以看下笔者的前文：  
 

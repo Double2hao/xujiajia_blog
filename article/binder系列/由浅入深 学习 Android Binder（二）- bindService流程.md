@@ -2,6 +2,28 @@
 >  
  Android Binder系列文章：           
 
+>[由浅入深 学习 Android Binder（一）- AIDL](https://xujiajia.blog.csdn.net/article/details/109865496)
+
+>[由浅入深 学习 Android Binder（二）- bindService流程](https://xujiajia.blog.csdn.net/article/details/109906012)
+
+>[由浅入深 学习 Android Binder（三）- java binder深究（从java到native）](https://xujiajia.blog.csdn.net/article/details/110730526)
+
+>[由浅入深 学习 Android Binder（四）- ibinderForJavaObject 与 javaObjectForIBinder](https://xujiajia.blog.csdn.net/article/details/111027972)
+
+>[由浅入深 学习 Android Binder（五）- binder如何在进程间传递](https://xujiajia.blog.csdn.net/article/details/111057369)
+
+>[由浅入深 学习 Android Binder（六）- IPC 调用流程](https://xujiajia.blog.csdn.net/article/details/111399789)
+
+>[由浅入深 学习 Android Binder（七）- IServiceManager与ServiceManagerNative（java层）](https://xujiajia.blog.csdn.net/article/details/112131416)
+
+>[由浅入深 学习 Android Binder（八）- IServiceManager与BpServiceManager（native层）](https://xujiajia.blog.csdn.net/article/details/112131416)
+
+>[由浅入深 学习 Android Binder（九）- service_manager 与 svclist](https://xujiajia.blog.csdn.net/article/details/112733698)
+
+>[由浅入深 学习 Android Binder（十）- 总结](https://xujiajia.blog.csdn.net/article/details/112733857)
+
+>[由浅入深 学习 Android Binder（十一) binder线程池](https://xujiajia.blog.csdn.net/article/details/115054785)
+
 
 # 概述
 
@@ -16,7 +38,9 @@
 # bindService流程
 
 bindService的流程其实有两种场景：
-1. Service冷启动1. Service热启动
+1. Service冷启动
+1. Service热启动
+
 本文为了分析的更加全面，因此主要分析”Service冷启动“的场景。
 
 笔者此处先列出流程，读者可以稍微心里有数。 这也算是后文具体分析的一个目录，更方便于有一个整体的理解。
@@ -26,10 +50,35 @@ bindService的流程其实有两种场景：
 
 
 在“Service冷启动”的场景下，bindService到onServiceConnected()的整个流程如下。 （流程图在文章结尾）
-- ContextWrapper.bindService()- ContextImpl.bindService()- ContextImpl. bindServiceCommon()- ActivityManagerService.bindService()- ActiveServices.bindServiceLocked()- ActiveServices.requestServiceBindingLocked()- ActivityThread.ApplicationThread.scheduleBindService()- ActivityThread.sendMessage()- ActivityThread.handleBindService()- ActivityManagerService.publishService()- ActiveService.publishServiceLocked()- LoadedApk.ServiceDispatcher.InnerConnection.connected()- LoadedApk.ServiceDispatcher.connected()- ActivityThread.post()- LoadedApk.ServiceDispatcher. - RunConnection.run()- LoadedApk.ServiceDispatcher.doConnected()- ServiceConnection.onServiceConnected()
+- ContextWrapper.bindService()
+- ContextImpl.bindService()
+- ContextImpl. bindServiceCommon()
+- ActivityManagerService.bindService()
+- ActiveServices.bindServiceLocked()
+- ActiveServices.requestServiceBindingLocked()
+- ActivityThread.ApplicationThread.scheduleBindService()
+- ActivityThread.sendMessage()
+- ActivityThread.handleBindService()
+- ActivityManagerService.publishService()
+- ActiveService.publishServiceLocked()
+- LoadedApk.ServiceDispatcher.InnerConnection.connected()
+- LoadedApk.ServiceDispatcher.connected()
+- ActivityThread.post()- LoadedApk.ServiceDispatcher. 
+- RunConnection.run()- LoadedApk.ServiceDispatcher.doConnected()
+- ServiceConnection.onServiceConnected()
 >  
  对热启动有兴趣的读者也可以自行看下源码。 在“Service热启动”的场景下，整个流程如下: 
- - ContextWrapper.bindService()- ContextImpl.bindService()- ContextImpl.bindServiceCommon()- ActivityManagerService.bindService()- ActiveServices.bindServiceLocked()- LoadedApk.ServiceDispatcher.InnerConnection.connected()- LoadedApk.ServiceDispatcher.connected()- ActivityThread.post()- LoadedApk.ServiceDispatcher. RunConnection.run()- LoadedApk.ServiceDispatcher.doConnected()- ServiceConnection.onServiceConnected() 
+ - ContextWrapper.bindService()
+ - ContextImpl.bindService()
+ - ContextImpl.bindServiceCommon()
+ - ActivityManagerService.bindService()
+ - ActiveServices.bindServiceLocked()
+ - LoadedApk.ServiceDispatcher.InnerConnection.connected()
+ - LoadedApk.ServiceDispatcher.connected()
+ - ActivityThread.post()
+ - LoadedApk.ServiceDispatcher. RunConnection.run()
+ - LoadedApk.ServiceDispatcher.doConnected()
+ - ServiceConnection.onServiceConnected() 
 
 
 ### ContextWrapper.bindService()
@@ -228,7 +277,9 @@ final class ConnectionRecord {<!-- -->
 ```
 
 如上可以看到，逻辑如下：
-- 如果service已经启动，则会调用ConnectionRecord.conn.connect();- 如果service没有启动，则会调用requestServiceBindingLocked()；
+- 如果service已经启动，则会调用ConnectionRecord.conn.connect();
+- 如果service没有启动，则会调用requestServiceBindingLocked()；
+
 由于我们是假设的”Service冷启动“场景，因此我们直接看下requestServiceBindingLocked()的逻辑。
 
 ### ActiveServices.requestServiceBindingLocked()
@@ -457,7 +508,9 @@ final class ConnectionRecord {<!-- -->
 ```
 
 由代码可知，ServiceDispatcher.connected()的逻辑有两种场景：
-1. 如果mActivityThread不为空，则通过handler来执行doConnected().1. 如果mActivityThread不为空，则直接执行doConnected().
+1. 如果mActivityThread不为空，则通过handler来执行doConnected().
+1. 如果mActivityThread不为空，则直接执行doConnected().
+
 再看下doConnected的逻辑：
 
 ```
@@ -528,11 +581,19 @@ final class ConnectionRecord {<!-- -->
 ```
 
 此处逻辑大概如下：
-1. 先判断service是否已经在缓存中并且没有断开，如果是，那么代表已经连接，就不需要触发onServiceDisconnected()，直接return。1. 如果不在缓存中，那么就需要重新加入缓存，代表已经连接，然后触发onServiceDisconnected()。1. 还有一种特殊的情况是”在缓存中，但是已经断开“，那么也需要重新加入缓存，然后触发onServiceDisconnected()。
+1. 先判断service是否已经在缓存中并且没有断开，如果是，那么代表已经连接，就不需要触发onServiceDisconnected()，直接return。
+1. 如果不在缓存中，那么就需要重新加入缓存，代表已经连接，然后触发onServiceDisconnected()。
+1. 还有一种特殊的情况是”在缓存中，但是已经断开“，那么也需要重新加入缓存，然后触发onServiceDisconnected()。
+
 至此，整个流程就已经走完了。
 
 # 总结
 
 大概流程：
-1. Client进程调用bindService通知AMS进程。1. AMS进程通知Server进程启动service。1. server进程启动service，并且在启动完成后通知AMS进程。1. AMS接收到server进程bindService的结果，AMS进程通知client进程。1. client进程接收binService结果，client进程调用onServiceConnected()。
+1. Client进程调用bindService通知AMS进程。
+1. AMS进程通知Server进程启动service。
+1. server进程启动service，并且在启动完成后通知AMS进程。
+1. AMS接收到server进程bindService的结果，AMS进程通知client进程。
+1. client进程接收binService结果，client进程调用onServiceConnected()。
+
 "冷启动"场景的bindService流程图如下： <img src="https://img-blog.csdnimg.cn/20201121202423379.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述">

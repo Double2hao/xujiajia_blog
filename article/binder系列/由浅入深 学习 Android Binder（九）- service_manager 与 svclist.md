@@ -2,6 +2,28 @@
 >  
  Android Binder系列文章：           
 
+>[由浅入深 学习 Android Binder（一）- AIDL](https://xujiajia.blog.csdn.net/article/details/109865496)
+
+>[由浅入深 学习 Android Binder（二）- bindService流程](https://xujiajia.blog.csdn.net/article/details/109906012)
+
+>[由浅入深 学习 Android Binder（三）- java binder深究（从java到native）](https://xujiajia.blog.csdn.net/article/details/110730526)
+
+>[由浅入深 学习 Android Binder（四）- ibinderForJavaObject 与 javaObjectForIBinder](https://xujiajia.blog.csdn.net/article/details/111027972)
+
+>[由浅入深 学习 Android Binder（五）- binder如何在进程间传递](https://xujiajia.blog.csdn.net/article/details/111057369)
+
+>[由浅入深 学习 Android Binder（六）- IPC 调用流程](https://xujiajia.blog.csdn.net/article/details/111399789)
+
+>[由浅入深 学习 Android Binder（七）- IServiceManager与ServiceManagerNative（java层）](https://xujiajia.blog.csdn.net/article/details/112131416)
+
+>[由浅入深 学习 Android Binder（八）- IServiceManager与BpServiceManager（native层）](https://xujiajia.blog.csdn.net/article/details/112131416)
+
+>[由浅入深 学习 Android Binder（九）- service_manager 与 svclist](https://xujiajia.blog.csdn.net/article/details/112733698)
+
+>[由浅入深 学习 Android Binder（十）- 总结](https://xujiajia.blog.csdn.net/article/details/112733857)
+
+>[由浅入深 学习 Android Binder（十一) binder线程池](https://xujiajia.blog.csdn.net/article/details/115054785)
+
 
 # 概述
 
@@ -70,7 +92,10 @@ SVC_MGR_GET_SERVICE与SVC_MGR_CHECK_SERVICE分别对应着 ServiceManager的 GET
 
 
 其主要逻辑如下：
-1. 通过bio_get_string16获取到ipc的字段s（这里的s实际是service的name）1. 通过do_find_service方法获取到handle（即service的句柄）1. 通过bio_put_ref将handle返回
+1. 通过bio_get_string16获取到ipc的字段s（这里的s实际是service的name）
+2. 通过do_find_service方法获取到handle（即service的句柄）
+3. 通过bio_put_ref将handle返回
+
 获取handle的逻辑是是do_find_service方法，我们看下这个方法：
 
 ### do_find_service
@@ -103,7 +128,10 @@ uint32_t do_find_service(const uint16_t *s, size_t len, uid_t uid, pid_t spid)
 ```
 
 主要逻辑如下：
-1. 通过find_svc找到svcInfo1. 检查service是否可以孤立于进程存在1. 通过svc_can_find检查查询权限1. 返回svcInfo的handle(即句柄)
+1. 通过find_svc找到svcInfo1. 检查service是否可以孤立于进程存在
+2. 通过svc_can_find检查查询权限
+3. 返回svcInfo的handle(即句柄)
+
 与存储结构相关的就是find_svc()方法，我们先只看下这个。
 
 ### find_svc
@@ -167,7 +195,9 @@ SVC_MGR_ADD_SERVICE 对应着ServiceManager中的ADD_SERVICE_TRANSACTION。
 
 
 这段代码的主要逻辑是：
-1. 通过bio_get_xxx等方法，获取到s、handle等ipc的字段.(这里的s实际是service的name)1. 通过do_add_service方法，传入各字段。实现service的添加。
+1. 通过bio_get_xxx等方法，获取到s、handle等ipc的字段.(这里的s实际是service的name)
+2. 通过do_add_service方法，传入各字段。实现service的添加。
+
 接着我们继续看下do_add_service的具体实现。
 
 ### do_add_service
@@ -221,7 +251,12 @@ int do_add_service(struct binder_state *bs, const uint16_t *s, size_t len, uint3
 ```
 
 主要逻辑如下：
-1. 通过svc_can_register检查注册权限1. 通过find_svc查找下服务是否已经存在1. 如果服务已经存在，那么通过svcinfo_death释放原来的服务，然后handle替换成现在service的handle。(即替换句柄)1. 如果服务原本没有存在，那么创建一个svcInfo并且赋值，链接到svclist的头部。1. 调用binder_acquire与binder_link_to_death。（对这两个方法有兴趣的读者可以自行看下）
+1. 通过svc_can_register检查注册权限
+1. 通过find_svc查找下服务是否已经存在
+1. 如果服务已经存在，那么通过svcinfo_death释放原来的服务，然后handle替换成现在service的handle。(即替换句柄)
+1. 如果服务原本没有存在，那么创建一个svcInfo并且赋值，链接到svclist的头部。
+1. 调用binder_acquire与binder_link_to_death。（对这两个方法有兴趣的读者可以自行看下）
+
 # 入口函数 service_manager.main()
 
 main()方法是service_manager的入口函数，代码如下：
@@ -288,9 +323,14 @@ int main(int argc, char** argv)
 ```
 
 主要逻辑如下：
-1. 通过binder_open打开binder驱动1. selinux相关逻辑。（有兴趣的读者可以自行了解下）1. 通过binder_become_context_manager，让service_manager成为binder_driver的上下文的管理者。1. 通过binder_loop 进入无限循环，处理client发来的请求。（对于service_manager来说，其他所有进程都是client）
+1. 通过binder_open打开binder驱动1. selinux相关逻辑。（有兴趣的读者可以自行了解下）
+1. 通过binder_become_context_manager，让service_manager成为binder_driver的上下文的管理者。
+1. 通过binder_loop 进入无限循环，处理client发来的请求。（对于service_manager来说，其他所有进程都是client）
+
 后续再继续深入看下三个逻辑：
-1. binder_open()1. binder_become_context_manager()1. binder_loop()
+1. binder_open()1. binder_become_context_manager()
+1. binder_loop()
+
 ### binder.binder_open()
 
 binder_open这个方法是在binder.c文件中，其文件目录如下： /frameworks/native/cmds/servicemanager/binder.c
@@ -342,7 +382,9 @@ fail_open:
 ```
 
 主要逻辑如下：
-1. 调用open()尝试打开binder 驱动，如果打不开就返回失败。1. 通过ioctl获取biner 驱动的binder版本，与当前进程的binder版本比较，如果不一样就返回失败。1. 使用mmap()方法来实现内存映射，如果映射直白也就直接返回失败。
+1. 调用open()尝试打开binder 驱动，如果打不开就返回失败。
+1. 通过ioctl获取biner 驱动的binder版本，与当前进程的binder版本比较，如果不一样就返回失败。
+1. 使用mmap()方法来实现内存映射，如果映射直白也就直接返回失败。
 ### binder.binder_become_context_manager()
 
 binder_become_context_manager这个方法是在binder.c文件中，其文件目录如下： /frameworks/native/cmds/servicemanager/binder.c
@@ -406,7 +448,10 @@ void binder_loop(struct binder_state *bs, binder_handler func)
 ```
 
 主要逻辑如下：
-1. 首先向binder driver发送BC_ENTER_LOOPER，通知binder driver 循环开始。1. 开始进入循环，在循环中发送BINDER_WRITE_READ，向binder driver读取信息。1. 将读取到的信息放到binder_parse方法中解析，然后进入下一个循环。
+1. 首先向binder driver发送BC_ENTER_LOOPER，通知binder driver 循环开始。
+1. 开始进入循环，在循环中发送BINDER_WRITE_READ，向binder driver读取信息。
+1. 将读取到的信息放到binder_parse方法中解析，然后进入下一个循环。
+
 接着看下解析的方法。
 
 ### binder.binder_parse（）
@@ -481,8 +526,13 @@ int svcmgr_handler(struct binder_state *bs,
 # 总结
 
 本文主要讲了service的查找，service的注册 和入口函数main。整理的要点如下：
-1. service相关信息 都存储在svcInfo这个结构体中，service_manager维护一个svcInfo的链表 svclist。1. svcInfo中存储的是service对应的handle，即句柄。1. getService：通过name来svclist中查找service，如果找到就返回handle。1. addService：判断该name的service是否存在，如果存在就替换handle，否则就重新创新一个svcInfo放入svclist。1. service_manager在启动后，会无限循环去处理client发来的请求。 getService以及addService等请求都是在这里处理的。
+1. service相关信息 都存储在svcInfo这个结构体中，service_manager维护一个svcInfo的链表 svclist。
+1. svcInfo中存储的是service对应的handle，即句柄。
+1. getService：通过name来svclist中查找service，如果找到就返回handle。
+1. addService：判断该name的service是否存在，如果存在就替换handle，否则就重新创新一个svcInfo放入svclist。
+1. service_manager在启动后，会无限循环去处理client发来的请求。 getService以及addService等请求都是在这里处理的。
 # 继续探索
 
 还有很多其他方面是没有讲到，有兴趣的读者可以自行探索下。
-- service的鉴权机制是如何做的？- service的死亡通知是如何实现的？
+- service的鉴权机制是如何做的？
+- service的死亡通知是如何实现的？

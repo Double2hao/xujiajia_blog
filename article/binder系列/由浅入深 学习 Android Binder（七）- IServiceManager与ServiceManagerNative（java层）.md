@@ -1,6 +1,28 @@
 #由浅入深 学习 Android Binder（七）- IServiceManager与ServiceManagerNative（java层）
->  
+ 
  Android Binder系列文章：           
+
+>[由浅入深 学习 Android Binder（一）- AIDL](https://xujiajia.blog.csdn.net/article/details/109865496)
+
+>[由浅入深 学习 Android Binder（二）- bindService流程](https://xujiajia.blog.csdn.net/article/details/109906012)
+
+>[由浅入深 学习 Android Binder（三）- java binder深究（从java到native）](https://xujiajia.blog.csdn.net/article/details/110730526)
+
+>[由浅入深 学习 Android Binder（四）- ibinderForJavaObject 与 javaObjectForIBinder](https://xujiajia.blog.csdn.net/article/details/111027972)
+
+>[由浅入深 学习 Android Binder（五）- binder如何在进程间传递](https://xujiajia.blog.csdn.net/article/details/111057369)
+
+>[由浅入深 学习 Android Binder（六）- IPC 调用流程](https://xujiajia.blog.csdn.net/article/details/111399789)
+
+>[由浅入深 学习 Android Binder（七）- IServiceManager与ServiceManagerNative（java层）](https://xujiajia.blog.csdn.net/article/details/112131416)
+
+>[由浅入深 学习 Android Binder（八）- IServiceManager与BpServiceManager（native层）](https://xujiajia.blog.csdn.net/article/details/112131416)
+
+>[由浅入深 学习 Android Binder（九）- service_manager 与 svclist](https://xujiajia.blog.csdn.net/article/details/112733698)
+
+>[由浅入深 学习 Android Binder（十）- 总结](https://xujiajia.blog.csdn.net/article/details/112733857)
+
+>[由浅入深 学习 Android Binder（十一) binder线程池](https://xujiajia.blog.csdn.net/article/details/115054785)
 
 
 # 概述
@@ -76,7 +98,8 @@ ServiceManager于android binder来说是非常重要的一部分。 ServiceManag
 直接进入到ServiceManager.rawGetService()。 这里的逻辑是，先通过getIServiceManager()获取到IServiceManager对象，然后再通过这个IServiceManager对象获取到一个IBinder。
 
 注意，此处有两个IPC
-1. 获取到IServiceManager1. 通过IServiceManager获取到该name的IPC
+1. 获取到IServiceManager
+2. 通过IServiceManager获取到该name的IPC
 我们先看下getIServiceManager()的逻辑。IServiceManager.getService()的逻辑后面也会再提到
 
 # ServiceManager.getIServiceManager()
@@ -142,7 +165,8 @@ BinderInternal.getContextObject()中返回的是一个BinderProxy对象。本文
 ```
 
 getService主要逻辑如下：
-1. 将数据都通过Parcel对象写入1. 调用mRemote.transact()来进行IPC操作，传过去的code是GET_SERVICE_TRANSACTION。1. 从reply中获取Ibinder对象。（Context.ACTIVITY_SERVICE对应的Ibinder就是IActivityManager）
+1. 将数据都通过Parcel对象写入1. 调用mRemote.transact()来进行IPC操作，传过去的code是GET_SERVICE_TRANSACTION。
+2. 从reply中获取Ibinder对象。（Context.ACTIVITY_SERVICE对应的Ibinder就是IActivityManager）
 ```
 class ServiceManagerProxy implements IServiceManager {<!-- -->
     public ServiceManagerProxy(IBinder remote) {<!-- -->
@@ -185,9 +209,14 @@ ServiceManager最终逻辑的进程直接就在native层实现了，因此也不
 有兴趣的读者可以自行探索，或者关注笔者后面的文章。
 
 # 总结
-1. IActivityManger的内容在ActivityManagerService中实现，IServieManger的逻辑再ServiceManagerNative中实现。1. client进程去获取IActivityManger时，实际上是先获取的IServieManger，然后通过IServieManger的getService方法来获取IActivityManger。1. ServiceManagerNative.onTransact不会被调用，在ServiceManagerProxy中调用了IBinder.transact之后，其逻辑直接在native层处理了。
+1. IActivityManger的内容在ActivityManagerService中实现，IServieManger的逻辑再ServiceManagerNative中实现。
+2. client进程去获取IActivityManger时，实际上是先获取的IServieManger，然后通过IServieManger的getService方法来获取IActivityManger。
+3. ServiceManagerNative.onTransact不会被调用，在ServiceManagerProxy中调用了IBinder.transact之后，其逻辑直接在native层处理了。
 # 继续探索
 
 本文讲解完还有很多知识点并没有讲解:
-- native层是如何实现ServiceManager的逻辑的？- native层除了/frameworks/native/cmds/servicemanager/service_manager.c，还有/frameworks/native/libs/binder/IServiceManager.cpp,这类的作用分别是什么。- ActivityManagerService是什么时候执行addService逻辑的？
+- native层是如何实现ServiceManager的逻辑的？
+- native层除了/frameworks/native/cmds/servicemanager/service_manager.c，还有/frameworks/native/libs/binder/IServiceManager.cpp,这类的作用分别是什么。
+- ActivityManagerService是什么时候执行addService逻辑的？
+
 有兴趣的读者可以自行探索，或者关注笔者后续文章。
