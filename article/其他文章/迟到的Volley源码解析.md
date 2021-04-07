@@ -536,7 +536,7 @@ public abstract class JsonRequest&lt;T&gt; extends Request&lt;T&gt; {
 
 #总结：
 
-最终我们再根据Volley请求流程图概括一下： <img src="https://img-blog.csdn.net/20170428084245381?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRG91YmxlMmhhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述">
+最终我们再根据Volley请求流程图概括一下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2530.png" alt="这里写图片描述">
 
 ##流程： 1、调用RequestQueue的add()方法来添加一条请求。 2、请求会先被加入到缓存队列当中，缓存调度线程会从中获取请求。如果获取到了，就会解析并且返回主线程响应。如果获取不到，就会将这条请求放入网络请求队列。 3、网络调度线程会从网络请求队列获取到请求然后处理，发送HTTP请求，解析响应结果，写入缓存，返回主线程响应。
 

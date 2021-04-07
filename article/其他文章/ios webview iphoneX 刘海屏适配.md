@@ -5,7 +5,7 @@
 
 # 问题
 
-webview 在iphoneX中的一些表现会不满足业务预期，如下广告，头部和底部都会留有空白，而业务方真正期望是填满整个屏幕。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1570.png" alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1571.png" alt="在这里插入图片描述"> 期望效果如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1572.png" alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1573.png" alt="在这里插入图片描述">
+webview 在iphoneX中的一些表现会不满足业务预期，如下广告，头部和底部都会留有空白，而业务方真正期望是填满整个屏幕。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1600.png" alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1601.png" alt="在这里插入图片描述"> 期望效果如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1602.png" alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1603.png" alt="在这里插入图片描述">
 
 # 解决方式
 

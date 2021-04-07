@@ -1,14 +1,17 @@
-﻿# 概述
+#android aar 自动引入依赖
+# 概述
 
 android 生成aar后，引用此aar的项目不会自动引用 aar中的依赖，一般情况下，需要开发者在使用这个aar的项目中再自己手动添加需要的依赖。
 
 那么如何能让一个项目引用aar后，自动引入相关的依赖呢？
 
 # 实现方式
+
 上传aar到maven仓库前，修改maven中的pom文件，在其中写入aar相关的依赖。
 
 ### build.gradle代码
-```xml
+
+```
 plugins {
   id 'com.android.library'
   id 'maven'
@@ -60,7 +63,7 @@ uploadArchives {
         //设置本项目的pom
         def rootNode = asNode();
         def projectNode = rootNode.children();
-        projectNode.each { item ->
+        projectNode.each { item -&gt;
           def nodeToString = item.toString();
           if (nodeToString.contains("groupId")) {
             item.setValue(groupId)
@@ -72,7 +75,7 @@ uploadArchives {
         }
         //将项目中的compileOnly的依赖都导入pom
         def depsNode = rootNode.appendNode('dependencies')
-        configurations.compileOnly.allDependencies.each { dep ->
+        configurations.compileOnly.allDependencies.each { dep -&gt;
           def depNode = depsNode.appendNode('dependency')
           depNode.appendNode('groupId', dep.group)
           depNode.appendNode('artifactId', dep.name)
@@ -83,18 +86,18 @@ uploadArchives {
     }
   }
 }
+
 ```
+
 # Demo
+
 前提如下：
-- app项目依赖了mavenProject的aar
-- app项目没有依赖Okhttp，mavenProject依赖了OkHttp
-- app项目可以直接使用OKhttp
-
-![在这里插入图片描述](https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/20210313193220882.png)
-
+- app项目依赖了mavenProject的aar- app项目没有依赖Okhttp，mavenProject依赖了OkHttp- app项目可以直接使用OKhttp
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1780.png" alt="在这里插入图片描述">
 
 ### app项目的依赖如下
-```xml
+
+```
 dependencies {
   implementation 'androidx.appcompat:appcompat:1.2.0'
   implementation 'com.google.android.material:material:1.2.1'
@@ -103,7 +106,8 @@ dependencies {
   //此处只依赖本地的mavenproject，却同时也会依赖mavenproject项目的pom中的okhtto
   implementation 'com.test.xujiajia:mavenproject:0.0.1'
 }
+
 ```
 
 ### demo地址
-[https://github.com/Double2hao/aarWithDependencies](https://github.com/Double2hao/aarWithDependencies)
+

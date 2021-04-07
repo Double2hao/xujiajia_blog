@@ -5,7 +5,7 @@
 
  残缺棋盘是一个2^k*2^个方格的棋盘，其中恰有1个方格残缺。图中给出，其中残缺部分用阴影表示。
 
- <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2070.png" alt="" style="border:none; max-width:100%"> 
+ <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2120.png" alt="" style="border:none; max-width:100%"> 
 
  这样的棋盘称为"三格板"，残缺棋盘问题就是用这四种三格板覆盖更大的残缺棋盘。再次覆盖中要求:
 
@@ -25,7 +25,7 @@
 
  **最终效果：（源码在文章结尾）**
 
- <img src="https://img-blog.csdn.net/20160517204534846?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""> 
+ <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2121.png" alt=""> 
 
   
 
@@ -65,15 +65,15 @@
 
  如下图：
 
- <img src="https://img-blog.csdn.net/20160517205645806?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" width="800" height="150"> 
+ <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2122.png" alt="" width="800" height="150"> 
 
   
 
- <img src="https://img-blog.csdn.net/20160517205650603?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" width="1000" height="200"> 
+ <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2123.png" alt="" width="1000" height="200"> 
 
   
 
- <img src="https://img-blog.csdn.net/20160517210242743?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""> 
+ <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2124.png" alt=""> 
 
   
 

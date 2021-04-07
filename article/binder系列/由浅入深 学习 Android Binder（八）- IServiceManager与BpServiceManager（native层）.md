@@ -1,28 +1,6 @@
 #由浅入深 学习 Android Binder（八）- IServiceManager与BpServiceManager（native层）
 >  
- Android Binder系列文章：           
-
->[由浅入深 学习 Android Binder（一）- AIDL](https://xujiajia.blog.csdn.net/article/details/109865496)
-
->[由浅入深 学习 Android Binder（二）- bindService流程](https://xujiajia.blog.csdn.net/article/details/109906012)
-
->[由浅入深 学习 Android Binder（三）- java binder深究（从java到native）](https://xujiajia.blog.csdn.net/article/details/110730526)
-
->[由浅入深 学习 Android Binder（四）- ibinderForJavaObject 与 javaObjectForIBinder](https://xujiajia.blog.csdn.net/article/details/111027972)
-
->[由浅入深 学习 Android Binder（五）- binder如何在进程间传递](https://xujiajia.blog.csdn.net/article/details/111057369)
-
->[由浅入深 学习 Android Binder（六）- IPC 调用流程](https://xujiajia.blog.csdn.net/article/details/111399789)
-
->[由浅入深 学习 Android Binder（七）- IServiceManager与ServiceManagerNative（java层）](https://xujiajia.blog.csdn.net/article/details/112131416)
-
->[由浅入深 学习 Android Binder（八）- IServiceManager与BpServiceManager（native层）](https://xujiajia.blog.csdn.net/article/details/112131416)
-
->[由浅入深 学习 Android Binder（九）- service_manager 与 svclist](https://xujiajia.blog.csdn.net/article/details/112733698)
-
->[由浅入深 学习 Android Binder（十）- 总结](https://xujiajia.blog.csdn.net/article/details/112733857)
-
->[由浅入深 学习 Android Binder（十一) binder线程池](https://xujiajia.blog.csdn.net/article/details/115054785)
+ Android Binder系列文章：            
 
 
 # 概述
@@ -37,16 +15,12 @@
 
 本文还是根据笔者的认知来讲一些自己认为重要的地方。 不会将一个文件的源码从头到尾的分析，个人认为那样对于新人非常不友好。 如果对一些细节的知识点有兴趣的读者，在了解了大概逻辑后完全可以再自行探索。
 
-为了方便读者有个整体的认知，附上整体的流程图： 
-<img src="https://img-blog.csdnimg.cn/20210103085615242.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+为了方便读者有个整体的认知，附上整体的流程图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2330.png" alt="在这里插入图片描述">
 
 # 寻找一个看源码的起点
 
 全局搜索下”#include &lt;binder/IServiceManager.h&gt;“,找到引用IServiceManager类的地方,看下是怎么使用的。 笔者这边定位到的是/frameworks/av/media/libmediaplayerservice/ActivityManager.cpp这个类。 具体这个类的作用暂时先不看。我们只需要看下它是如何使用IServiceManager的：
-1. 通过defaultServiceManager()获取到IServiceManager的强引用
-1. 调用IServiceManager的getService方法获取到IBinder对象。
-1. 通过binder获取到IActivityManager对象。
-
+1. 通过defaultServiceManager()获取到IServiceManager的强引用1. 调用IServiceManager的getService方法获取到IBinder对象。1. 通过binder获取到IActivityManager对象。
 >  
  如果看过java层ServiceManager逻辑的读者，会发现其实native层的这个IServiceManager逻辑和java层其实差不多。 
 
@@ -69,8 +43,7 @@ int openContentProviderFile(const String16&amp; uri)
 ```
 
 至此就有两个我们需要分析的重点了：
-- IServiceManager.defaultServiceManager()
-- IServiceManager.getService()
+- IServiceManager.defaultServiceManager()- IServiceManager.getService()
 >  
  至于addService等其他调用，由于实现与getService差不多，笔者就不重复解析了，有兴趣的读者可以自己探索下。 
 
@@ -106,9 +79,7 @@ gDefaultServiceManager = interface_cast&lt;IServiceManager&gt;(
 ```
 
 主要分为两部分：
-- ProcessState::self()-&gt;getContextObject(NULL)
-- interface_cast()
-
+- ProcessState::self()-&gt;getContextObject(NULL)- interface_cast()
 ### ProcessState.getContextObject(null)
 
 ```
@@ -249,9 +220,7 @@ IServiceManager::~ IServiceManager() { }
 ```
 
 于是我们就得到了asInterface的实现内容：
-1. 先通过IBinder.queryLocalInterface带入参数descriptor，在本地进程查找IServiceManager。、
-1. 如果IServiceManager在其他进程，那么就新建一个BpServiceManager返回。
-
+1. 先通过IBinder.queryLocalInterface带入参数descriptor，在本地进程查找IServiceManager。1. 如果IServiceManager在其他进程，那么就新建一个BpServiceManager返回。
 接下来我们继续看下BpServiceManager这个对象。
 
 >  
@@ -304,9 +273,7 @@ BpRefBase::BpRefBase(const sp&lt;IBinder&gt;&amp; o)
 ```
 
 根据源码可知，BpRefBase的内容，即BpServiceManager初始化的逻辑：
-1. 让mRemote持有该IBinder的强引用1. 让mRefs持有该IBinder的弱引用
-1. 此处传进来的IBinder就是前面解析的ProcessState.getContextObject(null)，实际上对应的是handle=0的BpBinder.
-
+1. 让mRemote持有该IBinder的强引用1. 让mRefs持有该IBinder的弱引用1. 此处传进来的IBinder就是前面解析的ProcessState.getContextObject(null)，实际上对应的是handle=0的BpBinder.
 # IServiceManager.getService
 
 根据前面对defaultServiceManager方法的分析，在其他进程调用的IServiceManager的情况下，defaultServiceManager返回的会是BpServiceManager。 因此我们实际上需要看下BpServiceManager.getService()。
@@ -353,9 +320,7 @@ BpRefBase::BpRefBase(const sp&lt;IBinder&gt;&amp; o)
 ```
 
 getService源码内容如下：
-1. 先通过checkService获取到IBinder的强引用，如果不为空就直接返回。
-1. 如果获取不到，那么在超时之前都会进入一个循环：先sleep,再获取，直至获取到位置。
-
+1. 先通过checkService获取到IBinder的强引用，如果不为空就直接返回。1. 如果获取不到，那么在超时之前都会进入一个循环：先sleep,再获取，直至获取到位置。
 其实主要就是checkService的逻辑，我们看下它的源码：
 
 ```
@@ -371,10 +336,7 @@ getService源码内容如下：
 ```
 
 checkService的逻辑如下：
-1. 先将数据写入Parcel类型的data
-1. 通过IBinder.transact调用IPC方法。name是CHECK_SERVICE_TRANSACTION。
-1. 返回数据会写入Parcel类型的replay，最终从replay中取出IBinder返回。
-
+1. 先将数据写入Parcel类型的data1. 通过IBinder.transact调用IPC方法。name是CHECK_SERVICE_TRANSACTION。1. 返回数据会写入Parcel类型的replay，最终从replay中取出IBinder返回。
 >  
  transact的流程前文已经讲过，此处就不重复解析了，有兴趣的读者可以看下前文：  
 
@@ -434,11 +396,7 @@ int openContentProviderFile(const String16&amp; uri)
 ```
 
 # 总结
-1. IServiceManager.defaultServiceManagr实际返回的是BpServiceManager对象
-1. BpServiceManager中的remote是handle=0的BpBinder。（其实handle=0的情况在 binder driver中其实就对应着service_manager）
-1. getService方法实际上就是调用的BpServiceManager的getService方法，最终会通过调用IBinder.transact方法来操作binder dirver。
-1. java层与native层的IServiceManager功能类似，注册于获取IBinder的位置是同一个。(存储位置是service_manager的list，本文不拓展)
-
+1. IServiceManager.defaultServiceManagr实际返回的是BpServiceManager对象1. BpServiceManager中的remote是handle=0的BpBinder。（其实handle=0的情况在 binder driver中其实就对应着service_manager）1. getService方法实际上就是调用的BpServiceManager的getService方法，最终会通过调用IBinder.transact方法来操作binder dirver。1. java层与native层的IServiceManager功能类似，注册于获取IBinder的位置是同一个。(存储位置是service_manager的list，本文不拓展)
 >  
  至于addService等其他调用，由于实现与getService差不多，笔者就不重复解析了，有兴趣的读者可以自己探索下。 
 
@@ -446,7 +404,5 @@ int openContentProviderFile(const String16&amp; uri)
 # 继续探索
 
 本文讲解完还有很多知识点并没有讲解:
-- BpServiceManager调用getService后，是谁来处理的后续逻辑？
-- /frameworks/native/cmds/servicemanager/service_manager.c 这个类的逻辑是什么？
-
+- BpServiceManager调用getService后，是谁来处理的后续逻辑？- /frameworks/native/cmds/servicemanager/service_manager.c 这个类的逻辑是什么？
 有兴趣的读者可以自行探索，或者关注笔者后续文章。

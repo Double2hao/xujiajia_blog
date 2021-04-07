@@ -15,7 +15,7 @@ fragment与Activity通信主要是两点：
 
 效果：**(最后附上源码)**
 
-<img src="https://img-blog.csdn.net/20160325205242852?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" width="300" height="500" alt=""> 
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/620.png" width="300" height="500" alt=""> 
 
  
 
@@ -35,7 +35,7 @@ fragment与Activity通信主要是两点：
 
 代码：
 
-<img src="https://img-blog.csdn.net/20160325210057726?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""> 
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/621.png" alt=""> 
 
  
 

@@ -13,7 +13,7 @@ ListView是Android开发者最常见的控件之一，但是真的很少有人�
 
 这在平时其实对我们没有什么影响，但是对于ListView这种复杂的控件来讲就不一样了。经过ListView源码中诸多的if-else语句的过滤，两次执行的代码看上去是完全不一样的。 所以我们源码的分析也分成了第一次测量与第二次测量。
 
-为了方便读者的理解，我们附上官网ListView的继承结构： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1100.png" alt="这里写图片描述">
+为了方便读者的理解，我们附上官网ListView的继承结构： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1130.png" alt="这里写图片描述">
 
 ## 寻找入口
 

@@ -21,7 +21,7 @@
 
 # 思路
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1060.png" alt="这里写图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1061.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1090.png" alt="这里写图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1091.png" alt="这里写图片描述">
 
 # 程序理解
 

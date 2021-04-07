@@ -28,7 +28,7 @@
 
 ## 过程如下图：
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/50.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/60.png" alt="在这里插入图片描述">
 
 ## 不足三字节的情况
 

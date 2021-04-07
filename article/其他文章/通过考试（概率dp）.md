@@ -34,7 +34,7 @@ C/C++语言：65536KB其它语言：589824KB
 
 # 解析
 
-<img src="https://img-blog.csdn.net/20170408091518224?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRG91YmxlMmhhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/840.png" alt="这里写图片描述" title="">
 
 # 代码
 

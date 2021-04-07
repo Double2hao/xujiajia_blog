@@ -1,28 +1,6 @@
 #由浅入深 学习 Android Binder（一）- AIDL
-
- Android Binder系列文章：           
-
->[由浅入深 学习 Android Binder（一）- AIDL](https://xujiajia.blog.csdn.net/article/details/109865496)
-
->[由浅入深 学习 Android Binder（二）- bindService流程](https://xujiajia.blog.csdn.net/article/details/109906012)
-
->[由浅入深 学习 Android Binder（三）- java binder深究（从java到native）](https://xujiajia.blog.csdn.net/article/details/110730526)
-
->[由浅入深 学习 Android Binder（四）- ibinderForJavaObject 与 javaObjectForIBinder](https://xujiajia.blog.csdn.net/article/details/111027972)
-
->[由浅入深 学习 Android Binder（五）- binder如何在进程间传递](https://xujiajia.blog.csdn.net/article/details/111057369)
-
->[由浅入深 学习 Android Binder（六）- IPC 调用流程](https://xujiajia.blog.csdn.net/article/details/111399789)
-
->[由浅入深 学习 Android Binder（七）- IServiceManager与ServiceManagerNative（java层）](https://xujiajia.blog.csdn.net/article/details/112131416)
-
->[由浅入深 学习 Android Binder（八）- IServiceManager与BpServiceManager（native层）](https://xujiajia.blog.csdn.net/article/details/112131416)
-
->[由浅入深 学习 Android Binder（九）- service_manager 与 svclist](https://xujiajia.blog.csdn.net/article/details/112733698)
-
->[由浅入深 学习 Android Binder（十）- 总结](https://xujiajia.blog.csdn.net/article/details/112733857)
-
->[由浅入深 学习 Android Binder（十一) binder线程池](https://xujiajia.blog.csdn.net/article/details/115054785)
+>  
+ Android Binder系列文章：            
 
 
 # 概述
@@ -31,7 +9,7 @@ aidl是常用的android IPC方式，本文将根据一个demo来解析下AIDL的
 
 为了便于读者理解，本文不会探究Binder的实现细节，可以认为Binder在此文的分析中被看做是一个“黑盒”。
 
-有一定经验的读者可以直接到文末看总结，最终流程图如下： <img src="https://img-blog.csdnimg.cn/20201121202551112.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述">
+有一定经验的读者可以直接到文末看总结，最终流程图如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3013.png" alt="在这里插入图片描述">
 
 # Demo
 
@@ -138,7 +116,7 @@ interface IServer {<!-- -->
 
 # aidl自动生成的文件
 
-定义完aidl文件，编译会自动生成一个java接口文件。 这个接口文件在build目录下，具体路径如下： <img src="https://img-blog.csdnimg.cn/20201121202735667.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" width="50%" height="50%">
+定义完aidl文件，编译会自动生成一个java接口文件。 这个接口文件在build目录下，具体路径如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3011.png" width="50%" height="50%">
 
 打开文件，我们就可以看到aidl自动生成的代码。
 
@@ -366,15 +344,10 @@ public interface ITestServer extends android.os.IInterface {<!-- -->
 
 # ITestServer 源码解析
 
-通过android studio，可以看到该类的结构如下。 <img src="https://img-blog.csdnimg.cn/20201121202813778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" width="50%" height="50%">
+通过android studio，可以看到该类的结构如下。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3012.png" width="50%" height="50%">
 
 接下来我们就主要分析三个类：
-- ITestServer   
-Stub和Proxy都implement了它。 java上层可以使用这个接口来保留Binder的对象。在使用aidl的时候，完全可以只使用这个对象而不用关心这个对象是Stub还是Proxy。
-- ITestServer.Stub   
-当前进程的Binder对象。 在onTransact方法中实现了对IPC方法的逻辑，Proxy调用的时候会触发。
-- ITestServer.Stub.Proxy  
-当前进程通过Proxy实现了对远端方法的调用。 当前进程调用远端进程方法，实际上是调用了远端Binder的transact方法，最终执行到Stub中的onTransact。
+- ITestServer Stub和Proxy都implement了它。 java上层可以使用这个接口来保留Binder的对象。在使用aidl的时候，完全可以只使用这个对象而不用关心这个对象是Stub还是Proxy。- ITestServer.Stub 当前进程的Binder对象。 在onTransact方法中实现了对IPC方法的逻辑，Proxy调用的时候会触发。- ITestServer.Stub.Proxy 当前进程通过Proxy实现了对远端方法的调用。 当前进程调用远端进程方法，实际上是调用了远端Binder的transact方法，最终执行到Stub中的onTransact。
 ### ITestServer
 
 ```
@@ -405,8 +378,7 @@ public interface IInterface
 ```
 
 要点如下：
-- ITestServer本身只包括“需要IPC的方法”，此处即int testFunction(String)
-- 这个类继承了IInterface，需要实现asBinder接口。 asBinder()会返回正确的Binder对象。如果是同进程调用就会直接返回当前进程的Binder，如果是IPC，就会返回远程调用的进程的Binder。 对应源码就是，Stub的asBinder()返回的是this，而Proxy返回的是mRemote.
+- ITestServer本身只包括“需要IPC的方法”，此处即int testFunction(String)- 这个类继承了IInterface，需要实现asBinder接口。 asBinder()会返回正确的Binder对象。如果是同进程调用就会直接返回当前进程的Binder，如果是IPC，就会返回远程调用的进程的Binder。 对应源码就是，Stub的asBinder()返回的是this，而Proxy返回的是mRemote.
 # ITestServer.Stub
 
 ### DESCRIPTOR
@@ -526,9 +498,7 @@ public interface IInterface
 ```
 
 实现了被IPC调用后的逻辑。 一个方法的调用在onTransact中一般有以下几个逻辑：
-1. 从data中读出参数
-2. 将读出的参数带入server的方法中，得到执行结果。
-3. 将执行结果写入reply
+1. 从data中读出参数1. 将读出的参数带入server的方法中，得到执行结果。1. 将执行结果写入reply
 >  
  参数和结果为什么读写都需要通过Parcel？ 进程间通信由于资源不共享，因此无法直接传递对象，只能通过序列化在不同的空间拷贝两份相同的资源。 而Parcel就是序列化的一种方案。 
 
@@ -616,24 +586,17 @@ Proxy在asBinder的时候会返回server的IBinder。 Stub在这个方法中会�
 ```
 
 Proxy调用testFunction，实际上是通过调用mRemote.transact()来触发远端Stub的onTransact()。 一般调用的步骤如下：
-1. 创建参数与返回值的Parcel对象，将参数写入Parcel。
-2. 调用mRemote.transact()，返回值会写入到Parcel对象中。
-3. 从Parcel对象中读出返回值并return。
+1. 创建参数与返回值的Parcel对象，将参数写入Parcel。1. 调用mRemote.transact()，返回值会写入到Parcel对象中。1. 从Parcel对象中读出返回值并return。
 # 总结
 
 根据上文的分析，aidl自动生成的文件的源码大概可以总结成下图：
 
-<img src="https://img-blog.csdnimg.cn/20201121202551112.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3013.png" alt="在这里插入图片描述">
 
 基本步骤如下：
-1. Client通过ServiceConnection获取到Server的Binder，并且封装成一个Proxy。
-2. 通过Proxy来同步调用IPC方法。同时通过Parcel将参数传给Binder，最终触发Binder的transact方法。
-3. Binder的transact方法最终会触发到Server上Stub的onTransact方法。
-4. Server上Stub的onTransact方法中，会先从Parcel中解析中参数，然后将参数带入真正的方法中执行，然后将结果写入Parcel后传回。
-5. Client的Ipc方法中，执行Binder的transact时，是阻塞等待的。一直到Server逻辑执行结束后才会继续执行。1. 当Server返回结果后，Client从Parcel中取出返回值，于是实现了一次IPC调用。
+1. Client通过ServiceConnection获取到Server的Binder，并且封装成一个Proxy。1. 通过Proxy来同步调用IPC方法。同时通过Parcel将参数传给Binder，最终触发Binder的transact方法。1. Binder的transact方法最终会触发到Server上Stub的onTransact方法。1. Server上Stub的onTransact方法中，会先从Parcel中解析中参数，然后将参数带入真正的方法中执行，然后将结果写入Parcel后传回。1. Client的Ipc方法中，执行Binder的transact时，是阻塞等待的。一直到Server逻辑执行结束后才会继续执行。1. 当Server返回结果后，Client从Parcel中取出返回值，于是实现了一次IPC调用。
 # 继续探索
 
 读完本文，细心的读者会发现本文还留有两个较大的问题完全没有提及：
-1. ServiceConnection是如何获取到Binder的
-2. 通过ServiceConnection获取到的Binder是什么，或者说java层的Binder是什么
+1. ServiceConnection是如何获取到Binder的1. 通过ServiceConnection获取到的Binder是什么，或者说java层的Binder是什么
 这两点笔者后面的文章会继续探索，有兴趣的读者可以自行探索或者欢迎持续关注。

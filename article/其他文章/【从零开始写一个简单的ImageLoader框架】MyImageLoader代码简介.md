@@ -13,7 +13,7 @@
 
 # 代码预览（须结合源码看）
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2220.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2270.png" alt="这里写图片描述">
 
 demo包中的文件都用于演示，也不多加阐述了。 主要为imageLoader中的内容。
 

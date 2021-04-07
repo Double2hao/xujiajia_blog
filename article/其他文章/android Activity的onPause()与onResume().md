@@ -17,7 +17,7 @@
 
  
 
-<img alt="" class="has" src="https://img-blog.csdn.net/20160324175205797?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1740.png">
 
 图片：当一个半透明的activity遮住了你的activity，这个系统调用了onPause()，并且activity在pause的状态中等待。如果用户当它仍然pause的时候再次回到了activity，这个系统会调用onResume()。
 

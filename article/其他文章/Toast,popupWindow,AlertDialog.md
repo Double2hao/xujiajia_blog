@@ -5,11 +5,11 @@
 
 # 效果
 
-本文主要模仿微信小程序的dialog为例子。（为了代码的简略，就不添加圆角等效果了）  <img src="https://img-blog.csdn.net/20171130181025333?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRG91YmxlMmhhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+本文主要模仿微信小程序的dialog为例子。（为了代码的简略，就不添加圆角等效果了）  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3000.png" alt="这里写图片描述" title="">
 
-笔者用Toast,popupWindow,AlertDialog三者实现的效果如下：  <img src="https://img-blog.csdn.net/20171130181106594?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRG91YmxlMmhhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title=""><img src="https://img-blog.csdn.net/20171130181121360?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRG91YmxlMmhhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title=""><img src="https://img-blog.csdn.net/20171130181127685?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRG91YmxlMmhhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+笔者用Toast,popupWindow,AlertDialog三者实现的效果如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3001.png" alt="这里写图片描述" title=""><img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3002.png" alt="这里写图片描述" title=""><img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3003.png" alt="这里写图片描述" title="">
 
-为了显示正确，在布局最外面笔者套了一层FrameLayout，如果不套FrameLayout的显示效果如下：  <img src="https://img-blog.csdn.net/20171130181320527?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRG91YmxlMmhhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title=""><img src="https://img-blog.csdn.net/20171130181330465?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRG91YmxlMmhhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title=""><img src="https://img-blog.csdn.net/20171130181338367?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRG91YmxlMmhhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+为了显示正确，在布局最外面笔者套了一层FrameLayout，如果不套FrameLayout的显示效果如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3004.png" alt="这里写图片描述" title=""><img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3005.png" alt="这里写图片描述" title=""><img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3006.png" alt="这里写图片描述" title="">
 
 >  
  上面6张图的比较可以看出，如果在layout最外层不嵌套一个ViewGroup，最终宽高会忽视layout父View的设置而直接根据子View内容的大小绘制，那么layout可能会达不到我们预期的显示。 

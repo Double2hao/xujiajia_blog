@@ -1,28 +1,6 @@
 #由浅入深 学习 Android Binder（四）- ibinderForJavaObject 与 javaObjectForIBinder
 >  
- Android Binder系列文章：           
-
->[由浅入深 学习 Android Binder（一）- AIDL](https://xujiajia.blog.csdn.net/article/details/109865496)
-
->[由浅入深 学习 Android Binder（二）- bindService流程](https://xujiajia.blog.csdn.net/article/details/109906012)
-
->[由浅入深 学习 Android Binder（三）- java binder深究（从java到native）](https://xujiajia.blog.csdn.net/article/details/110730526)
-
->[由浅入深 学习 Android Binder（四）- ibinderForJavaObject 与 javaObjectForIBinder](https://xujiajia.blog.csdn.net/article/details/111027972)
-
->[由浅入深 学习 Android Binder（五）- binder如何在进程间传递](https://xujiajia.blog.csdn.net/article/details/111057369)
-
->[由浅入深 学习 Android Binder（六）- IPC 调用流程](https://xujiajia.blog.csdn.net/article/details/111399789)
-
->[由浅入深 学习 Android Binder（七）- IServiceManager与ServiceManagerNative（java层）](https://xujiajia.blog.csdn.net/article/details/112131416)
-
->[由浅入深 学习 Android Binder（八）- IServiceManager与BpServiceManager（native层）](https://xujiajia.blog.csdn.net/article/details/112131416)
-
->[由浅入深 学习 Android Binder（九）- service_manager 与 svclist](https://xujiajia.blog.csdn.net/article/details/112733698)
-
->[由浅入深 学习 Android Binder（十）- 总结](https://xujiajia.blog.csdn.net/article/details/112733857)
-
->[由浅入深 学习 Android Binder（十一) binder线程池](https://xujiajia.blog.csdn.net/article/details/115054785)
+ Android Binder系列文章：            
 
 
 # 概述
@@ -39,14 +17,12 @@
 
 java与native之间通过JNI来实现数据的传递与交互。 主要就是通过native层的ibinderForJavaObject与javaObjectForIBinder方法。 整个流程大概就是下面两张图，先列出便于读者有一个整理的认知.
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/490.png" alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/491.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/512.png" alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/513.png" alt="在这里插入图片描述">
 
 # android_util_Binder.ibinderForJavaObject
 
 逻辑如下：
-1. 如果这个java对象是 java Binder对象，那么先获取到本地的JavaBBinderHolder对象，然后从JavaBBinderHolder中get到IBinder对象返回。
-1. 如果这个java对象是 java BinderProxy对象，那么通过getBPNativeData()方法获取到某个对象后返回其mObject。
-
+1. 如果这个java对象是 java Binder对象，那么先获取到本地的JavaBBinderHolder对象，然后从JavaBBinderHolder中get到IBinder对象返回。1. 如果这个java对象是 java BinderProxy对象，那么通过getBPNativeData()方法获取到某个对象后返回其mObject。
 接着我们看下getBPNativeData这个方法。
 
 ```
@@ -101,14 +77,9 @@ struct BinderProxyNativeData {
 # android_util_Binder.javaObjectForIBinder
 
 这个类有以下要点：
-1. 通过gBinderOffsets来判断是否是JavaBBinder对象。如果是就直接return。
-1. 如果前面的判断不是JavaBBinder对象。那么就会走到BinderProxy的逻辑中。 这里BinderProxy是通过gBinderProxyOffsets调用java层BinderProxy的初始化方法创建的，其中还传入了BinderProxyNativeData对象。 (另外还有一系列的BinderProxyNativeData对象相关的逻辑，这里读者只要知道一个BinderProxy对应一个BinderProxyNativeData对象就可以了)
-
+1. 通过gBinderOffsets来判断是否是JavaBBinder对象。如果是就直接return。1. 如果前面的判断不是JavaBBinder对象。那么就会走到BinderProxy的逻辑中。 这里BinderProxy是通过gBinderProxyOffsets调用java层BinderProxy的初始化方法创建的，其中还传入了BinderProxyNativeData对象。 (另外还有一系列的BinderProxyNativeData对象相关的逻辑，这里读者只要知道一个BinderProxy对应一个BinderProxyNativeData对象就可以了)
 此处的需要继续探索的点有以下几个：
-1. checkSubclass是什么逻辑？以及gBinderOffsets是什么？
-1. gBinderProxyOffsets是什么结构？
-1. BinderProxyNativeData是什么结构？
-1. getBPNativeData()的逻辑是什么？
+1. checkSubclass是什么逻辑？以及gBinderOffsets是什么？1. gBinderProxyOffsets是什么结构？1. BinderProxyNativeData是什么结构？1. getBPNativeData()的逻辑是什么？
 我们接下来一一分析。
 
 ```
@@ -205,9 +176,7 @@ static struct bindernative_offsets_t
 ```
 
 在android_util_Binder中也可以找到初始化的方法。 因此bindernative_offsets_t这个结构体其实存储了以下内容：
-- java层的Binder对象
-- java层Binder的execTransact方法- java层Binder的mObject对象
-
+- java层的Binder对象- java层Binder的execTransact方法- java层Binder的mObject对象
 ```
 static int int_register_android_os_Binder(JNIEnv* env)
 {
@@ -227,12 +196,7 @@ static int int_register_android_os_Binder(JNIEnv* env)
 ### binderproxy_offsets_t 与 gBinderProxyOffsets
 
 根据源码可知gBinderProxyOffsets这个对象存储了以下内容：
-- java层的BinderProxy对象
-- BinderProxy的getInstance方法
-- BinderProxy的sendDeathNotice方法
-- BinderProxy的dumpProxyDebugInfo方法
-- BinderProxy的mNativeData对象，实际上指向的就是native层这个BinderProxy对应的BinderProxyNativeData
-
+- java层的BinderProxy对象- BinderProxy的getInstance方法- BinderProxy的sendDeathNotice方法- BinderProxy的dumpProxyDebugInfo方法- BinderProxy的mNativeData对象，实际上指向的就是native层这个BinderProxy对应的BinderProxyNativeData
 ```
 static struct binderproxy_offsets_t
 {
@@ -277,9 +241,7 @@ static int int_register_android_os_BinderProxy(JNIEnv* env)
 ### android_util_Binder.BinderProxyNativeData
 
 这个类就两个属性，根据注释有以下要点：
-- 每个BinderProxy对象对应一个BinderProxyNativeData
-- 存储了native层对应的Binder对象- 存储了该Binder对象的死亡回调
-
+- 每个BinderProxy对象对应一个BinderProxyNativeData- 存储了native层对应的Binder对象- 存储了该Binder对象的死亡回调
 ```
 // We aggregate native pointer fields for BinderProxy in a single object to allow
 // management with a single NativeAllocationRegistry, and to reduce the number of JNI
@@ -312,9 +274,4 @@ BinderProxyNativeData* getBPNativeData(JNIEnv* env, jobject obj) {
 # ibinderForJavaObject 与 javaObjectForIBinder总结
 
 要点：
-- java层直接与native层交互的对象有两个——Binder对象与BinderProxy对象。 Binder对应“Binder在本进程”的场景，BinderProxy对应“Binder在其他进程”的场景。
-- native层javaBBinder与java层的Binder一一对应。 native层的BinderProxyNativeData与java层的BinderProxy一一对应。
-- 在native层，gBinderProxyOffsets(binderproxy_offsets_t)存储了java层binderProxy的对象与需要调用的方法和属性。gBinderOffsets(binderproxy_offsets_t)存储了java层binder的对象与需要调用的方法和属性。
-- ibinderForJavaObject负责通过java的Binder或者BinderProxy对象，找到并返回native层的IBinder对象。
-- javaObjectForIBinder通过native层的IBinder对象，找到或者封装成java对象返回。 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/492.png" alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/493.png" alt="在这里插入图片描述">
+- java层直接与native层交互的对象有两个——Binder对象与BinderProxy对象。 Binder对应“Binder在本进程”的场景，BinderProxy对应“Binder在其他进程”的场景。- native层javaBBinder与java层的Binder一一对应。 native层的BinderProxyNativeData与java层的BinderProxy一一对应。- 在native层，gBinderProxyOffsets(binderproxy_offsets_t)存储了java层binderProxy的对象与需要调用的方法和属性。gBinderOffsets(binderproxy_offsets_t)存储了java层binder的对象与需要调用的方法和属性。- ibinderForJavaObject负责通过java的Binder或者BinderProxy对象，找到并返回native层的IBinder对象。- javaObjectForIBinder通过native层的IBinder对象，找到或者封装成java对象返回。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/512.png" alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/513.png" alt="在这里插入图片描述">

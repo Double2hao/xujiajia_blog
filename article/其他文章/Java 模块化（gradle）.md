@@ -1,7 +1,7 @@
 #Java 模块化（gradle）
 # 模块化
 
-什么是模块化，直接看下面两张图。 <img src="https://img-blog.csdnimg.cn/20190112105913217.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> <img src="https://img-blog.csdnimg.cn/20190112114323888.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> 上面是非模块化的项目，下面是模块化的项目。
+什么是模块化，直接看下面两张图。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/790.png" alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/791.png" alt="在这里插入图片描述"> 上面是非模块化的项目，下面是模块化的项目。
 
 # 非模块化的问题
 
@@ -9,7 +9,7 @@
 
 # 例子
 
-光讲理论还是让人难以理解，那么用个简单的例子来具体讲一下。 <img src="https://img-blog.csdnimg.cn/20190112110004152.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> 上图是非模块化的一个项目，其中包括base包中的一些基类，然后有Consumer和Producer两个应用类，Main类如下：
+光讲理论还是让人难以理解，那么用个简单的例子来具体讲一下。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/792.png" alt="在这里插入图片描述"> 上图是非模块化的一个项目，其中包括base包中的一些基类，然后有Consumer和Producer两个应用类，Main类如下：
 
 ```
 import implement.Consumer;
@@ -35,7 +35,7 @@ public class Main {
 
 ## 创建module
 
-如果和笔者一样使用的是IDEA的话，直接File-&gt;New-&gt;Module就可以创建。使用IDEA创建，src、build.gradle等文件，IDEA也会自动帮忙创建好。 创建后如下图： <img src="https://img-blog.csdnimg.cn/20190112112446275.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> 如果不是使用IDEA，直接在主项目目录下创建BaseProject文件就可以，然后再去创建src等文件。 module都创建完毕后将代码都放到各个module中，效果大致如下： <img src="https://img-blog.csdnimg.cn/20190112113213101.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+如果和笔者一样使用的是IDEA的话，直接File-&gt;New-&gt;Module就可以创建。使用IDEA创建，src、build.gradle等文件，IDEA也会自动帮忙创建好。 创建后如下图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/793.png" alt="在这里插入图片描述"> 如果不是使用IDEA，直接在主项目目录下创建BaseProject文件就可以，然后再去创建src等文件。 module都创建完毕后将代码都放到各个module中，效果大致如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/794.png" alt="在这里插入图片描述">
 
 ## setting.gradle 添加module
 
@@ -51,6 +51,6 @@ include 'Producer'
 
 ## 依赖分开管理
 
-创建完module，将原来的类直接移动到module中，我们可以发现是会有error的，效果大致如下： <img src="https://img-blog.csdnimg.cn/20190112113648942.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> 可以看到是因为找不到Base类，因此我们要在Consumer和Producer的module中添加BaseProject这个module的依赖，如下图，可以看到error已经消失。 <img src="https://img-blog.csdnimg.cn/20190112113915529.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+创建完module，将原来的类直接移动到module中，我们可以发现是会有error的，效果大致如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/795.png" alt="在这里插入图片描述"> 可以看到是因为找不到Base类，因此我们要在Consumer和Producer的module中添加BaseProject这个module的依赖，如下图，可以看到error已经消失。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/796.png" alt="在这里插入图片描述">
 
 如果本身在主项目中，module就有一些依赖，可以将这些依赖分开到各个module中。 就拿例子中的项目来说，共用的一些依赖可以放到BaseProject这个module中，私有的一些依赖就分别放到Consumer和Producer这两个module中。

@@ -1,5 +1,4 @@
-#
-动态编译 java  ASM入门
+#动态编译 java  ASM入门
 # 概述
 
 ASM 是java字节码操作框架。 由于ASM性能好的原因，所以在动态编译上往往比Javassist上使用的更加广泛。
@@ -10,10 +9,7 @@ ASM 是java字节码操作框架。 由于ASM性能好的原因，所以在动�
 
 # Demo 概述
 
-<img src="https://img-blog.csdnimg.cn/20200405102134184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" width="40%" height="40%"><img src="https://img-blog.csdnimg.cn/20200405102241379.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" width="40%" height="40%"> 
-
-本demo通过ASM，实现在方法中动态插入代码的功能。 主要代码如下：
-
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1920.png" width="40%" height="40%"><img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1921.png" width="40%" height="40%"> 本demo通过ASM，实现在方法中动态插入代码的功能。 主要代码如下：
 
 ```
 public class PluginTestClass {<!-- -->
@@ -55,9 +51,7 @@ public class MainActivity extends AppCompatActivity {<!-- -->
 
 # “代码插入”实现流程
 
-1. 自己实现了TestFileUtils.java这个类来递归遍历文件夹下的所有文件。
- 2. 遍历所有文件找到PluginTestClass这个类。 
- 3. 使用ClassVisitor 和MethodVisitor 分别来找到init方法和修改init方法。
+1、自己实现了TestFileUtils.java这个类来递归遍历文件夹下的所有文件。 2、遍历所有文件找到PluginTestClass这个类。 3、使用ClassVisitor 和MethodVisitor 分别来找到init方法和修改init方法。
 
 >  
  MethodVisitor中的visitMaxs方法用于返回最大的操作数栈和局部变量表，这两项往往会根据插入的代码而改变。（此demo中插入的代码不会导致这两者改变，因此此demo中没有修改） 笔者自己单独写了一篇文章用于讲解着两个概念，对其有兴趣的读者可以看下：  

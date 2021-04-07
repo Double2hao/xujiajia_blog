@@ -3,7 +3,7 @@
 
 # StudyWebView架构
 
- <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/component_bridges.png" >
+ <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/70.png" >
 
 StudyRouter架构如上图，主要几个模块的功能如下：
 - webview
@@ -24,7 +24,7 @@ Component处于webview进程。H5通过单一的通道来调用客户端的功�
 
 # 客户端webview一般原理
 
- <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/webview_h5.png" >
+ <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/71.png" >
 
 
 ## webview与其他业务同一个进程
@@ -34,7 +34,7 @@ Component处于webview进程。H5通过单一的通道来调用客户端的功�
 - H5->客户端
 通过webview通知到客户端，然后客户端根据cmd找到对应的bridge，执行相关逻辑。
 
- <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/normal_bridge.png" >
+ <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/72.png" >
 
 
 ## webview单独进程
@@ -42,7 +42,7 @@ webview一般建议设置单独进程。主要是为了避免影响业务进程�
 
 如果设置单独进程，那么相比直接在业务进程使用webview的场景，就需要多一个“与业务进程的IPC通信”。
 
- <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/two_project_bridge.png" >
+ <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/73.png" >
 
 
 

@@ -12,12 +12,7 @@
 # 简单Demo
 
 本文的Demo，通过动态编译实现在代码中插入一行代码。 主要实现步骤如下：
-1. 实现gradle Plugin。
-1. 实现Transform，并且在Plugin中注册。
-1. Plugin编译，并且上传到本地仓库。
-1. app项目应用Plugin，通过插件实现动态编译。
-1. 运行项目，查看动态编译结果。
-
+1. 实现gradle Plugin。1. 实现Transform，并且在Plugin中注册。1. Plugin编译，并且上传到本地仓库。1. app项目应用Plugin，通过插件实现动态编译。1. 运行项目，查看动态编译结果。
 # Demo结果
 
 ```
@@ -56,9 +51,7 @@ public class MainActivity extends AppCompatActivity {<!-- -->
 # testplugin模块
 
 这个模块主要实现了两个内容：
-1. 实现插件
-1. 实现Transform，编辑class文件，插入代码。
-
+1. 实现插件1. 实现Transform，编辑class文件，插入代码。
 ##### build.gradle
 
 ```
@@ -213,7 +206,7 @@ implementation-class=com.example.testplugin.TestPlugin
 需要再根目录添加插件的仓库地址和依赖插件。
 
 >  
- 笔者在testplugin项目中生成repo仓库后，会再复制一份到根目录，这份根目录的repo才是真正使用到的仓库。 代码多一个copy的过程的目的：主要是避免testplugin/repo仓库删除的时候项目没法编译。 <img src="https://img-blog.csdnimg.cn/20200329101338604.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" width="30%" height="30%"> 
+ 笔者在testplugin项目中生成repo仓库后，会再复制一份到根目录，这份根目录的repo才是真正使用到的仓库。 代码多一个copy的过程的目的：主要是避免testplugin/repo仓库删除的时候项目没法编译。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/670.png" width="30%" height="30%"> 
 
 
 ```

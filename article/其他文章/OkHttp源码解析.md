@@ -172,7 +172,7 @@ RealInterceptorChain方法中忽略了各种异常情况后，可以发现它其
 
 # Interceptor 的责任链模式
 
-关于此处Interceptor的逻辑，在下图中可以很好的体现。 （图片转自：https://blog.piasy.com/2016/07/11/Understand-OkHttp/） <img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwOTAxMTAyMTA5MzA4?x-oss-process=image/format,png" alt="这里写图片描述">
+关于此处Interceptor的逻辑，在下图中可以很好的体现。 （图片转自：https://blog.piasy.com/2016/07/11/Understand-OkHttp/） <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1860.png" alt="这里写图片描述">
 
 **责任链模式概念** 多个对象都有机会处理请求，从而避免了请求的发送者和接收者之间的耦合关系。将这些对象连城一条链，并沿着这条链传递该请求，直到把它处理完为止。
 

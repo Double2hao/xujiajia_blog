@@ -23,7 +23,7 @@
 
 # 效果
 
-功能:每2秒更新一下UI。 <img src="https://img-blog.csdn.net/20170228154604707?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRG91YmxlMmhhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述">
+功能:每2秒更新一下UI。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1330.png" alt="这里写图片描述">
 
 # 主要代码：
 

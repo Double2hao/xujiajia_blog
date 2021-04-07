@@ -9,7 +9,7 @@
 
 # 简单用法
 
-<img src="https://img-blog.csdn.net/20170303174619371?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRG91YmxlMmhhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">  如上是Fragment的简单使用演示，主要代码如下：
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/890.png" alt="这里写图片描述" title="">  如上是Fragment的简单使用演示，主要代码如下：
 
 ```
         btnMainOne =(Button)findViewById(R.id.btn_main_one);
@@ -51,7 +51,7 @@
 
 # 添加到返回栈
 
-在使用Fragment的时候，我们经常会有一个这样的需求，就是需要通过返回键让fragment回复到之前的一个状态。使用FragmentTransaction就能很容易做到，效果如下：  <img src="https://img-blog.csdn.net/20170303175543604?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRG91YmxlMmhhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+在使用Fragment的时候，我们经常会有一个这样的需求，就是需要通过返回键让fragment回复到之前的一个状态。使用FragmentTransaction就能很容易做到，效果如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/891.png" alt="这里写图片描述" title="">
 
 其实主要就是通过addToBackStack（）这个方法，在commit（）之前使用，能够保留commit之前的状态，在使用返回键时，能够回到之前的状态。  具体代码如下：
 

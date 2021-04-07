@@ -40,11 +40,11 @@ LiteApp集合了Native App和Web App的优势，使用WebView+Native的开发方
 
 ## Web App
 
-<img src="https://github.com/iqiyi/LiteApp/blob/master/Images/html5.gif?raw=true" alt="这里写图片描述" title="">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/180.png" alt="这里写图片描述" title="">
 
 ## LiteApp
 
-<img src="https://github.com/iqiyi/LiteApp/blob/master/Images/liteApp.gif?raw=true" alt="这里写图片描述" title="">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/181.png" alt="这里写图片描述" title="">
 
 >  
  更多内容可以查看github官方开源项目：   

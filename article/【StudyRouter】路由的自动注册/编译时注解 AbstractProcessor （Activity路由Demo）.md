@@ -10,10 +10,7 @@
 
 
 # 主要模块
-1. **anotationrouter**：创建注解
-1. **processortest**：自定义注解解释器，即实现AbstractProcessor。
-1. **app**：使用注解
-
+1. **anotationrouter**：创建注解1. **processortest**：自定义注解解释器，即实现AbstractProcessor。1. **app**：使用注解
 # 创建注解
 
 ##### TestRouter
@@ -74,10 +71,7 @@ public class RouterManager {<!-- -->
 ##### build.gradle(processortest模块)
 
 主要引入了几个依赖：
-- annotationrouter：用于引入demo中定义的注解
-- javapoet：用于动态生成文件
-- auto-service：用来生成META-INF/services/javax.annotation.processing.Processor文件
- <img src="https://img-blog.csdnimg.cn/20200322161739577.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" width="50%" height="50%">
+- annotationrouter：用于引入demo中定义的注解- javapoet：用于动态生成文件- auto-service：用来生成META-INF/services/javax.annotation.processing.Processor文件 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3240.png" width="50%" height="50%">
 >  
  这里为什么auto-service同时需要compileOnly和annotationProcessor？ compileOnly：为了在源文件中可以使用@AutoService annotationProcessor：为了触发注解解释器 
 
@@ -171,11 +165,7 @@ public class TestRouterProcessor extends AbstractProcessor {<!-- -->
 ##### build.gradle（app模块）
 
 主要引用了两个模块：
-1. annotationrouter：引用注解模块，这样可以再Activity上使用TestRouter
-1. processortest：使用注解解释器触发processortest模块，编译结束后可以动态生成TestRouterInit文件。
-
- <img src="https://img-blog.csdnimg.cn/20200322161121966.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" width="50%" height="50%">
-
+1. annotationrouter：引用注解模块，这样可以再Activity上使用TestRouter1. processortest：使用注解解释器触发processortest模块，编译结束后可以动态生成TestRouterInit文件。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3241.png" width="50%" height="50%">
 ```
 apply plugin: 'com.android.application'
 
@@ -213,4 +203,5 @@ public class MainActivity extends AppCompatActivity {<!-- -->
 
 ```
 com.example.annotaiontest I/System.out: RouterManager:{<!-- -->MainActivity=scheme://test}
+
 ```

@@ -11,25 +11,25 @@
 
 **服务器上的XML文件：**
 
-<img alt="" class="has" src="https://img-blog.csdn.net/20151111095443145?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/240.png">
 
  
 
 **解析XML后通过Log输出：**
 
-<img alt="" class="has" src="https://img-blog.csdn.net/20151111095525543?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/241.png">
 
  
 
 **服务器上的json文件：**
 
-<img alt="" class="has" src="https://img-blog.csdn.net/20151111095555289?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/242.png">
 
  
 
 **解析json后通过Log输出：**
 
-<img alt="" class="has" src="https://img-blog.csdn.net/20151111095611950?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/243.png">
 
  
 
@@ -45,7 +45,7 @@
 
  
 
-<img alt="" class="has" src="https://img-blog.csdn.net/20151111123314345?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/244.png">
 
  
 
@@ -73,7 +73,7 @@ get_data.json
 
  
 
-<img alt="" class="has" src="https://img-blog.csdn.net/20151111123539676?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/245.png">
 
  
 
@@ -81,7 +81,7 @@ get_data.json
 
  
 
-<img alt="" class="has" src="https://img-blog.csdn.net/20151111123850042?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/246.png">
 
  
 

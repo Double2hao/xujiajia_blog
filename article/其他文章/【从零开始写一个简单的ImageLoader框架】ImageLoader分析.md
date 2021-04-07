@@ -39,7 +39,7 @@
 
 ## 代码预览
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2060.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2110.png" alt="这里写图片描述">
 
 在笔者demo中主要使用到的方法为bindBitMap，此方法使用与ImageRecyclerAdapter中
 

@@ -8,14 +8,14 @@
 
 
 # 简介
-1. 使用nodejs模拟客户端发送消息。1. netty中使用SocketInHandler和DealWeiHandler分别负责解析和处理业务逻辑。netty大概结构如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2720.png" alt="在这里插入图片描述"> 3、协议demo如下：（此协议完全可以自定义，此处只是随便的一个demo）
+1. 使用nodejs模拟客户端发送消息。1. netty中使用SocketInHandler和DealWeiHandler分别负责解析和处理业务逻辑。netty大概结构如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2770.png" alt="在这里插入图片描述"> 3、协议demo如下：（此协议完全可以自定义，此处只是随便的一个demo）
 >  
  M_NET_HEADER_STARTurlM_BLANKhttp://www.iqiyi.com?name=hello userM_BLANKphoneM_NET_HEADER_END{id:123123123,data:{name:aaa}} 
 
 
 主要分为header和json，header以’M_NET_HEADER_START’为开始标识符，以‘M_NET_HEADER_END’为结束标识符，以‘M_BLANK’为间隔标识符。
 
-最终服务器端打印效果如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2721.png" alt="在这里插入图片描述">
+最终服务器端打印效果如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2771.png" alt="在这里插入图片描述">
 
 # 代码
 

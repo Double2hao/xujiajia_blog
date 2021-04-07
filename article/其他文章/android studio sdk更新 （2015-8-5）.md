@@ -5,7 +5,7 @@
 
 首先要修改系统文件hosts,如图：
 
-<img alt="技术分享" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2370.png">
+<img alt="技术分享" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2420.png">
 
 路径基本都差不多，自己根据自己的系统看咯
 
@@ -13,7 +13,7 @@
 
 打开如下图：
 
-<img alt="技术分享" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2371.png">
+<img alt="技术分享" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2421.png">
 
 然后添加这2句代码到末尾
 
@@ -27,12 +27,12 @@
 
  
 
-<img alt="技术分享" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2372.png">
+<img alt="技术分享" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2422.png">
 
  
 
 接下来打开SDK里面的Android SDK Manager，在Tools下的 Options 里面，有一项 Force https://..sources to be fetched using http://... 将这一项勾选上，添上对应的HTTP地址和端口，如下图：
 
-<img alt="技术分享" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2373.png">
+<img alt="技术分享" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2423.png">
 
  

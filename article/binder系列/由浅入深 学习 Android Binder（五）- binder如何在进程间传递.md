@@ -1,47 +1,21 @@
 #由浅入深 学习 Android Binder（五）- binder如何在进程间传递
 >  
- Android Binder系列文章：           
-
->[由浅入深 学习 Android Binder（一）- AIDL](https://xujiajia.blog.csdn.net/article/details/109865496)
-
->[由浅入深 学习 Android Binder（二）- bindService流程](https://xujiajia.blog.csdn.net/article/details/109906012)
-
->[由浅入深 学习 Android Binder（三）- java binder深究（从java到native）](https://xujiajia.blog.csdn.net/article/details/110730526)
-
->[由浅入深 学习 Android Binder（四）- ibinderForJavaObject 与 javaObjectForIBinder](https://xujiajia.blog.csdn.net/article/details/111027972)
-
->[由浅入深 学习 Android Binder（五）- binder如何在进程间传递](https://xujiajia.blog.csdn.net/article/details/111057369)
-
->[由浅入深 学习 Android Binder（六）- IPC 调用流程](https://xujiajia.blog.csdn.net/article/details/111399789)
-
->[由浅入深 学习 Android Binder（七）- IServiceManager与ServiceManagerNative（java层）](https://xujiajia.blog.csdn.net/article/details/112131416)
-
->[由浅入深 学习 Android Binder（八）- IServiceManager与BpServiceManager（native层）](https://xujiajia.blog.csdn.net/article/details/112131416)
-
->[由浅入深 学习 Android Binder（九）- service_manager 与 svclist](https://xujiajia.blog.csdn.net/article/details/112733698)
-
->[由浅入深 学习 Android Binder（十）- 总结](https://xujiajia.blog.csdn.net/article/details/112733857)
-
->[由浅入深 学习 Android Binder（十一) binder线程池](https://xujiajia.blog.csdn.net/article/details/115054785)
+ Android Binder系列文章：            
 
 
 # 概述
 
-前文分析过bindService源码，该文章地址如下：  最终得到时序图如下： <img src="https://img-blog.csdnimg.cn/20201121202423379.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述">
+前文分析过bindService源码，该文章地址如下：  最终得到时序图如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2720.png" alt="在这里插入图片描述">
 
 如上图，client进程与server进程是通过系统进程来进行通信的。
 
 实际demo中，有两个场景我们会接触到binder：
-1. client进程通过serviceConnection获取到系统进程传递的binder。
-1. server进程将service.onbind()返回的binder传递给系统进程。
-
+1. client进程通过serviceConnection获取到系统进程传递的binder。1. server进程将service.onbind()返回的binder传递给系统进程。
 我们就以server给系统进程传递binder为例，来看下“进程间是如何传递binder”，或者说“binder是以什么形式在进程间传递”。
 
 >  
  client进程与系统进程是通过IActivityManager来实现的，IActivityManager本身就是一个binder，怎么还可以传递binder？ 
- - IActivityManager是系统的Binder，而传递的Binder则是我们自定义的Binder。
- - client进程与server进程不允许直接通信，必须通过系统进程。client、server 主要调用系统进程的方式就是IActivityManager。
- - 通过序列化自定义的Binder，可以将自己本地进程的行为传递出去，让另一个进程可以通过这个Binder调用到对应的逻辑。 
+ - IActivityManager是系统的Binder，而传递的Binder则是我们自定义的Binder。- client进程与server进程不允许直接通信，必须通过系统进程。client、server 主要调用系统进程的方式就是IActivityManager。- 通过序列化自定义的Binder，可以将自己本地进程的行为传递出去，让另一个进程可以通过这个Binder调用到对应的逻辑。 
 
 
 # server进程给系统进程传递binder
@@ -204,14 +178,12 @@ public interface ITestBinder extends android.os.IInterface
 ```
 
 根据源码可知，最终其实就是通过android.os.Parcel来传递的：
-- 通过Parcel.readStrongBinder()来获取Binder。
-- 通过Parcel.writeStrongBinder(IBinder)来写入Binder。
-
+- 通过Parcel.readStrongBinder()来获取Binder。- 通过Parcel.writeStrongBinder(IBinder)来写入Binder。
 至此，“binder如何在进程间传递”的问题其实就转化成了“Parcel读写binder的原理是什么”。
 
 # 写Binder原理
 
-先放下最终的流程图，便于读者能有一个整理的理解。 <img src="https://img-blog.csdnimg.cn/20201212101356997.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+先放下最终的流程图，便于读者能有一个整理的理解。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2724.png" alt="在这里插入图片描述">
 
 ### (java) Parcel.writeStrongBinder(IBinder)
 
@@ -241,10 +213,7 @@ static const JNINativeMethod gParcelMethods[] = {
 ### android_os_Parcel.android_os_Parcel_writeStrongBinder
 
 逻辑如下：
-1. 先通过nativePtr创建native层的Parcel对象。
-1. 通过ibinderForJavaObject创建binder
-1. 通过Parcel.writeStrongBinder将binder写入
-
+1. 先通过nativePtr创建native层的Parcel对象。1. 通过ibinderForJavaObject创建binder1. 通过Parcel.writeStrongBinder将binder写入
 >  
  ibinderForJavaObject的逻辑在前文已经讲解过，不了解的读者可以看下前文： 
 
@@ -278,9 +247,7 @@ status_t Parcel::writeStrongBinder(const sp&lt;IBinder&gt;&amp; val)
 ### Parcel.flatten_binder
 
 此处且不看binder为null的异常情况，正常情况下的逻辑如下：
-- 如果binder不是本地的，即不是本进程的。 flat_binder_object的hdr.type会设置成BINDER_TYPE_HANDLE。 flat_binder_object.binder设置成0，即没有值。 flat_binder_object.handle会设置成proxy的handle值。
-- 如果binder是本地的，即本进程的。 flat_binder_object的hdr.type会设置成BINDER_TYPE_BINDER。 flat_binder_object.binder设置成本地本地binder的弱引用。 flat_binder_object.cookie设置成本地的binder。
-- 最后通过finish_flatten_binder将binder写入到Parcel中。
+- 如果binder不是本地的，即不是本进程的。 flat_binder_object的hdr.type会设置成BINDER_TYPE_HANDLE。 flat_binder_object.binder设置成0，即没有值。 flat_binder_object.handle会设置成proxy的handle值。- 如果binder是本地的，即本进程的。 flat_binder_object的hdr.type会设置成BINDER_TYPE_BINDER。 flat_binder_object.binder设置成本地本地binder的弱引用。 flat_binder_object.cookie设置成本地的binder。- 最后通过finish_flatten_binder将binder写入到Parcel中。
 >  
  finish_flatten_binder中通过调用Parcel.writeObject方法来写入flat_binder_object. 其最终的逻辑其实是给binder增加强引用计数，避免被回收。 由于此逻辑与深究“binder在进程间的传递形式”没有关系，在此就不具体分析了，有兴趣的读者可以自己看下。 
 
@@ -335,8 +302,7 @@ status_t flatten_binder(const sp&lt;ProcessState&gt;&amp; /*proc*/,
 
 # 读Binder原理
 
-先放下最终的流程图，便于读者能有一个整理的理解。
- <img src="https://img-blog.csdnimg.cn/20201212101436937.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+先放下最终的流程图，便于读者能有一个整理的理解。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2723.png" alt="在这里插入图片描述">
 
 ### (java) Parcel.readStrongBinder()
 
@@ -418,11 +384,7 @@ status_t Parcel::readNullableStrongBinder(sp&lt;IBinder&gt;* val) const
 ### Parcel.unflatten_binder
 
 根据unflatten_binder源码可知逻辑如下：
-1. 通过Parcel获取到flat_binder_object对象
-1. 根据flat_binder_object-&gt;hdr.type来走两种不同的逻辑
-1. 如果type为BINDER_TYPE_BINDER，则会返回根据flat_binder_object-&gt;cookie。
-1. 如果type为BINDER_TYPE_HANDLE,则会通过ProcessState的getStrongProxyForHandle传入handle，来获取Ibinder后返回。
-
+1. 通过Parcel获取到flat_binder_object对象1. 根据flat_binder_object-&gt;hdr.type来走两种不同的逻辑1. 如果type为BINDER_TYPE_BINDER，则会返回根据flat_binder_object-&gt;cookie。1. 如果type为BINDER_TYPE_HANDLE,则会通过ProcessState的getStrongProxyForHandle传入handle，来获取Ibinder后返回。
 finish_unflatten_binder只是会返回一个状态，因此不需要关注。
 
 那么，flat_binder_object是什么？
@@ -459,12 +421,7 @@ inline static status_t finish_unflatten_binder(
 # flat_binder_object
 
 在/bionic/libc/kernel/uapi/linux/android/binder.h文件中可以找到这个struct。 可以确定这几个对象：
-- hdr.type：存储binder的type
-- flags：标记，会记录与binder相关的一些状态
-- binder: 当type=BINDER_TYPE_BINDER时，它指向Binder对象的弱引用
-- handle：当type=BINDER_TYPE_HANDLE时，handle对应着binder驱动中 其他进程的binder
-- cookie：当type=BINDER_TYPE_BINDER时，它指向Binder对象
-
+- hdr.type：存储binder的type- flags：标记，会记录与binder相关的一些状态- binder: 当type=BINDER_TYPE_BINDER时，它指向Binder对象的弱引用- handle：当type=BINDER_TYPE_HANDLE时，handle对应着binder驱动中 其他进程的binder- cookie：当type=BINDER_TYPE_BINDER时，它指向Binder对象
 ```
 #ifdef BINDER_IPC_32BIT
 typedef __u32 binder_size_t;
@@ -567,9 +524,5 @@ BpBinder* BpBinder::create(int32_t handle) {
 # Parcel读写binder总结
 
 走完整个流程的源码解析，再看下流程图就会清晰很多了。 笔者认为有以下要点：
-- native层的binder信息会以flat_binder_object的结构存储在Parcel中。
-- flat_binder_object.hdr.type为BINDER_TYPE_BINDER代表是本地的binder，那么flat_binder_object中会存储真实的binder。
-- flat_binder_object.hdr.type为BINDER_TYPE_BINDER代表远端的binder，那么flat_binder_object中会存储调用远端binder的handle。
-- 当binder是远端的时，本地进程实际存储的是BpBinder对象，其中封装了调用远端binder的handle与本地的uid。
-
-<img src="https://img-blog.csdnimg.cn/20201212101436937.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> <img src="https://img-blog.csdnimg.cn/20201212101356997.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+- native层的binder信息会以flat_binder_object的结构存储在Parcel中。- flat_binder_object.hdr.type为BINDER_TYPE_BINDER代表是本地的binder，那么flat_binder_object中会存储真实的binder。- flat_binder_object.hdr.type为BINDER_TYPE_BINDER代表远端的binder，那么flat_binder_object中会存储调用远端binder的handle。- 当binder是远端的时，本地进程实际存储的是BpBinder对象，其中封装了调用远端binder的handle与本地的uid。
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2723.png" alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2724.png" alt="在这里插入图片描述">

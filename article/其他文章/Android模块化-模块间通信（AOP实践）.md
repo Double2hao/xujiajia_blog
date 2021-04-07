@@ -31,7 +31,7 @@
 1. 包括，app模块，core模块，login模块1. core模块：实现供其他模块注册与调用的接口1. login模块：实现调起登录页面的接口，并且会在登录成功后调用被注册的callback。1. app模块：调用调起登录页面的接口，注册登录成功后的回调。
 ## app模块
 
-<img src="https://img-blog.csdnimg.cn/20191019112111392.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly94dWppYWppYS5ibG9nLmNzZG4ubmV0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/20.png" alt="在这里插入图片描述">
 
 ### MainActivity.java
 
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {<!-- -->
 
 ## login模块
 
-<img src="https://img-blog.csdnimg.cn/20191019112128509.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly94dWppYWppYS5ibG9nLmNzZG4ubmV0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/21.png" alt="在这里插入图片描述">
 
 ### LoginActivity.java
 
@@ -99,7 +99,7 @@ public class ModuleProvider {<!-- -->
 
 ## core模块
 
-<img src="https://img-blog.csdnimg.cn/20191019112119423.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly94dWppYWppYS5ibG9nLmNzZG4ubmV0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/22.png" alt="在这里插入图片描述">
 
 ### ModuleCenter.java
 

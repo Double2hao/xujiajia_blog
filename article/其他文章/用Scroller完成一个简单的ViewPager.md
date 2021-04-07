@@ -7,7 +7,7 @@ ViewPager是我们常用的控件之一，此篇文章我们用Scroller等知识
 
 ## （源码在文章结尾）
 
-<img src="https://img-blog.csdn.net/20170223154857082?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRG91YmxlMmhhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1310.png" alt="这里写图片描述" title="">
 
 # 涉及知识点
 

@@ -11,7 +11,7 @@
 
 错误截图：
 
-<img alt="" class="has" src="http://lbsbbs.amap.com/forum.php?mod=attachment&amp;aid=NDE3OHxkYTE1NmFkYXwxNDYyNDU1NTkwfDI5NDk4fDExNDIw&amp;noupdate=yes">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1680.png">
 
  
 
@@ -51,7 +51,7 @@
 
 （网址：）
 
-<img alt="" class="has" src="https://img-blog.csdn.net/20160518105654637?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1681.png">
 
  
 

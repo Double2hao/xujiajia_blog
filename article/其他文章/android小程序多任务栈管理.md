@@ -5,7 +5,7 @@
 
 要知道什么是小程序的任务栈管理，直接看微信小程序即可：
 1. 一次最多启动5个小程序1. 小程序启动到达上限后，会关闭最久未使用的小程序，并且打开新的小程序。
-微信小程序使用时，如下图： <img src="https://img-blog.csdnimg.cn/20210228072852375.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" width="20%" height="20%">
+微信小程序使用时，如下图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3190.png" width="20%" height="20%">
 
 ### 实现要点
 
@@ -17,9 +17,9 @@
  Demo的github地址如下：  
 
 
-Demo如下图： <img src="https://img-blog.csdnimg.cn/20210228072942679.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" width="20%" height="20%">
+Demo如下图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3191.png" width="20%" height="20%">
 
-Demo中打开多任务栈的场景如下： <img src="https://img-blog.csdnimg.cn/20210228073015482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" width="20%" height="20%">
+Demo中打开多任务栈的场景如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3192.png" width="20%" height="20%">
 
 # 关键实现
 

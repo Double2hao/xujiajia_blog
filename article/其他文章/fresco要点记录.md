@@ -17,4 +17,4 @@ fresco官方的描述中主要有以下几个特点：
 
 # 架构
 
-<img src="https://img-blog.csdnimg.cn/20191109090539371.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly94dWppYWppYS5ibG9nLmNzZG4ubmV0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1820.png" alt="在这里插入图片描述">

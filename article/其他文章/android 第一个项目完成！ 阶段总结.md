@@ -9,7 +9,7 @@
 
 当然这期间我也是没有停止写博客，于2016年1月6日，我博客访问量已经突破了一万，自己的原创文章也已经写了59篇（加上这篇正好60篇），以下是截图：
 
-<img src="https://img-blog.csdn.net/20160106185544739?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="">  <img src="https://img-blog.csdn.net/20160106185548999?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""> 
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/960.png" alt="">  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/961.png" alt=""> 
 
  
 

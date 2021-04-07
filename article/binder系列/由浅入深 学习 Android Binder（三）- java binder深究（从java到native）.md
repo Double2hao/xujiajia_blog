@@ -1,28 +1,6 @@
 #由浅入深 学习 Android Binder（三）- java binder深究（从java到native）
 >  
- Android Binder系列文章：           
-
->[由浅入深 学习 Android Binder（一）- AIDL](https://xujiajia.blog.csdn.net/article/details/109865496)
-
->[由浅入深 学习 Android Binder（二）- bindService流程](https://xujiajia.blog.csdn.net/article/details/109906012)
-
->[由浅入深 学习 Android Binder（三）- java binder深究（从java到native）](https://xujiajia.blog.csdn.net/article/details/110730526)
-
->[由浅入深 学习 Android Binder（四）- ibinderForJavaObject 与 javaObjectForIBinder](https://xujiajia.blog.csdn.net/article/details/111027972)
-
->[由浅入深 学习 Android Binder（五）- binder如何在进程间传递](https://xujiajia.blog.csdn.net/article/details/111057369)
-
->[由浅入深 学习 Android Binder（六）- IPC 调用流程](https://xujiajia.blog.csdn.net/article/details/111399789)
-
->[由浅入深 学习 Android Binder（七）- IServiceManager与ServiceManagerNative（java层）](https://xujiajia.blog.csdn.net/article/details/112131416)
-
->[由浅入深 学习 Android Binder（八）- IServiceManager与BpServiceManager（native层）](https://xujiajia.blog.csdn.net/article/details/112131416)
-
->[由浅入深 学习 Android Binder（九）- service_manager 与 svclist](https://xujiajia.blog.csdn.net/article/details/112733698)
-
->[由浅入深 学习 Android Binder（十）- 总结](https://xujiajia.blog.csdn.net/article/details/112733857)
-
->[由浅入深 学习 Android Binder（十一) binder线程池](https://xujiajia.blog.csdn.net/article/details/115054785)
+ Android Binder系列文章：            
 
 
 # 概述
@@ -32,13 +10,10 @@
 
 
 前文讲到bindService流程，其中多次碰到用binder实现的IPC，有以下几个：
-1. client进程 通过IPC 通知AMS进程去bindService
-2. AMS进程 通过IPC 通知server进程去bindService
-3. server进程 通过IPC 通知AMS进程bindService结果
-4. AMS进程 通过IPC 告诉client进程bindService结果
+1. client进程 通过IPC 通知AMS进程去bindService1. AMS进程 通过IPC 通知server进程去bindService1. server进程 通过IPC 通知AMS进程bindService结果1. AMS进程 通过IPC 告诉client进程bindService结果
 本文就选择”client通知AMS进程“的过程继续作深入，来探究下java层的binder究竟是什么。(附上前文流程图)
 
-<img src="https://img-blog.csdnimg.cn/20201206051130845.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvdWJsZTJoYW8=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2370.png" alt="在这里插入图片描述">
 
 # ContextImpl.bindServiceCommon()
 
@@ -156,9 +131,7 @@ private boolean bindServiceCommon(Intent service, ServiceConnection conn, int fl
 直接进入到ServiceManager.rawGetService()。 这里的逻辑是，先通过getIServiceManager()获取到IServiceManager对象，然后再通过这个IServiceManager对象获取到一个IBinder。
 
 注意，此处有两个IPC
-1. 获取到IServiceManager
-2. 通过IServiceManager获取到该name的IPC
-
+1. 获取到IServiceManager1. 通过IServiceManager获取到该name的IPC
 由于本文本文重在探索java到native的逻辑，我们且只看第一个。
 
 >  
@@ -184,8 +157,7 @@ private boolean bindServiceCommon(Intent service, ServiceConnection conn, int fl
 到这，可以看到返回的其实是ServiceManagerNative.asInterface()的返回值。
 
 对AIDL有所了解就知道，asInterface()的内容大概如下：
-- 这个方法属于aidl接口的内部类 Stub
-- 在同一进程中，就会直接返回Stub，如果在另一个进程中调用，就会返回将这个ibinder封装好的Proxy对象。
+- 这个方法属于aidl接口的内部类 Stub- 在同一进程中，就会直接返回Stub，如果在另一个进程中调用，就会返回将这个ibinder封装好的Proxy对象。
 >  
  对aidl不了解的可以看下前面的文章： 
 
@@ -295,8 +267,7 @@ private:
 ```
 
 这个方法中未知的细节很多，但是大致逻辑其实很简单，对具体细节没兴趣的读者直接看注释就可以。 这个方法会返回两种java对象：
--  JavaBBinder.mObject 如果发现本地已经有了JavaBBinder，就返回JavaBBinder.mObject。这个object其实是java层的Binder。 
--  BinderProxy 如果发现本地没有BinderProxy，就会调用java层的方法创建一个BinderProxy并返回。（BinderProxy是java层的android.os.BinderProxy） 
+-  JavaBBinder.mObject 如果发现本地已经有了JavaBBinder，就返回JavaBBinder.mObject。这个object其实是java层的Binder。 -  BinderProxy 如果发现本地没有BinderProxy，就会调用java层的方法创建一个BinderProxy并返回。（BinderProxy是java层的android.os.BinderProxy） 
 >  
  至于这些对象在分别代表什么，讨论起来需要很大的篇幅。笔者后面的文章会继续探索。 
 
@@ -310,7 +281,5 @@ private:
 # 继续探索
 
 这篇文章后肯定还有很多疑问，比如:
-- JavaBBinder和BinderProxy具体是啥？
-- 到底什么场景用哪个对象？- native层主要做了啥?
-
+- JavaBBinder和BinderProxy具体是啥？- 到底什么场景用哪个对象？- native层主要做了啥?
 对这些问题有兴趣的读者可以自行观看源码，或者 欢迎继续关注笔者后续文章。

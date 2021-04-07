@@ -11,7 +11,7 @@
 
 大家对android百度地图一定非常熟悉，让我们来看一下下面的图片：（百度地图）
 
-  <img alt="" class="has" height="450" src="https://img-blog.csdn.net/20160319091825859?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" width="250">  <img alt="" class="has" height="450" src="https://img-blog.csdn.net/20160319091738328?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" width="250">  <img alt="" class="has" height="450" src="https://img-blog.csdn.net/20160319091805906?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" width="250">  
+  <img alt="" class="has" height="450" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/260.png" width="250">  <img alt="" class="has" height="450" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/261.png" width="250">  <img alt="" class="has" height="450" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/262.png" width="250">  
 
 假设以上3张图片依次为ABC，笔者得到这三张图的顺序分别为：（好奇的读者可以自己试试）
 
@@ -57,7 +57,7 @@
 
 每次启动一个Activity都会重新创建一个新的实例，不管这个实例是否存在。
 
-<img alt="" class="has" height="450" src="https://img-blog.csdn.net/20160319094813183?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" width="300">
+<img alt="" class="has" height="450" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/263.png" width="300">
 
 如图，笔者依次打开的Activity是，red,blue,green,green。然后按退回键关闭的顺序分别为，green，green，blue，red。
 
@@ -69,7 +69,7 @@
 
 其实解释很简单，像上面的standard，我们可以发现，green的Activity是可以再启动一个green的Activity的，他居然可以自己跳转到自己，简直太荒唐了，浪费内存。设置了singleTop之后，如果还有“自己跳转自己”的操作，就不会再创建一个新的Activity了。
 
-<img alt="" class="has" height="450" src="https://img-blog.csdn.net/20160319095617534?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" width="300">
+<img alt="" class="has" height="450" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/264.png" width="300">
 
 如图，笔者red的Activity设置了singleTop的启动模式。
 
@@ -85,7 +85,7 @@
 
 但是如果Activity没有创建过，那么就会重新创建一个任务栈，并把新创建的Activity放入。需要理解这个就必须要懂栈的概念了，笔者此处为了让新手理解，先避开。
 
-<img alt="" class="has" height="500" src="https://img-blog.csdn.net/20160319101113225?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" width="300">
+<img alt="" class="has" height="500" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/265.png" width="300">
 
 如图，笔者blue的Activity设置了singleTask的启动模式。
 
@@ -113,7 +113,7 @@
 
 稍微讲解一下：在默认的启动模式下，当我们启动Activity的时候，系统会创建多个实例并把他们一一放入任务栈，当我们按back键，这些Activity就会一一退回。但是在singleInstance中就有所不同了，singleInstance的Activity是直接新建一个任务栈，并且独自运行在里面，并且由于栈内复用性的特性，后序均不会创建新的Activity。
 
-<img alt="" class="has" height="450" src="https://img-blog.csdn.net/20160319102931404?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" width="300">
+<img alt="" class="has" height="450" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/266.png" width="300">
 
  
 

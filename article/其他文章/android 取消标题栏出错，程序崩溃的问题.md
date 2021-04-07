@@ -5,7 +5,7 @@
 
 先看一下错误的代码，如此运行程序会崩溃：
 
-<img alt="" class="has" src="https://img-blog.csdn.net/20151011175837992?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1230.png">
 
  
 
@@ -13,7 +13,7 @@
 
 换成Activity试试：
 
-<img alt="" class="has" src="https://img-blog.csdn.net/20151011180011820?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1231.png">
 
  
 
