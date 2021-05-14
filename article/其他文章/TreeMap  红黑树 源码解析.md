@@ -15,7 +15,7 @@
 
 ### 左旋demo图和源码
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2400.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040072950.png" alt="在这里插入图片描述">
 
 ```
     private void rotateLeft(Entry&lt;K,V&gt; p) {
@@ -40,7 +40,7 @@
 
 ### 右旋demo图和源码
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2401.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040075621.png" alt="在这里插入图片描述">
 
 ```
     private void rotateRight(Entry&lt;K,V&gt; p) {

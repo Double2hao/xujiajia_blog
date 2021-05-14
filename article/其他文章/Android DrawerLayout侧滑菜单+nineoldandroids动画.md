@@ -23,7 +23,7 @@ DrawerLayout，鸿洋前辈的博客中其实写的已经很不错了，但是�
 
 效果如图：
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/880.png" width="400" height="700" alt="">  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/881.png" width="400" height="700" alt=""> 
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039254690.png" width="400" height="700" alt="">  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039255791.png" width="400" height="700" alt=""> 
 
  
 
@@ -135,7 +135,7 @@ public class MainActivity extends FragmentActivity
 
  
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/882.png" alt=""> 
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039257892.png" alt=""> 
 
  
 
@@ -143,7 +143,7 @@ public class MainActivity extends FragmentActivity
 
  
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/883.png" alt=""> 
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039258993.png" alt=""> 
 
  
 
@@ -151,7 +151,7 @@ public class MainActivity extends FragmentActivity
 
  
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/884.png" alt=""> 
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039259944.png" alt=""> 
 
  
 

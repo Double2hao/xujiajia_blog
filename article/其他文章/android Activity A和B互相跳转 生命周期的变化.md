@@ -13,32 +13,32 @@ Activity A 跳转到 Activity B，生命周期的执行过程是啥？
 
 # 打开APP，进入ActivityA
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2200.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040021090.png" alt="这里写图片描述">
 
 ## 生命周期如下：
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2201.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040022551.png" alt="这里写图片描述">
 
 # ActivityA跳转到ActivityB
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2202.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040022782.png" alt="这里写图片描述">
 
 ## 生命周期如下：
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2203.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040023613.png" alt="这里写图片描述">
 
 # ActivityB按back键返回
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2204.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040023874.png" alt="这里写图片描述">
 
 ## 生命周期如下：
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2205.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040025895.png" alt="这里写图片描述">
 
 # ActivityA按back键返回
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2206.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040026146.png" alt="这里写图片描述">
 
 ## 生命周期如下：
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2207.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040026857.png" alt="这里写图片描述">

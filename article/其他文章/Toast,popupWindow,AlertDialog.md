@@ -5,11 +5,11 @@
 
 # 效果
 
-本文主要模仿微信小程序的dialog为例子。（为了代码的简略，就不添加圆角等效果了）  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3000.png" alt="这里写图片描述" title="">
+本文主要模仿微信小程序的dialog为例子。（为了代码的简略，就不添加圆角等效果了）  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040212660.png" alt="这里写图片描述" title="">
 
-笔者用Toast,popupWindow,AlertDialog三者实现的效果如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3001.png" alt="这里写图片描述" title=""><img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3002.png" alt="这里写图片描述" title=""><img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3003.png" alt="这里写图片描述" title="">
+笔者用Toast,popupWindow,AlertDialog三者实现的效果如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040213261.png" alt="这里写图片描述" title=""><img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040214242.png" alt="这里写图片描述" title=""><img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040215623.png" alt="这里写图片描述" title="">
 
-为了显示正确，在布局最外面笔者套了一层FrameLayout，如果不套FrameLayout的显示效果如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3004.png" alt="这里写图片描述" title=""><img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3005.png" alt="这里写图片描述" title=""><img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3006.png" alt="这里写图片描述" title="">
+为了显示正确，在布局最外面笔者套了一层FrameLayout，如果不套FrameLayout的显示效果如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040216304.png" alt="这里写图片描述" title=""><img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040217695.png" alt="这里写图片描述" title=""><img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040218876.png" alt="这里写图片描述" title="">
 
 >  
  上面6张图的比较可以看出，如果在layout最外层不嵌套一个ViewGroup，最终宽高会忽视layout父View的设置而直接根据子View内容的大小绘制，那么layout可能会达不到我们预期的显示。 

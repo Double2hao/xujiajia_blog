@@ -9,7 +9,7 @@
 
 # Java内存区域图
 
-图片摘自《深入理解Java虚拟机》 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2510.png" alt="在这里插入图片描述"> Java内存主要区域：
+图片摘自《深入理解Java虚拟机》 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040107760.png" alt="在这里插入图片描述"> Java内存主要区域：
 - 程序计数器- 虚拟机栈- 本地方法栈- 堆- 方法区（包括常量池）
 ## 程序计数器
 

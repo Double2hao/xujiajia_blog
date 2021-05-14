@@ -7,7 +7,7 @@ listview，scrollview，recyclerview等如果碰到更新比较快的数据，�
 
  
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2010.png" width="300" height="500" alt=""> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2011.png" width="300" height="500" alt=""> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2012.png" width="300" height="500" alt=""> 
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039939900.png" width="300" height="500" alt=""> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039940851.png" width="300" height="500" alt=""> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039941832.png" width="300" height="500" alt=""> 
 
  
 

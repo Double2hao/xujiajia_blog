@@ -28,10 +28,10 @@ netty常用的模型主要有两种，一种是单线程负责accept和I/O，另
 
 ### 单线程负责accept和I/O
 1. Reactor线程负责接收连接和 I/O（一般也包括协议的编解码，比如HTTP协议，HTTPS协议）1. 如果连接在read之后需要有其他业务处理，比如计算之类可能耗时的操作，可以直接自定义一个线程池去做。（一般情况下编解码操作不像图中显示的一样会在自定义的线程池中做，而是通过ChannelPipeline直接在I/O的时候也在Reactor线程中做掉了）
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/390.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039142140.png" alt="在这里插入图片描述">
 
 ### 两个线程分别负责accept和I/O
-1. mainReactor线程负责接收连接1. subReactor线程一般会设置多个，负责I/O（一般也包括协议的编解码，比如HTTP协议，HTTPS协议）1. 如果连接在read之后需要有其他业务处理，比如计算之类可能耗时的操作，可以直接自定义一个线程池去做。（一般情况下编解码操作不像图中显示的一样会在自定义的线程池中做，而是通过ChannelPipeline直接在I/O的时候也在subReactor线程中做掉了） <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/391.png" alt="在这里插入图片描述">
+1. mainReactor线程负责接收连接1. subReactor线程一般会设置多个，负责I/O（一般也包括协议的编解码，比如HTTP协议，HTTPS协议）1. 如果连接在read之后需要有其他业务处理，比如计算之类可能耗时的操作，可以直接自定义一个线程池去做。（一般情况下编解码操作不像图中显示的一样会在自定义的线程池中做，而是通过ChannelPipeline直接在I/O的时候也在subReactor线程中做掉了） <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039143231.png" alt="在这里插入图片描述">
 # netty关键类
 
 ### Channel
@@ -45,7 +45,7 @@ netty常用的模型主要有两种，一种是单线程负责accept和I/O，另
 
 ### EventLoop
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/392.png" alt="在这里插入图片描述"> EventLoop是netty实现nio的关键，EventLoop在netty中一般就用来处理accpt事件和I/O事件。 一个EventLoop对应一个线程，这个线程通过循环来查看是否有需要处理的事件，如果有，那么就拿出来处理。 EventLoop中Selector和taskQueue分别负责两种事件： 1、Selector是netty内部使用的，开发者一般不会用到。它只负责与“Channel”相关的事件，比如负责accept，read和write等。 2、taskQueue有两种情况下会使用到，第一种是异步抛一个定时任务给EventLoop处理，第二种是多线程协作的时候会用到，比如其他线程抛一个I/O事件给负责I/O的EventLoop，就是添加了一个task到该EventLoop的taskQueue中。
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039145842.png" alt="在这里插入图片描述"> EventLoop是netty实现nio的关键，EventLoop在netty中一般就用来处理accpt事件和I/O事件。 一个EventLoop对应一个线程，这个线程通过循环来查看是否有需要处理的事件，如果有，那么就拿出来处理。 EventLoop中Selector和taskQueue分别负责两种事件： 1、Selector是netty内部使用的，开发者一般不会用到。它只负责与“Channel”相关的事件，比如负责accept，read和write等。 2、taskQueue有两种情况下会使用到，第一种是异步抛一个定时任务给EventLoop处理，第二种是多线程协作的时候会用到，比如其他线程抛一个I/O事件给负责I/O的EventLoop，就是添加了一个task到该EventLoop的taskQueue中。
 
 >  
  write事件在源码中的逻辑是这样的： 
@@ -54,17 +54,17 @@ netty常用的模型主要有两种，一种是单线程负责accept和I/O，另
 
 ### EventLoopGroup
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/393.png" alt="在这里插入图片描述"> 顾名思义EventLoopGroup就是EventLoop的Group，其中可以包括一个或者多个EventLoop。 在netty中，用于accept的EventLoopGroup一般只会有一个EventLoop，而用于I/O的EventLoopGroup一般会有多个EventLoop。 由于EventLoop和线程是一一对应的关系，所以I/O的EventLoopGroup有多个EventLoop也意味着有多个线程会处理I/O事件。
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039147623.png" alt="在这里插入图片描述"> 顾名思义EventLoopGroup就是EventLoop的Group，其中可以包括一个或者多个EventLoop。 在netty中，用于accept的EventLoopGroup一般只会有一个EventLoop，而用于I/O的EventLoopGroup一般会有多个EventLoop。 由于EventLoop和线程是一一对应的关系，所以I/O的EventLoopGroup有多个EventLoop也意味着有多个线程会处理I/O事件。
 
 ### SelectedSelectionKeySet
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/394.png" alt="在这里插入图片描述"> 执行Selector.select()，如果有事件，那么就会将事件作为SelectionKey加入到SelectedSelectionKeySet中。 SelectionKey会带有一个attachment，一般来说，这个attachment就是Channel。 然后就直接通过使用Channel来处理I/O事件。
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039149074.png" alt="在这里插入图片描述"> 执行Selector.select()，如果有事件，那么就会将事件作为SelectionKey加入到SelectedSelectionKeySet中。 SelectionKey会带有一个attachment，一般来说，这个attachment就是Channel。 然后就直接通过使用Channel来处理I/O事件。
 
 ### ChannelHandler和ChannelPipeline
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/395.png" alt="在这里插入图片描述"> ChannelPipeline就是ChannelHandler的一个List。 在通过Channel去执行write和read操作的时候，会通过ChannelPipeline来执行一些与I/O相关的操作，比如HTTP编码解码，SSL的加密解密等。
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039150645.png" alt="在这里插入图片描述"> ChannelPipeline就是ChannelHandler的一个List。 在通过Channel去执行write和read操作的时候，会通过ChannelPipeline来执行一些与I/O相关的操作，比如HTTP编码解码，SSL的加密解密等。
 
-值得注意的是，ChannelPipeline在出站和入站的时候，ChannelHandler的执行顺序是不同的。 在出站的时候是从head到tail，在入站的时候是从tail到head。 另外，入站的时候只执行ChannelInboundHandler，出站的时候只执行ChannelOutboundHandler。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/396.png" alt="在这里插入图片描述">
+值得注意的是，ChannelPipeline在出站和入站的时候，ChannelHandler的执行顺序是不同的。 在出站的时候是从head到tail，在入站的时候是从tail到head。 另外，入站的时候只执行ChannelInboundHandler，出站的时候只执行ChannelOutboundHandler。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039151866.png" alt="在这里插入图片描述">
 
 >  
  举个例子： 比如现在ChannelPipeline中ChannelHandler如下： 
@@ -73,7 +73,7 @@ netty常用的模型主要有两种，一种是单线程负责accept和I/O，另
 
 # 关键类模型
 
-笔者根据关键类，也画了下netty模型，可以供参考。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/397.png" alt="在这里插入图片描述">
+笔者根据关键类，也画了下netty模型，可以供参考。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039152467.png" alt="在这里插入图片描述">
 
 # EventLoop关键逻辑
 

@@ -27,7 +27,7 @@ ActivityManagerService最主要的功能就是统一的管理者activity,service
 - 调节进程的调度优先级和调度策略。- 调节进程的OOM值。
 ### App的Crash处理总结
 
-应用进程进行Crash处理的流程。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3210.png" alt="在这里插入图片描述">
+应用进程进行Crash处理的流程。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040286740.png" alt="在这里插入图片描述">
 
 # 内存管理
 
@@ -39,10 +39,10 @@ ActivityManagerService最主要的功能就是统一的管理者activity,service
 
 **总结** 在整个startService过程，从进程角度看服务启动过程
 - **Process A进程**：是指调用startService命令所在的进程，也就是启动服务的发起端进程，比如点击桌面App图标，此处Process A便是Launcher所在进程。- **system_server进程**：系统进程，是java framework框架的核心载体，里面运行了大量的系统服务，比如这里提供ApplicationThreadProxy（简称ATP），ActivityManagerService（简称AMS），这个两个服务都运行在system_server进程的不同线程中，由于ATP和AMS都是基于IBinder接口，都是binder线程，binder线程的创建与销毁都是由binder驱动来决定的，每个进程binder线程个数的上限为16。- **Zygote进程**：是由init进程孵化而来的，用于创建Java层进程的母体，所有的Java层进程都是由Zygote进程孵化而来；- **Remote Service进程**：远程服务所在进程，是由Zygote进程孵化而来的用于运行Remote服务的进程。主线程主要负责Activity/Service等组件的生命周期以及UI相关操作都运行在这个线程； 另外，每个App进程中至少会有两个binder线程 ApplicationThread(简称AT)和ActivityManagerProxy（简称AMP），当然还有其他线程，这里不是重点就不提了。
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3211.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040287241.png" alt="在这里插入图片描述">
 
 图中涉及3种IPC通信方式：Binder、Socket以及Handler，在图中分别用3种不同的颜色来代表这3种通信方式。一般来说，同一进程内的线程间通信采用的是 Handler消息队列机制，不同进程间的通信采用的是binder机制，另外与Zygote进程通信采用的Socket。
 
 **启动流程**：
 1. Process A进程采用Binder IPC向system_server进程发起startService请求；1. system_server进程接收到请求后，向zygote进程发送创建进程的请求；1. zygote进程fork出新的子进程Remote Service进程；1. Remote Service进程，通过Binder IPC向sytem_server进程发起attachApplication请求；1. system_server进程在收到请求后，进行一系列准备工作后，再通过binder IPC向remote Service进程发送scheduleCreateService请求；1. Remote Service进程的binder线程在收到请求后，通过handler向主线程发送CREATE_SERVICE消息；1. 主线程在收到Message后，通过发射机制创建目标Service，并回调Service.onCreate()方法。 到此，服务便正式启动完成。当创建的是本地服务或者服务所属进程已创建时，则无需经过上述步骤2、3，直接创建服务即可。
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3212.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040288362.png" alt="在这里插入图片描述">

@@ -93,7 +93,7 @@ uploadArchives {
 
 前提如下：
 - app项目依赖了mavenProject的aar- app项目没有依赖Okhttp，mavenProject依赖了OkHttp- app项目可以直接使用OKhttp
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1780.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039898180.png" alt="在这里插入图片描述">
 
 ### app项目的依赖如下
 

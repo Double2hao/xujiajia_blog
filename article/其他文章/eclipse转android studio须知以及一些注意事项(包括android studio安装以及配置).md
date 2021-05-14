@@ -41,7 +41,7 @@
 
 **2、android studio更新（从官网下载最新版可能不需要）**
 
-<img alt="" class="has" height="315" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/320.png" width="440">
+<img alt="" class="has" height="315" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039119260.png" width="440">
 
 安装好之后点击最下方的check便可以了。
 
@@ -71,7 +71,7 @@
 
 **具体的修改相信大家都是会的，凭自己喜好。**
 
-**<img alt="" class="has" height="230" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/321.png" width="340">   <img alt="" class="has" height="230" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/322.png" width="450">**
+**<img alt="" class="has" height="230" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039120811.png" width="340">   <img alt="" class="has" height="230" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039121382.png" width="450">**
 
  
 
@@ -81,7 +81,7 @@
 
 在此还是要打开setting界面，具体的为File-&gt;setting-&gt;keymap，然后直接修改便可以，具体如图。
 
-<img alt="" class="has" height="290" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/323.png" width="450">
+<img alt="" class="has" height="290" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039123063.png" width="450">
 
  
 

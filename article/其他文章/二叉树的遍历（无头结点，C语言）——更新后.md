@@ -46,7 +46,7 @@ typedef struct BiTNode
 
 效果：
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2300.png" alt=""> 
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040049910.png" alt=""> 
 
  
 

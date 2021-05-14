@@ -5,21 +5,21 @@
 
 主要是AndroidManifest.xml中对权限的设置。
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1650.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039763970.png">
 
  
 
-<img alt="" class="has" height="480" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1651.png" width="270">
+<img alt="" class="has" height="480" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039764991.png" width="270">
 
  
 
  
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1652.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039766562.png">
 
  
 
-<img alt="" class="has" height="480" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1653.png" width="270">
+<img alt="" class="has" height="480" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039767753.png" width="270">
 
  
 

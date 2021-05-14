@@ -7,7 +7,7 @@ Error:(1, 0) Plugin is too old, please update to a more recent version, or set A
 
  
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1350.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039392820.png">
 
  
 
@@ -19,7 +19,7 @@ Error:(1, 0) Plugin is too old, please update to a more recent version, or set A
 
  
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1351.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039393131.png">
 
  
 
@@ -29,7 +29,7 @@ Error:(1, 0) Plugin is too old, please update to a more recent version, or set A
 
  
 
-**<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1352.png">**
+**<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039393442.png">**
 
  
 

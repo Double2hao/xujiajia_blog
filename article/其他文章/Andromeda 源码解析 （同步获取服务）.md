@@ -29,7 +29,7 @@ Andromeda架构的核心就Dispatcher和RemoteTransfer。 每个进程通过Remo
 
 ### 例图
 
-举个简单的例子，比如现在有A,B两个进程，A和B要实现进程间通信的需求，那么通信的图就如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1070.png" alt="在这里插入图片描述">
+举个简单的例子，比如现在有A,B两个进程，A和B要实现进程间通信的需求，那么通信的图就如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039318440.png" alt="在这里插入图片描述">
 
 # 远程服务的同步调用
 

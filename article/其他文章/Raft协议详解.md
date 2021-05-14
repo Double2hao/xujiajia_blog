@@ -21,7 +21,7 @@ Raft是一个一致性算法，它用于在分布式场景中保证多个副本�
 
 ### Term序列
 
-Raft将整个系统执行时间划分成多个时间片段，每个时间片段对应一个Term编号，因此整个系统执行时间就是一个Term序列。 每次选举只会对应一个Term编号，如果选举失败，Term会递增，进行下一次选举。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/370.png" alt="在这里插入图片描述">
+Raft将整个系统执行时间划分成多个时间片段，每个时间片段对应一个Term编号，因此整个系统执行时间就是一个Term序列。 每次选举只会对应一个Term编号，如果选举失败，Term会递增，进行下一次选举。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039129560.png" alt="在这里插入图片描述">
 
 # Leader选举
 
@@ -43,13 +43,13 @@ log同步笔者个人认为可以分为log复制和log提交两个部分：
 
 Leader会为每个Follower维护一个nextIndex，表示Leader给各个Follower发送的下一条log entry在log中的index，初始化为leader的最后一条log的下一个位置。 Leader给Follower发送复制Log的请求，带着(term_id, (nextIndex-1))， term_id即(nextIndex-1)这个槽位的log 的term_id，Follower接收到复制Log请求后，会从自己的Log中找是不是存在这样的Log entry，如果不存在，就给Leader回复拒绝消息，然后leader则将nextIndex减1，再重复，知道复制Log请求被接收。
 
-以下图Leader和b为例： 初始化，nextIndex为11，leader给b发送复制Log请求(6,10)，b在自己log的10号槽位中没有找到term_id为6的log 。则给Leader回应一个拒绝消息。接着，Leader将nextIndex减1，变成10，然后给b发送复制Log请求(6, 9)，b在自己log的9号槽位中同样没有找到term_id为6的log 。循环下去，直到leader发送了复制Log请求(4,4)，b在自己log的槽位4中找到了term_id为4的log 。接收了消息。随后，leader就可以从槽位5开始给b推送日志了。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/371.png" alt="在这里插入图片描述">
+以下图Leader和b为例： 初始化，nextIndex为11，leader给b发送复制Log请求(6,10)，b在自己log的10号槽位中没有找到term_id为6的log 。则给Leader回应一个拒绝消息。接着，Leader将nextIndex减1，变成10，然后给b发送复制Log请求(6, 9)，b在自己log的9号槽位中同样没有找到term_id为6的log 。循环下去，直到leader发送了复制Log请求(4,4)，b在自己log的槽位4中找到了term_id为4的log 。接收了消息。随后，leader就可以从槽位5开始给b推送日志了。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039130691.png" alt="在这里插入图片描述">
 
 ## log提交
 
 假设现在有一个5台服务器的集群，目前每个服务器的log结构如下图。 在这个集群中，在index=7之前的log都是可以提交的，因为在5台服务器中，已经有3台已经正确复制了这些log。 而index=8的log是不可以提交的，因为并没有达到”大部分服务器复制了该log“的条件。
 
-所以，在这种情况下，只有index=7 以及之前的log会被执行，index=8的log虽然已经复制在了部分服务器的log数据中，但是由于没有被提交，所以是不会执行的。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/372.png" alt="在这里插入图片描述">
+所以，在这种情况下，只有index=7 以及之前的log会被执行，index=8的log虽然已经复制在了部分服务器的log数据中，但是由于没有被提交，所以是不会执行的。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039131572.png" alt="在这里插入图片描述">
 
 # 安全性
 

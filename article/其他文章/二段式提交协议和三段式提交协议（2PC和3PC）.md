@@ -11,7 +11,7 @@
 
 主要有两个阶段：
 1. 准备阶段1. 提交阶段
-主要步骤如下： 4. 步骤一，协调者询问参与者是否可以提交。 5. 步骤二，参与者告知提交者可以提交。 6. 步骤三，协调者让参与者发送提交请求。 7. 步骤四，参与者提交完毕后告知协调者已经提交完毕。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2590.png" alt="在这里插入图片描述">
+主要步骤如下： 4. 步骤一，协调者询问参与者是否可以提交。 5. 步骤二，参与者告知提交者可以提交。 6. 步骤三，协调者让参与者发送提交请求。 7. 步骤四，参与者提交完毕后告知协调者已经提交完毕。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040132440.png" alt="在这里插入图片描述">
 
 ## 二段式提交的问题
 

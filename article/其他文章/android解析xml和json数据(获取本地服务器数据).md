@@ -11,25 +11,25 @@
 
 **服务器上的XML文件：**
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/240.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039082990.png">
 
  
 
 **解析XML后通过Log输出：**
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/241.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039084791.png">
 
  
 
 **服务器上的json文件：**
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/242.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039085322.png">
 
  
 
 **解析json后通过Log输出：**
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/243.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039086693.png">
 
  
 
@@ -45,7 +45,7 @@
 
  
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/244.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039088164.png">
 
  
 
@@ -73,7 +73,7 @@ get_data.json
 
  
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/245.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039092675.png">
 
  
 
@@ -81,7 +81,7 @@ get_data.json
 
  
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/246.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039093246.png">
 
  
 

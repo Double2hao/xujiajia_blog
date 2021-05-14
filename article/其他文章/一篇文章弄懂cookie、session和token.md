@@ -11,11 +11,11 @@ session和token算是一类的，他们是两种不同的服务器的验证方�
 
 # session过程
 
-请求过程： 1、客户端向服务器请求，发送用户名和密码 2、服务器生成sessionId，绑定用户数据存储在数据库 3、服务器返回sessionId给客户端 4、客户端用cookie存储sessionId，以后的请求都带上这个sessionId 5、服务器如果收到这个sessionId，那么就去数据库查找用户数据，如果找到了说明验证通过 6、服务器把验证结果返回客户端 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/490.png" alt="在这里插入图片描述">
+请求过程： 1、客户端向服务器请求，发送用户名和密码 2、服务器生成sessionId，绑定用户数据存储在数据库 3、服务器返回sessionId给客户端 4、客户端用cookie存储sessionId，以后的请求都带上这个sessionId 5、服务器如果收到这个sessionId，那么就去数据库查找用户数据，如果找到了说明验证通过 6、服务器把验证结果返回客户端 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039174240.png" alt="在这里插入图片描述">
 
 # token过程
 
-请求过程： 1、客户端向服务器请求，发送用户名和密码 2、服务器根据用户信息通过加密生成token，用户信息包括账号，token过期时间等，具体由服务器自定义。 3、服务器返回token给客户端 4、客户端用cookie存储token，以后的请求都带上这个token 5、服务器把token解密，确认用户信息是否正确，如经过正确就说明验证通过。 6、服务器把验证结果返回客户端 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/491.png" alt="在这里插入图片描述">
+请求过程： 1、客户端向服务器请求，发送用户名和密码 2、服务器根据用户信息通过加密生成token，用户信息包括账号，token过期时间等，具体由服务器自定义。 3、服务器返回token给客户端 4、客户端用cookie存储token，以后的请求都带上这个token 5、服务器把token解密，确认用户信息是否正确，如经过正确就说明验证通过。 6、服务器把验证结果返回客户端 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039175911.png" alt="在这里插入图片描述">
 
 >  
  上图转载自: 

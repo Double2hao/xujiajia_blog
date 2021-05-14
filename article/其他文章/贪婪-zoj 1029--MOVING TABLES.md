@@ -1,9 +1,9 @@
 #贪婪-zoj 1029--MOVING TABLES
 # 题目：
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1430.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039413640.png" alt="这里写图片描述">
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1431.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039415551.png" alt="这里写图片描述">
 
 ## 输入
 

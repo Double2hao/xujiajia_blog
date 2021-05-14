@@ -27,9 +27,9 @@ typedef struct LNode
 
 先看一下实现效果：
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2670.png" alt=""> 
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040147780.png" alt=""> 
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2671.png" alt=""> 
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040148381.png" alt=""> 
 
  
 

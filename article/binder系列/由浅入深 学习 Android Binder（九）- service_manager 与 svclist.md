@@ -11,7 +11,7 @@
  前文地址：   
 
 
-为了方便读者有个整体的认知，附上整体的流程图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/700.png" alt="在这里插入图片描述">
+为了方便读者有个整体的认知，附上整体的流程图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039206450.png" alt="在这里插入图片描述">
 
 # 存储结构svclist
 

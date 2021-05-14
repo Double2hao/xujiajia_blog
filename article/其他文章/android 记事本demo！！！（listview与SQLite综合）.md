@@ -35,7 +35,7 @@ android记事本的demo在网上一搜一大堆，**但是大神写的demo往往
 
 效果：
 
-<img alt="" class="has" height="530" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/750.png" width="300"> <img alt="" class="has" height="530" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/751.png" width="300"> <img alt="" class="has" height="530" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/752.png" width="300">
+<img alt="" class="has" height="530" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039219410.png" width="300"> <img alt="" class="has" height="530" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039221861.png" width="300"> <img alt="" class="has" height="530" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039222772.png" width="300">
 
  
 

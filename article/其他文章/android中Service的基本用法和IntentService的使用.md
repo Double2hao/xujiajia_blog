@@ -44,7 +44,7 @@ onDestroy():根据IntentService的特性，这个服务在运行结束之后是�
 
  
 
-<img alt="" class="has" height="700" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2250.png" width="400">
+<img alt="" class="has" height="700" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040037930.png" width="400">
 
  
 

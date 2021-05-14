@@ -9,7 +9,7 @@ LSM-Tree（Log-structured Merge tree）是一种数据结构，它的本质是�
 
 ## 为何“随机写”改成“序列写”可以提高磁盘写入速度
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/720.png" alt="在这里插入图片描述"> 磁盘每次读写数据，不管你读写的数据有多小，都是会读写一个扇区的数据。
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039214310.png" alt="在这里插入图片描述"> 磁盘每次读写数据，不管你读写的数据有多小，都是会读写一个扇区的数据。
 
 如果使用随机写的方式，每次都需要至少一次的“写扇区”操作。那么如果随机写 n个数据，就需要执行n次“写扇区”的操作。 改成“序列写”之后，只要这n个数据的大小没有超过一个扇区，那么只需要执行一次的“写扇区”操作。
 
@@ -19,7 +19,7 @@ LSM-Tree（Log-structured Merge tree）是一种数据结构，它的本质是�
 
 # LevelDB静态结构
 
-LevelDB的LSM-Tree结构以及管理过程，是一种非常典型的LSM-Tree的实现，因此本文直接以LevelDB的结构为例来讲解LSM-Tree。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/721.png" alt="在这里插入图片描述">
+LevelDB的LSM-Tree结构以及管理过程，是一种非常典型的LSM-Tree的实现，因此本文直接以LevelDB的结构为例来讲解LSM-Tree。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039214801.png" alt="在这里插入图片描述">
 
 ## 写过程
 1. 写入log文件。（防止意外情况）1. 写入内存中的MemTable1. 内存中的MemTable大小到达一定程度后，原先的MemTable就变成了Immutable MemTable，并它只可读，不可写。LevelDB后台调用会将Immutable MemTable中的数据存储到磁盘中。1. 内存中创建一个新的MemTable，后续的数据写入新的这个MemTable。
@@ -38,7 +38,7 @@ LevelDB的LSM-Tree结构以及管理过程，是一种非常典型的LSM-Tree的
 
 由上面的写入过程可以了解到，级别较低的SSTable中的内容是更新的。这时候再来看LevelDB的读过程就比较好理解了。
 1. 先去MemTable中读1. 如果没有读到就去Immutable MemTable中读1. 如果还是没有读到就到硬盘中去读，读的顺序是level从低到高。
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/722.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039216102.png" alt="在这里插入图片描述">
 
 # 读过程举例
 

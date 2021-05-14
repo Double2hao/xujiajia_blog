@@ -33,13 +33,13 @@ ContentProvider与ContentResolver概念上的东西的就不讲了，主要讲�
 
 笔者demo效果：**（源码在文章结尾）**
 
-<img alt="" class="has" height="450" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/650.png" width="300">
+<img alt="" class="has" height="450" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039201270.png" width="300">
 
  
 
 代码截图：
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/651.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039203241.png">
 
  
 

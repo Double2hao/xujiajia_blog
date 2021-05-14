@@ -11,7 +11,7 @@ button的点击效果学习起来事实上比较容易，此点对开发者来�
 
 效果：（不点击时显示白色，点击时显示灰色）
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/120.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210038842700.png">
 
  
 
@@ -19,7 +19,7 @@ button的点击效果学习起来事实上比较容易，此点对开发者来�
 
  
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/122.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210038845692.png">
 
  
 
@@ -39,7 +39,7 @@ button的点击效果学习起来事实上比较容易，此点对开发者来�
 
  
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/122.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210038845692.png">
 
  
 
@@ -80,9 +80,9 @@ activity_main:
 
 在selector中设置了点击效果和初始状态效果时，点击却没有反应，错误效果以及代码如下:
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/123.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210038845713.png">
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/124.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210038846914.png">
 
  
 

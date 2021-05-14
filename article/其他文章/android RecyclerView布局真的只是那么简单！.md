@@ -21,7 +21,7 @@ RecyclerView比ListView更灵活，更强大。因此也会引入一些复杂性
 
 demo效果：**(源码在文章结尾)**
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2040.png" width="400" height="600" alt=""> 
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039948130.png" width="400" height="600" alt=""> 
 
  
 
@@ -198,7 +198,7 @@ public OnItemClickListener mOnItemClickListener;
 
 源码截图：
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2041.png" alt=""> 
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039949901.png" alt=""> 
 
  
 

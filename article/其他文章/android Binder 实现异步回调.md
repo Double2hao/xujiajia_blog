@@ -6,10 +6,10 @@
 # 执行效果
 
 笔者demo中通过打log来记录方法的执行。 执行过程大致如下：
-1. 主进程 bindService1. remote进程 执行function()，在function中调用callback()。1. 主进程 执行callback() <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/910.png" alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/911.png" alt="在这里插入图片描述">
+1. 主进程 bindService1. remote进程 执行function()，在function中调用callback()。1. 主进程 执行callback() <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039263080.png" alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039264341.png" alt="在这里插入图片描述">
 # 代码
 
-主要内容如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/912.png" alt="在这里插入图片描述">
+主要内容如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039266962.png" alt="在这里插入图片描述">
 
 ### MainActivity.java
 

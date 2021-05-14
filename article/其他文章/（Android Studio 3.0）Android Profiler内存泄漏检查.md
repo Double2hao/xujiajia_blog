@@ -5,17 +5,17 @@
 
 # Android Profiler
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2050.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039951300.png" alt="这里写图片描述">
 
 Android Profiler在Android Studio左下角，需要在Android Studio 3.0及其以上才会有。如果是Android Studio 3.0并且也未有这个按钮，读者也不用着急，运行一下自己的项目就会出现。当点击MEMORY那一行的时候就能进入内存检查的界面。
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2051.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039954651.png" alt="这里写图片描述">
 
 接下来笔者通过分析内存泄漏的实例的方式来介绍Android Profiler的使用。
 
 # 实例
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2052.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039955322.png" alt="这里写图片描述">
 
 主要是三个Activity：MainActivity，ActivityOne，ActivityTwo。 MainActivity：主Activity，用于开启内存泄漏的两个Activity。 ActivityOne：通过handler方式泄漏。 ActivityTwo：通过静态引用方式泄漏。
 
@@ -98,9 +98,9 @@ public class ActivityTwo extends Activity {
 
 ### 检查内存泄漏对象
 
-首先要点击左上方的“Dump Java heap”按钮。（如果是检查内存泄漏，笔者建议在点击之前先点击垃圾回收按钮，以防可回收的存货对象的混淆） <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2053.png" alt="这里写图片描述">
+首先要点击左上方的“Dump Java heap”按钮。（如果是检查内存泄漏，笔者建议在点击之前先点击垃圾回收按钮，以防可回收的存货对象的混淆） <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039956643.png" alt="这里写图片描述">
 
-然后就会显示此刻的JAVA堆中对象以及引用情况，我们可以在Heap Dump的右上角选择对象的排列方式，笔者比较推荐按报名排序，因为一般我们检查的都是自己所写的类的泄漏，而非系统层的。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2054.png" alt="这里写图片描述">
+然后就会显示此刻的JAVA堆中对象以及引用情况，我们可以在Heap Dump的右上角选择对象的排列方式，笔者比较推荐按报名排序，因为一般我们检查的都是自己所写的类的泄漏，而非系统层的。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039958314.png" alt="这里写图片描述">
 
 如图，我们很快就发现ActivityOne和ActivityTwo泄漏了。 笔者打开了ActivityOne和ActivityTwo之后，回到MainActivity界面并按下垃圾回收按钮。不泄露的情况应该是只有MainActivity被分配了内存，而ActivityOne和ActivityTwo均存活，说明内存没有被释放，即内存泄漏了。
 
@@ -112,13 +112,13 @@ Heap Dump 右边四列的意思分别如下： Alloc Count：Java堆中的实例
 
 # 解决内存泄漏（方法一）
 
-继续我们在Heap Dump界面的操作，以检查ActivityOne为例，我们单击它，发现右侧出现了Instance View，然后单击Instance View的对象。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2055.png" alt="这里写图片描述">
+继续我们在Heap Dump界面的操作，以检查ActivityOne为例，我们单击它，发现右侧出现了Instance View，然后单击Instance View的对象。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039960125.png" alt="这里写图片描述">
 
 在Instance View中，会显示在ActivityOne中的各种对象，而它下方的Reference则是显示诸多对这个存货的ActivityOne对象的引用。大部分都是系统层面的引用，只有一个格外显眼，就是通过“this”对ActivityOne的引用，点进去我们可以发现是MessageQueue持有了这个引用，有点经验的Android程序员马上可以定位到是Handler的内存泄漏了。
 
 # 解决内存泄漏（方法二）
 
-第一种内存泄漏的检查方法由于有过多的系统引用的混淆，相信并不让人觉得容易上手。这时候相信读者会想尝试第三个录制按钮了。 Record memory allocations： 这个按钮的作用是记录一段时间内的内存分配的内容，点击红色的小圆表示开始录制，点击小正方形是结束录制。（录制时间不建议超过10s，计算内存会很慢） <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2056.png" alt="这里写图片描述">
+第一种内存泄漏的检查方法由于有过多的系统引用的混淆，相信并不让人觉得容易上手。这时候相信读者会想尝试第三个录制按钮了。 Record memory allocations： 这个按钮的作用是记录一段时间内的内存分配的内容，点击红色的小圆表示开始录制，点击小正方形是结束录制。（录制时间不建议超过10s，计算内存会很慢） <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039964676.png" alt="这里写图片描述">
 
 ### 操作
 
@@ -126,11 +126,11 @@ Heap Dump 右边四列的意思分别如下： Alloc Count：Java堆中的实例
 
 ### 解决内存泄漏
 
-然后我们仍然是按照包名排列，找到内存泄漏的对象。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2057.png" alt="这里写图片描述">
+然后我们仍然是按照包名排列，找到内存泄漏的对象。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039965297.png" alt="这里写图片描述">
 
-然后我们选择ActivityOne，再单击Instance View 中的这个对象。我们可以发现，完全能再代码中追踪到这个引用创建的地方。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2058.png" alt="这里写图片描述">
+然后我们选择ActivityOne，再单击Instance View 中的这个对象。我们可以发现，完全能再代码中追踪到这个引用创建的地方。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039978438.png" alt="这里写图片描述">
 
-我们双击Call Stack中的第一行，发现可以直接跳转到代码内存泄漏的地方。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2059.png" alt="这里写图片描述">
+我们双击Call Stack中的第一行，发现可以直接跳转到代码内存泄漏的地方。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039981859.png" alt="这里写图片描述">
 
 # 两者优劣
 

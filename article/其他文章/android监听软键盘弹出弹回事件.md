@@ -9,7 +9,7 @@ android:windowSoftInputMode="adjustPan"
 
 ```
 
-其效果一般如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1060.png" width="20%" height="20%"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1061.png" width="20%" height="20%">
+其效果一般如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039312530.png" width="20%" height="20%"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039317391.png" width="20%" height="20%">
 
 如上图，这样设置后能保证“当前操作的布局”在软键盘之上。 但是实际业务场景，可能需要的是“将整块布局”设置在软键盘之上，即Demo中的两个输入框和按钮都需要在软键盘之上。 如果需要实现这种需求，那么开发者就必须要监听软键盘的弹出弹回事件，然后手动来调整布局。
 

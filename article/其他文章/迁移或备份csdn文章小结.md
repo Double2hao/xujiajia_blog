@@ -5,7 +5,7 @@
 1. 备份文章的markdown文件1. 备份所有文章中的图片（毕竟很多都是亲手画的，都是心血）1. 替换所有markdown文件中图片的url
 # 最终效果
 
-最终备份了300多篇文章和400多张图片，总共700多个文件，如下图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1900.png" alt="在这里插入图片描述"> 下载所有图片和替换所有url的总耗时 2分29秒，如下图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1901.png" alt="在这里插入图片描述">
+最终备份了300多篇文章和400多张图片，总共700多个文件，如下图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039913160.png" alt="在这里插入图片描述"> 下载所有图片和替换所有url的总耗时 2分29秒，如下图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039915271.png" alt="在这里插入图片描述">
 
 # 备份markdown
 
@@ -22,7 +22,7 @@
 这部分更需要定制化，笔者就自己动手写了，笔者的这个项目只支持如下格式的图片引用：
 
 ```
-&lt;img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1902.png" alt="这里写图片描述"&gt;
+&lt;img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210039916162.png" alt="这里写图片描述"&gt;
 
 ```
 

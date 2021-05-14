@@ -1,7 +1,7 @@
 #动态规划-最大子矩阵和（ZOJ 1074 TO THE MAX ）
 # 题目：
 
-有一个包含正数和负数的二维数组。一个子矩阵是指在该二维数组里，任意相邻的下标是1×1或更大的子数组。一个子矩阵的和是指该子矩阵中所有元素的和。 本题中，把具有最大和的子矩阵称为最大子矩阵。例如，如下数组的最大子矩阵位于左下角，其和为15。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2940.png" alt="这里写图片描述">
+有一个包含正数和负数的二维数组。一个子矩阵是指在该二维数组里，任意相邻的下标是1×1或更大的子数组。一个子矩阵的和是指该子矩阵中所有元素的和。 本题中，把具有最大和的子矩阵称为最大子矩阵。例如，如下数组的最大子矩阵位于左下角，其和为15。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040189360.png" alt="这里写图片描述">
 
 ## 输入
 
@@ -9,9 +9,9 @@
 
 # 思路：
 
-1、此问题是“最大字段和”问题的推广。 2、代码具体过程如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2941.png" alt="这里写图片描述">
+1、此问题是“最大字段和”问题的推广。 2、代码具体过程如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040190481.png" alt="这里写图片描述">
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2942.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16210040192762.png" alt="这里写图片描述">
 
 ## 代码：
 
