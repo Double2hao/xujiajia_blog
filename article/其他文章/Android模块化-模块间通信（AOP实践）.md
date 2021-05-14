@@ -31,7 +31,7 @@
 1. 包括，app模块，core模块，login模块1. core模块：实现供其他模块注册与调用的接口1. login模块：实现调起登录页面的接口，并且会在登录成功后调用被注册的callback。1. app模块：调用调起登录页面的接口，注册登录成功后的回调。
 ## app模块
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/20.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209909806890.png " alt="在这里插入图片描述">
 
 ### MainActivity.java
 
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {<!-- -->
 
 ## login模块
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/21.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209909807481.png " alt="在这里插入图片描述">
 
 ### LoginActivity.java
 
@@ -99,7 +99,7 @@ public class ModuleProvider {<!-- -->
 
 ## core模块
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/22.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209909807862.png " alt="在这里插入图片描述">
 
 ### ModuleCenter.java
 

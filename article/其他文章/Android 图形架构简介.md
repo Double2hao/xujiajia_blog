@@ -5,7 +5,7 @@
 
 # 流程
 
-一、无论开发者使用什么渲染 API，一切内容都会渲染到Surface。（常见API：canvas，openGL） 二、Surface把图像流缓存到buffer queue 三、SurfaceFlinger 从多个buffer queue中去获取图像流执行合并操作 四、 Hardware Composer 去获取SurfaceFlinger缓存的内容实现上屏操作 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1460.png" alt="在这里插入图片描述">
+一、无论开发者使用什么渲染 API，一切内容都会渲染到Surface。（常见API：canvas，openGL） 二、Surface把图像流缓存到buffer queue 三、SurfaceFlinger 从多个buffer queue中去获取图像流执行合并操作 四、 Hardware Composer 去获取SurfaceFlinger缓存的内容实现上屏操作 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911101570.png " alt="在这里插入图片描述">
 
 # 一、OpenGL渲染流程
 
@@ -17,10 +17,10 @@
 
 # 三、为什么要有SurfaceFlinger的合并操作
 
-一句话其实就是“不能没有统一管理”。 图像流上屏时，对于硬件来讲，它并不知道哪一部分属于哪个View或者属于哪个进程，它只会每一帧将整个屏幕中的所有像素刷新。 试想如果每个进程或者每个View都不需合并直接去操作进程，那么很可能一个View正在上屏，而另一个View就发来了上屏请求，屏幕很可能上一个View还没更新完，就要开始更新下一个，那么就会出现帧撕裂的情况，如下图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1461.png" alt="在这里插入图片描述">
+一句话其实就是“不能没有统一管理”。 图像流上屏时，对于硬件来讲，它并不知道哪一部分属于哪个View或者属于哪个进程，它只会每一帧将整个屏幕中的所有像素刷新。 试想如果每个进程或者每个View都不需合并直接去操作进程，那么很可能一个View正在上屏，而另一个View就发来了上屏请求，屏幕很可能上一个View还没更新完，就要开始更新下一个，那么就会出现帧撕裂的情况，如下图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911106781.png " alt="在这里插入图片描述">
 
 # 四、上屏显示的过程
 
 这个过程下面的文章讲的很不错，此处直接附上文章地址： 
 
-下图摘自该文章： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1462.png" alt="在这里插入图片描述">
+下图摘自该文章： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911147752.png " alt="在这里插入图片描述">

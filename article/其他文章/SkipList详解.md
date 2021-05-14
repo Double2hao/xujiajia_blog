@@ -11,9 +11,9 @@ SkipList的使用还是比较广泛的，比如在LevelDB中的MemTable就是使
 
 # 核心思路
 
-在正常的有序列表中，我们要查找到一个值的时间复杂度是O(N)。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2310.png" alt="在这里插入图片描述"> 如果链表中一半节点可以多保留一个指针指向后继节点的后继节点，那么查找的时间复杂度就可以变成O(N/2)。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2311.png" alt="在这里插入图片描述"> 以此类推，如果保留后面三个节点的指针，查找的时间复杂度就是O(N/3)。
+在正常的有序列表中，我们要查找到一个值的时间复杂度是O(N)。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911666460.png " alt="在这里插入图片描述"> 如果链表中一半节点可以多保留一个指针指向后继节点的后继节点，那么查找的时间复杂度就可以变成O(N/2)。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911668081.png " alt="在这里插入图片描述"> 以此类推，如果保留后面三个节点的指针，查找的时间复杂度就是O(N/3)。
 
-至此，SkipList的核心思路就出来的，就是通过保留后面多个节点的指针来提高查找的效率，下图是一个典型的SkipList结构。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2313.png" alt="在这里插入图片描述">
+至此，SkipList的核心思路就出来的，就是通过保留后面多个节点的指针来提高查找的效率，下图是一个典型的SkipList结构。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911671113.png " alt="在这里插入图片描述">
 
 # SkipList节点的生成
 
@@ -25,11 +25,11 @@ SkipList中有一个MaxLevel的值，每个节点会随机生成一个1~MaxLevel
 
 # SkipList的查找
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2313.png" alt="在这里插入图片描述"> 还是以此图为例，比如现在要找12这个节点，那么过程如下：
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911671113.png " alt="在这里插入图片描述"> 还是以此图为例，比如现在要找12这个节点，那么过程如下：
 1. 首先到3的节点，12&gt;3，所以进入6的节点。1. 在6的节点，26&gt;6，并且12&lt;25，12&gt;9，所以进入9的节点。1. 在9的节点，12&lt;17，12=12，于是就找到了12的节点。
 # SkipList的插入
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2314.png" alt="在这里插入图片描述"><img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2315.png" alt="在这里插入图片描述"> 以上图为例，现在要插入17这个节点。 其过程和查找类似，唯一的问题是，前面的节点的指针是如何保留下来的？
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911676954.png " alt="在这里插入图片描述"><img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911678345.png " alt="在这里插入图片描述"> 以上图为例，现在要插入17这个节点。 其过程和查找类似，唯一的问题是，前面的节点的指针是如何保留下来的？
 
 我们可以看到插入结束后，9的level=1的指针指向了17，12的level=0的指针指向了17。 这就意味着，在插入的时候我们就需要保留9的level=1的指针和12的level=0的指针。
 

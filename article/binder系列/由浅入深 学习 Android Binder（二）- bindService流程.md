@@ -535,4 +535,4 @@ final class ConnectionRecord {<!-- -->
 
 大概流程：
 1. Client进程调用bindService通知AMS进程。1. AMS进程通知Server进程启动service。1. server进程启动service，并且在启动完成后通知AMS进程。1. AMS接收到server进程bindService的结果，AMS进程通知client进程。1. client进程接收binService结果，client进程调用onServiceConnected()。
-"冷启动"场景的bindService流程图如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2220.png" alt="在这里插入图片描述">
+"冷启动"场景的bindService流程图如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911634450.png " alt="在这里插入图片描述">

@@ -5,11 +5,11 @@ android偶尔会有排列不规则图形的需求，比如平行四边形，梯�
 
 # demo
 
-demo主要实现了平行四边形的排列和点击。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2410.png" width="30%" height="30%"> 主要实现过程：
-1. 重写onDraw，在矩形的View区域中只画出平行四边形的内容。（最终显示效果中，多个View是重叠的，下图黄色区域才是真正View的大小） <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2411.png" width="40%" height="40%">1. 给第二第三个View设置leftMargin，让View重叠，这样平行四边形才能看上去是连续排列的。1. 单独处理点击事件。点击到当前View上时，先判断是否在平行四边形区域内，如果在就认为是自己的事件。如果不在平行四边形区域内，那么就把事件抛出，交给下一层处理。
+demo主要实现了平行四边形的排列和点击。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911704700.png " width="30%" height="30%"> 主要实现过程：
+1. 重写onDraw，在矩形的View区域中只画出平行四边形的内容。（最终显示效果中，多个View是重叠的，下图黄色区域才是真正View的大小） <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911707091.png " width="40%" height="40%">1. 给第二第三个View设置leftMargin，让View重叠，这样平行四边形才能看上去是连续排列的。1. 单独处理点击事件。点击到当前View上时，先判断是否在平行四边形区域内，如果在就认为是自己的事件。如果不在平行四边形区域内，那么就把事件抛出，交给下一层处理。
 # 代码
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2412.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911709452.png " alt="在这里插入图片描述">
 
 ## MainActivity.java
 

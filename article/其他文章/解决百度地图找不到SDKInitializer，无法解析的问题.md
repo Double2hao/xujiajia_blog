@@ -11,13 +11,13 @@
 
 笔者在百度了近两个小时之后，发现很少有人碰到这个问题，还是没有解决，然后在左思右想之后，今早打开AS重新弄了一下，便解决了。
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1120.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910972140.png ">
 
 如何？
 
 在网上，大多的教程都是教我们只导入一个jar和一个so（顶多增加一个定位服务），但是新的百度的API有众多的jar与so文件，如图：
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1121.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910973011.png ">
 
  
 
@@ -31,7 +31,7 @@
 
  
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1122.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910973912.png ">
 
  
 

@@ -5,7 +5,7 @@
  项目地址： 
 
 
-此项目通过使用动态编译、注解解释器等技术，用最简单的方式实现了路由的自动注册。 如对这方面知识有兴趣的朋友可以看看。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/10.png" width="20%" height="20%">
+此项目通过使用动态编译、注解解释器等技术，用最简单的方式实现了路由的自动注册。 如对这方面知识有兴趣的朋友可以看看。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209909802940.png " width="20%" height="20%">
 
 # 主要步骤
 1. 通过注解解释器生成辅助类1. 通过Transform找出辅助类和要注入代码的位置。1. 在相应的位置调用辅助类的相关代码，实现自动注册。

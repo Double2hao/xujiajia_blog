@@ -5,7 +5,7 @@
 
 ## 1、匿名管道
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/820.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910749480.png " alt="在这里插入图片描述">
 
 过程： 1、管道实质是一个内核缓冲区，先进先出（队列）读取缓冲区内存数据 2、一个数据只能读一次，读完后在缓冲区就不存在了。 3、当缓冲区读空或者写满时，相应的读进程或者写进程会进入等待队列，在有新数据写入或者有数据被读出来时，就唤醒等待队列中的进程。
 
@@ -55,4 +55,4 @@ Linux系统中常用信号：
 
 # 7、Socket
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/821.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910750311.png " alt="在这里插入图片描述">

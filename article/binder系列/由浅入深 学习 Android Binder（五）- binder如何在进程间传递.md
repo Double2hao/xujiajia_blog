@@ -5,7 +5,7 @@
 
 # 概述
 
-前文分析过bindService源码，该文章地址如下：  最终得到时序图如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2720.png" alt="在这里插入图片描述">
+前文分析过bindService源码，该文章地址如下：  最终得到时序图如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911823270.png " alt="在这里插入图片描述">
 
 如上图，client进程与server进程是通过系统进程来进行通信的。
 
@@ -183,7 +183,7 @@ public interface ITestBinder extends android.os.IInterface
 
 # 写Binder原理
 
-先放下最终的流程图，便于读者能有一个整理的理解。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2724.png" alt="在这里插入图片描述">
+先放下最终的流程图，便于读者能有一个整理的理解。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911834354.png " alt="在这里插入图片描述">
 
 ### (java) Parcel.writeStrongBinder(IBinder)
 
@@ -302,7 +302,7 @@ status_t flatten_binder(const sp&lt;ProcessState&gt;&amp; /*proc*/,
 
 # 读Binder原理
 
-先放下最终的流程图，便于读者能有一个整理的理解。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2723.png" alt="在这里插入图片描述">
+先放下最终的流程图，便于读者能有一个整理的理解。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911827433.png " alt="在这里插入图片描述">
 
 ### (java) Parcel.readStrongBinder()
 
@@ -525,4 +525,4 @@ BpBinder* BpBinder::create(int32_t handle) {
 
 走完整个流程的源码解析，再看下流程图就会清晰很多了。 笔者认为有以下要点：
 - native层的binder信息会以flat_binder_object的结构存储在Parcel中。- flat_binder_object.hdr.type为BINDER_TYPE_BINDER代表是本地的binder，那么flat_binder_object中会存储真实的binder。- flat_binder_object.hdr.type为BINDER_TYPE_BINDER代表远端的binder，那么flat_binder_object中会存储调用远端binder的handle。- 当binder是远端的时，本地进程实际存储的是BpBinder对象，其中封装了调用远端binder的handle与本地的uid。
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2723.png" alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2724.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911827433.png " alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911834354.png " alt="在这里插入图片描述">

@@ -27,7 +27,7 @@ Demo代码如下：
 
 ```
 
-直接在onAnimationUpdate方法中打断点，找到调用任务栈: <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2680.png" alt="在这里插入图片描述"> 最终是进入Choreographer的doFrame方法。
+直接在onAnimationUpdate方法中打断点，找到调用任务栈: <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911816410.png " alt="在这里插入图片描述"> 最终是进入Choreographer的doFrame方法。
 
 Choreographer的doFrame方法是在绘制每一帧的时候调用的，因此动画的更新频率与帧的更新频率一致。至于帧的更新频率是多少就看具体手机了。（每秒执行doFrame的次数其实就是fps）
 

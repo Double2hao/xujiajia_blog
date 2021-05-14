@@ -5,8 +5,8 @@
 
 # wkwebview流程图
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3100.png" alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911962680.png " alt="在这里插入图片描述">
 
 # uiwebview+NSURLProtcol 流程图
 
-uiwebview一般会和NSURLProtcol一起使用来实现离线资源的加载。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3101.png" alt="在这里插入图片描述">
+uiwebview一般会和NSURLProtcol一起使用来实现离线资源的加载。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911965411.png " alt="在这里插入图片描述">

@@ -1,7 +1,7 @@
 #Java内存模型和Volatile
 # Java内存模型
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1850.png" alt="在这里插入图片描述"> 为了提高代码的执行速度，Java内存模型中有两个优化方案：
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911407410.png " alt="在这里插入图片描述"> 为了提高代码的执行速度，Java内存模型中有两个优化方案：
 
 ### 1、每个Java线程会有一个工作内存，工作内存中的内容会在一定条件下同步到主内存。
 

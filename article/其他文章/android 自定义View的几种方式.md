@@ -11,7 +11,7 @@
 
 # Demo
 
-demo中分别使用三种方式实现了类似的布局。除了作者将列出的优劣之外，读者可自行查看代码来进行比较。 实现效果与项目文件如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2700.png" width="20%" height="20%"><img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2701.png" width="40%" height="40%">
+demo中分别使用三种方式实现了类似的布局。除了作者将列出的优劣之外，读者可自行查看代码来进行比较。 实现效果与项目文件如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911819520.png " width="20%" height="20%"><img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911820781.png " width="40%" height="40%">
 
 # 一、使用时绑定
 

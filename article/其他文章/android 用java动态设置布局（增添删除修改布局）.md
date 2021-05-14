@@ -7,7 +7,7 @@ Java设置布局不具有这个优势。但是java却可以动态对布局进行
 
 首先说一下动态设置布局在项目中的应用，拿**高德地图**举个例子，如下图：
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/270.png" alt="">  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/271.png" width="240" height="426" alt=""> 
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910411550.png " alt="">  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910412371.png " width="240" height="426" alt=""> 
 
  
 
@@ -17,7 +17,7 @@ Java设置布局不具有这个优势。但是java却可以动态对布局进行
 
 接下来看一下笔者要分享的demo效果：**（源码在文章结尾）**
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/272.png" alt=""> 
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910414872.png " alt=""> 
 
  
 

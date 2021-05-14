@@ -15,7 +15,7 @@
 
 本文还是根据笔者的认知来讲一些自己认为重要的地方。 不会将一个文件的源码从头到尾的分析，个人认为那样对于新人非常不友好。 如果对一些细节的知识点有兴趣的读者，在了解了大概逻辑后完全可以再自行探索。
 
-为了方便读者有个整体的认知，附上整体的流程图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2330.png" alt="在这里插入图片描述">
+为了方便读者有个整体的认知，附上整体的流程图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911686070.png " alt="在这里插入图片描述">
 
 # 寻找一个看源码的起点
 

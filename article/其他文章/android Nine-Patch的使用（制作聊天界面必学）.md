@@ -11,7 +11,7 @@
 
  
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1010.png" width="300">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910933500.png " width="300">
 
  
 
@@ -22,7 +22,7 @@
  &lt;TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/frame_left3" android:text="hello!I'am xujiajia 654684684613"  android:textSize="20sp" android:layout_marginRight="50dp"/&gt; &lt;TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/frame_right3" android:textSize="30sp" android:text="hello!I'am linghang"  android:layout_marginLeft="50dp"/&gt; &lt;LinearLayout  android:layout_width="wrap_content" android:layout_height="wrap_content" &gt; &lt;Button  android:id="@+id/Return" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="30sp" android:text="Return" /&gt; &lt;/LinearLayout&gt; &lt;/LinearLayout&gt; 
 
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1011.png" width="300">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910942171.png " width="300">
 
  
 
@@ -30,7 +30,7 @@
 
 首先先看一下**drawable中的图片:**
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1012.png">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910946702.png ">
 
 **使用Nine_patch处理过的图片名字后都会有“.9”，但是在使用的时候不需要写出来**，比如上述代码：
 
@@ -49,11 +49,11 @@
 
 这是效果：
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1013.png" width="701">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910948793.png " width="701">
 
 另外是show一下**做的图片的前后对比：**
 
-        <img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1014.png">                            <img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1015.png">
+        <img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910952344.png ">                            <img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910956235.png ">
 
 **在png的图片中，仅仅就是多了几条小黑条，但是在layout的图片使用中就完全不同了。**
 

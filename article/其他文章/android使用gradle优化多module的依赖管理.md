@@ -11,7 +11,7 @@
 
 # demo结构
 
-**app** ：主项目。 依赖onetest和gson。 **onetest**：test项目。 依赖gson。 **commen.gradle**：为了统一依赖而加入的gradle文件。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1980.png" alt="在这里插入图片描述">
+**app** ：主项目。 依赖onetest和gson。 **onetest**：test项目。 依赖gson。 **commen.gradle**：为了统一依赖而加入的gradle文件。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911472650.png " alt="在这里插入图片描述">
 
 # demo中的依赖管理
 1. common.gradle中统一 gson版本1. 根项目的build.gradle 应用 common.gradle1. app项目中依赖 onetest和gson。1. onetest中依赖 gson

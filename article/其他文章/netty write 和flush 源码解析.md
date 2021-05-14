@@ -71,7 +71,7 @@ ChannelOutboundBuffer中的数据结构不多，最主要的就是两个数组�
 
 # write源码
 
-write的调用方法栈如下，最终会走到AbstractChannel的write方法中。 （ProtocolOutHandler是笔者demo 的ChannelOutboundHandlerAdapter） <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2030.png" alt="在这里插入图片描述"> AbstractChannel的write源码如下，最终会调用到ChannelOutboundBuffer的addMessage方法。
+write的调用方法栈如下，最终会走到AbstractChannel的write方法中。 （ProtocolOutHandler是笔者demo 的ChannelOutboundHandlerAdapter） <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911477410.png " alt="在这里插入图片描述"> AbstractChannel的write源码如下，最终会调用到ChannelOutboundBuffer的addMessage方法。
 
 ```
         public void write(Object msg, ChannelPromise promise) {
@@ -122,7 +122,7 @@ ChannelOutboundBuffer的addMessage方法如下。 源码中的逻辑就是将wri
 
 flush的主要逻辑会多一些，在此先说结果，有兴趣的读者可以自己走下源码的流程。 flush主要做了两件事：
 1. 调用ChannelOutboundBuffer的addFlush方法，将unflushed中的内容交换到flushed数组中。1. 将ChannelOutboundBuffer的flushed数组中的内容通过Channel传输出去。
-首先定位到AbstractChannel的flush方法，方法调用栈和源码如下。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2031.png" alt="在这里插入图片描述">
+首先定位到AbstractChannel的flush方法，方法调用栈和源码如下。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911480541.png " alt="在这里插入图片描述">
 
 ```
         public void flush() {
@@ -231,7 +231,7 @@ addFlush源码逻辑很简单，就是将unflushed中的内容放到flushed中�
 
 ```
 
-大部分代码是安全性判断和处理，主要逻辑就是doWrite()这个方法： 笔者的demo是用的NioSocketChannel。因此，这里我们会直接走到NioSocketChannel的源码中，此时的方法调用栈和源码如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2032.png" alt="在这里插入图片描述">
+大部分代码是安全性判断和处理，主要逻辑就是doWrite()这个方法： 笔者的demo是用的NioSocketChannel。因此，这里我们会直接走到NioSocketChannel的源码中，此时的方法调用栈和源码如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911483702.png " alt="在这里插入图片描述">
 
 ```
     protected void doWrite(ChannelOutboundBuffer in) throws Exception {

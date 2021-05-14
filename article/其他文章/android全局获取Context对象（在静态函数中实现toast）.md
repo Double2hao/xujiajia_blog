@@ -19,7 +19,7 @@
 
 方法其实很简单，直接上图上代码：
 
-<img alt="" class="has" height="700" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/360.png" width="400">
+<img alt="" class="has" height="700" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910453380.png " width="400">
 
  
 

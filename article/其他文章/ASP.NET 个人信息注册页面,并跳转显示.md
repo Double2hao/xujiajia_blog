@@ -1,9 +1,21 @@
 #ASP.NET 个人信息注册页面,并跳转显示
-#题目 新建一个MVC项目，利用HTML、CSS、JS、jQuery、Ajax、jQuery UI等技术设计一个个人信息注册页面。当点击“提交”按钮时，跳转到新的页面显示录入信息。 **基本要求：** 用户名为6-10个小写字母（小写使用正则式验证，且用户名不能为“wustzz” –用Ajax技术来检测）；密码为6位数字，确认密码不一致时有提示；籍贯使用级联（jquery实现）；Email必须符合Email格式；手机是11位（假设规定以1569开头）；出生年月使用jQuery UI日历组件设置；图片要传递到新的页面显示。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/850.png" alt="这里写图片描述"> #实现效果 ##（源码在文章结尾） <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/851.png" alt="这里写图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/852.png" alt="这里写图片描述">
+# 题目
 
-#主要涉及知识点 1、基本的html界面编程 2、JavaScript语言 3、jQuery、jQuery UI的使用 4、 Request相关操作 5、 WEB MVC下的目录结构以及基础编程
+新建一个MVC项目，利用HTML、CSS、JS、jQuery、Ajax、jQuery UI等技术设计一个个人信息注册页面。当点击“提交”按钮时，跳转到新的页面显示录入信息。 **基本要求：** 用户名为6-10个小写字母（小写使用正则式验证，且用户名不能为“wustzz” –用Ajax技术来检测）；密码为6位数字，确认密码不一致时有提示；籍贯使用级联（jquery实现）；Email必须符合Email格式；手机是11位（假设规定以1569开头）；出生年月使用jQuery UI日历组件设置；图片要传递到新的页面显示。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910794500.png " alt="这里写图片描述">
 
-#代码 ###ProjectController.cs
+# 实现效果
+
+## （源码在文章结尾）
+
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910794841.png " alt="这里写图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910798912.png " alt="这里写图片描述">
+
+# 主要涉及知识点
+
+1、基本的html界面编程 2、JavaScript语言 3、jQuery、jQuery UI的使用 4、ASP.NET Request相关操作 5、了解ASP.NET WEB MVC下的目录结构以及基础编程
+
+# 代码
+
+### ProjectController.cs
 
 ```
 using System;
@@ -41,7 +53,7 @@ namespace ProjectOne.Controllers
 
 ```
 
-###Index.cshtml
+### Index.cshtml
 
 ```
 
@@ -224,7 +236,7 @@ namespace ProjectOne.Controllers
 
 ```
 
-###Show.cshtml
+### Show.cshtml
 
 ```
 
@@ -290,7 +302,7 @@ namespace ProjectOne.Controllers
 
 ```
 
-###my_script.js
+### my_script.js
 
 ```
 function checkName() {
@@ -377,4 +389,6 @@ function checkAll() {
 
 ```
 
-##源码地址： 
+## 源码地址：
+
+http://download.csdn.net/detail/double2hao/9691584

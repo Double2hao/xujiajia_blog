@@ -15,7 +15,7 @@
 
 
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2240.png" alt="">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911646430.png " alt="">
 
 
 
@@ -25,7 +25,7 @@
 
 
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2241.png" alt="">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911647801.png " alt="">
 
 
 
@@ -195,7 +195,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 实现的时候打开了，android studio，虚拟机，以及eclipse。（笔者电脑一般，特别卡。。）
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2242.png" alt="">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911648502.png " alt="">
 
 
 
@@ -203,7 +203,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2243.png" alt="">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911650223.png " alt="">
 
 
 

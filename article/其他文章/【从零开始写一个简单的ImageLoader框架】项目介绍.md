@@ -15,11 +15,11 @@ ImageLoader在实际项目中用的比较多，但是大多新手仅限于用的
 
 1、网络获取图片 2、图片能根据ImageView的大小进行压缩 3、具有内存缓存和磁盘缓存功能 4、使用线程池管理线程 5、RecycleView进行演示(如下图)
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2190.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911616670.png " alt="这里写图片描述">
 
 # 项目代码预览
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2191.png" alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911620721.png " alt="这里写图片描述">
 
 # 项目学习作用
 

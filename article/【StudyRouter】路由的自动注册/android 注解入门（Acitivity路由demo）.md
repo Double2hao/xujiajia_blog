@@ -31,7 +31,7 @@
 
 # Demo——Activity路由
 
-Activity路由是一个比较常见会使用到注解的场景。 此处为了演示，代码非常简略，实际实现路由不会这么简单。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/230.png" width="50%" height="50%">
+Activity路由是一个比较常见会使用到注解的场景。 此处为了演示，代码非常简略，实际实现路由不会这么简单。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910371600.png " width="50%" height="50%">
 
 ##### 最终输出log：
 
