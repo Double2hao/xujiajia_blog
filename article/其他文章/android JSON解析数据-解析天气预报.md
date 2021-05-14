@@ -65,7 +65,7 @@
 
 ```
 
-最终解析效果： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911852050.png " alt="这里写图片描述">
+最终解析效果： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2780.png" alt="这里写图片描述">
 
 #解析概述 1、首先，接到的整个数据可以转化为JSONObject对象。 2、通过整个数据的JSONObject对象获取到data中的数据，也是一个JSONObject对象。在data中就可以获取到此时温度，以及城市等信息。 3、通过data的JSONObject对象可以获取到forecast中的数据，forecast中的数据则是一个JSONArray对象。 4、通过forecast的JSONArray对象可以获取到近几天的天气信息，每一条为一个JSONObject对象。
 

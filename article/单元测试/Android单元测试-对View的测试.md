@@ -21,7 +21,7 @@
 
 # 基本使用示例
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911065960.png " alt="这里写图片描述" title="">  如图主要有一个TextView和一个ListView，测试代码如下：
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1300.png" alt="这里写图片描述" title="">  如图主要有一个TextView和一个ListView，测试代码如下：
 
 ```
 public class MainActivity extends AppCompatActivity {<!-- -->

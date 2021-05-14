@@ -14,7 +14,7 @@
 实现主要逻辑：
 1. 为webview设置自定义的WebViewClient。1. WebViewClient中根据url的host来判断是否有离线文件夹，然后根据".js"，“.html”这些后缀来判断是否需要离线加载的类型，最后根据文件名直接加载。如果加载失败就走网络逻辑。
 H5中的主要逻辑：
-1. webview会加载一个html，一张png，一个js文件。1. js文件的逻辑是将 “p” 标签中的内容改成 “test string” <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911658980.png " width="40%" height="40%">
+1. webview会加载一个html，一张png，一个js文件。1. js文件的逻辑是将 “p” 标签中的内容改成 “test string” <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2290.png" width="40%" height="40%">
 # 代码
 
 ## MainActivity.java
@@ -126,10 +126,10 @@ public class TestWebViewClient extends WebViewClient {<!-- -->
 &lt;body&gt;
 
 &lt;p id="testP"&gt;null&lt;/p&gt;
-&lt;img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911660901.png " alt="test img"/&gt;
+&lt;img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2291.png" alt="test img"/&gt;
 
 &lt;/body&gt;
-&lt;script src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911664902.png "&gt;&lt;/script&gt;
+&lt;script src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2292.png"&gt;&lt;/script&gt;
 &lt;/html&gt;
 
 ```

@@ -5,7 +5,7 @@ Apache Kafka 是分布式发布-订阅消息系统。 该项目的目标是为�
 
 # 图解
 
-下图摘自wiki： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911857410.png " alt="在这里插入图片描述"> 一般使用中会接触到的主要是以下几个名词： **Producer：** 消息的投递者 **Consumer：** 消息的消费者 **Topic：** Producer和Consumer交互的中间层。Producer每次需要选定将消息投递到哪个Topic上，而Consumer则需要设置好需要订阅哪些或者哪个Topic。 **Partition：** 是Topic的物理分区，一般情况下可以动态调整。一个Topic可以有多个partition。一个partition也可以在多个Topic中。
+下图摘自wiki： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2810.png" alt="在这里插入图片描述"> 一般使用中会接触到的主要是以下几个名词： **Producer：** 消息的投递者 **Consumer：** 消息的消费者 **Topic：** Producer和Consumer交互的中间层。Producer每次需要选定将消息投递到哪个Topic上，而Consumer则需要设置好需要订阅哪些或者哪个Topic。 **Partition：** 是Topic的物理分区，一般情况下可以动态调整。一个Topic可以有多个partition。一个partition也可以在多个Topic中。
 
 # 处理流程
 

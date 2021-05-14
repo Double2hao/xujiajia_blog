@@ -7,7 +7,7 @@
 
 效果：（代码其实很简单，就不**上传**源码了。）
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911952960.png ">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3080.png">
 
  
 
@@ -15,13 +15,13 @@
 
 在输入“R.anim.”之后没有自动提示，Control+鼠标左击“R.anim”,然后可以看到系统内置的一些动画，直接复制黏贴即可。如下图：
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911953581.png ">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3081.png">
 
  
 
 系统内置动画：（其他的一些读者可以自己试试看）
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911954122.png ">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3082.png">
 
  
 

@@ -13,7 +13,7 @@
 
 # 简单示例
 
-主要就两个文件：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911980840.png " alt="这里写图片描述" title="">
+主要就两个文件：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3170.png" alt="这里写图片描述" title="">
 
 ```
 package com.example.xujiajia_sx.myexpressotest;
@@ -59,9 +59,9 @@ public class SimpleTest {<!-- -->
 
 ```
 
-这个例子是测试了MainActivity.calculate()方法。可以在不运行这个app的情况下直接通过按SimpleTest .CalculateTest（）左边的小三角测试，如下图：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911982451.png " alt="这里写图片描述" title="">
+这个例子是测试了MainActivity.calculate()方法。可以在不运行这个app的情况下直接通过按SimpleTest .CalculateTest（）左边的小三角测试，如下图：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3171.png" alt="这里写图片描述" title="">
 
-我们calculate()方法的逻辑是返回a+b+1，所以是4，最终不会报错，如果我们把assertEquals中的4改成3，效果如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911984172.png " alt="这里写图片描述" title="">
+我们calculate()方法的逻辑是返回a+b+1，所以是4，最终不会报错，如果我们把assertEquals中的4改成3，效果如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3172.png" alt="这里写图片描述" title="">
 
 如图，测试会直接报错，并且定位到错误的那一行，然后我们就可以看到是MainActivity.calculate()输出的值不等于3所造成的。
 

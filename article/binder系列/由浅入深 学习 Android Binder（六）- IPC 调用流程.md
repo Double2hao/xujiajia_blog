@@ -5,7 +5,7 @@
 
 # 概述
 
-如果使用aidl来进行IPC，在client进程执行的transct方法后最终会执行到server进程的onTransact方法，如下图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910445300.png " alt="在这里插入图片描述">
+如果使用aidl来进行IPC，在client进程执行的transct方法后最终会执行到server进程的onTransact方法，如下图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/340.png" alt="在这里插入图片描述">
 
 >  
  对aidl还不是很了解的读者可以看下笔者的前文：  
@@ -25,7 +25,7 @@
  本文会把binder driver当做是一个黑盒，如对binder driver有兴趣，推荐读者看下这篇文章：  
 
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910447282.png " alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/342.png" alt="在这里插入图片描述">
 
 # Client
 
@@ -787,4 +787,4 @@ static int int_register_android_os_Binder(JNIEnv* env)
 
 在整个调用的流程中，涉及到的很多知识点，本文都是没有具体深入的。 比如java层的Binder和BinderProxy，native层的JavaBBinder和BinderProxy，还有native层的ProcessState和IPCThreadState等。 如果对其中某个知识点有兴趣的读者可以自行探索下，或者可以参考下此系列的其他文章。 希望这篇文章能对你有所帮助。
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910447282.png " alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/342.png" alt="在这里插入图片描述">

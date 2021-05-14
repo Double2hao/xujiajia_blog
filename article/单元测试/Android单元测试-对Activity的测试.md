@@ -35,7 +35,7 @@ dependencies {
 }
 ```
 
-项目结构如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911690380.png " alt="这里写图片描述" title="">
+项目结构如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2360.png" alt="这里写图片描述" title="">
 
 # 布局View的测试：
 

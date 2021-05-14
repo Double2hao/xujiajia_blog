@@ -1,7 +1,7 @@
 #解决android studio adb not responding 的问题
 Android studio与Eclipse相较之下还是人性化很多的。Eclipse中出现了ADB的占用问题需要使用kill-server和start-server来重启ADB，而Android studio中则是省去了开发者自己去运行cmd的时间了。如下图：
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911086350.png ">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1410.png">
 
  
 
@@ -13,7 +13,7 @@ Android studio与Eclipse相较之下还是人性化很多的。Eclipse中出现�
 
 首先还是需要打开CMD，adb运行占用的端口号是5037所以便**输入**netstat -ano | findstr "5037"，如下图：
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911088421.png ">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1411.png">
 
  
 
@@ -21,7 +21,7 @@ Android studio与Eclipse相较之下还是人性化很多的。Eclipse中出现�
 
  
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911090302.png ">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1412.png">
 
  
 

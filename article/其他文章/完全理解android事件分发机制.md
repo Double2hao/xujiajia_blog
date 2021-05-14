@@ -9,7 +9,7 @@
 
 # 重要函数执行顺序
 
-此处我们通过一个很简单的例子进行说明，示例： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910641690.png " alt="这里写图片描述"> 示例xml代码如下：
+此处我们通过一个很简单的例子进行说明，示例： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/690.png" alt="这里写图片描述"> 示例xml代码如下：
 
 ```
 &lt;?xml version="1.0" encoding="utf-8"?&gt;
@@ -56,7 +56,7 @@
 1. dispatchTouchEvent（）1. onInterceptTouchEvent（）1. onTouch（）1. onTouchEvent（）1. onClick（）
 好奇的读者肯定会问，为什么事件分发执行了两次呢？ 其实很简单，因为的确有两个分发的事件，一次是“手指按下”的事件，一次是“手指抬起”的事件。我们可以看到，只有在“手指抬起”的时候，才会触发**onClick**（）事件。
 
-此处为了便于大家理解，也附上一张事件分发的图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910642411.png " alt="这里写图片描述">
+此处为了便于大家理解，也附上一张事件分发的图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/691.png" alt="这里写图片描述">
 
 # 控制事件分发
 

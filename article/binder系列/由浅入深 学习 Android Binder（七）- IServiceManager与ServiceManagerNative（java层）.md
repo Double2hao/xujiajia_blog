@@ -11,7 +11,7 @@ ServiceManager于android binder来说是非常重要的一部分。 ServiceManag
  如果了解过binder的读者，可能也多少会听说过binder与serviceManager的关系 
 
 
-为了方便读者有个整体的认知，附上整体的流程图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911897280.png " alt="在这里插入图片描述">
+为了方便读者有个整体的认知，附上整体的流程图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2990.png" alt="在这里插入图片描述">
 
 # 何处使用了ServiceManager
 

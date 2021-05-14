@@ -29,7 +29,7 @@ View中只有两个方法：
 
 三个方法的调用流程大致如下：
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910903350.png " alt=""> 
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/940.png" alt=""> 
 
  
 

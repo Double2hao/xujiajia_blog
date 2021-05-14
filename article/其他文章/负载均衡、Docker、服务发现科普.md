@@ -11,23 +11,23 @@
 
 ## 为什么要有负载均衡
 
-没有负载均衡的web架构一般是这样的： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910646360.png " alt="在这里插入图片描述"> 这种架构有两个比较大的问题： 1、一旦服务器意外情况崩溃，那么整个服务就没有了。 2、没法动态扩容。流量达到该服务器极限后，只能重新换一台更好的服务器。
+没有负载均衡的web架构一般是这样的： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/710.png" alt="在这里插入图片描述"> 这种架构有两个比较大的问题： 1、一旦服务器意外情况崩溃，那么整个服务就没有了。 2、没法动态扩容。流量达到该服务器极限后，只能重新换一台更好的服务器。
 
 ## 负载均衡模型
 
 负载均衡通过以下方式解决这个问题： 1、通过使用负载均衡器来管理多台服务器，这样其中一台服务器崩了，并不会影响整个服务。 2、负载均衡器可以随时增加或者减少管理的服务器，解决了扩容的问题，甚至也可以在不必要的时候减少服务器，节约成本。 3、负载均衡器也会有多台，这样一台负载均衡器出问题后，其他的负载均衡器还能继续工作，让服务保持稳定。
 
-一般模型如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910648901.png " alt="在这里插入图片描述">
+一般模型如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/711.png" alt="在这里插入图片描述">
 
 ## 4层和7层负载均衡区别
 
 ### 4层负载均衡
 
-主要通过报文中的目标地址和端口，再加上负载均衡设备设置的服务器选择方式，决定最终选择的内部服务器。 最终客户端的TCP连接直接与具体的某台服务器建立，负载均衡器主要担任转发的工作。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910653882.png " alt="在这里插入图片描述">
+主要通过报文中的目标地址和端口，再加上负载均衡设备设置的服务器选择方式，决定最终选择的内部服务器。 最终客户端的TCP连接直接与具体的某台服务器建立，负载均衡器主要担任转发的工作。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/712.png" alt="在这里插入图片描述">
 
 ### 7层负载均衡
 
-首先负载均衡器与客户端建立TCP连接，然后再根据该报文中的特定字段，再加上负载均衡设备设置的服务器选择方式，决定最终选择的内部服务器。 负载均衡设备在这种情况下，更类似于一个代理服务器。负载均衡和前端的客户端以及后端的服务器会分别建立TCP连接。 场景举例：可以将图片请求转发到特定图片服务器，这样图片服务器就可以做缓存技术。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910656043.png " alt="在这里插入图片描述">
+首先负载均衡器与客户端建立TCP连接，然后再根据该报文中的特定字段，再加上负载均衡设备设置的服务器选择方式，决定最终选择的内部服务器。 负载均衡设备在这种情况下，更类似于一个代理服务器。负载均衡和前端的客户端以及后端的服务器会分别建立TCP连接。 场景举例：可以将图片请求转发到特定图片服务器，这样图片服务器就可以做缓存技术。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/713.png" alt="在这里插入图片描述">
 
 # Docker
 
@@ -51,6 +51,6 @@ docker使用的时候，会把所需要的环境打包在image文件中，通过
 
 在传统的系统部署中，服务运行在一个固定的已知的 IP 和端口上，如果一个服务需要调用另外一个服务，可以通过地址直接调用，但是，在虚拟化或容器话的环境中，服务实例的启动和销毁是很频繁的，服务地址在动态的变化，如果需要将请求发送到动态变化的服务实例上，至少需要两个步骤： 服务注册 — 存储服务的主机和端口信息 服务发现 — 允许其他用户发现服务注册阶段存储的信息
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910672594.png " alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/714.png" alt="在这里插入图片描述">
 
 正常执行中，整个流程如下： 1、服务将自己的信息注册到“服务注册中心”。 2、负载均衡器收到客户端的请求后，去“服务注册中心”查找需要的服务。 3、负载均衡器找到该服务后，将该请求转发到该服务上。

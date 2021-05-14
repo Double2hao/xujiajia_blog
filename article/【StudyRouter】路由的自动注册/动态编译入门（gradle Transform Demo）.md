@@ -206,7 +206,7 @@ implementation-class=com.example.testplugin.TestPlugin
 需要再根目录添加插件的仓库地址和依赖插件。
 
 >  
- 笔者在testplugin项目中生成repo仓库后，会再复制一份到根目录，这份根目录的repo才是真正使用到的仓库。 代码多一个copy的过程的目的：主要是避免testplugin/repo仓库删除的时候项目没法编译。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910640430.png " width="30%" height="30%"> 
+ 笔者在testplugin项目中生成repo仓库后，会再复制一份到根目录，这份根目录的repo才是真正使用到的仓库。 代码多一个copy的过程的目的：主要是避免testplugin/repo仓库删除的时候项目没法编译。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/670.png" width="30%" height="30%"> 
 
 
 ```

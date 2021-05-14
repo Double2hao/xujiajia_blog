@@ -1,16 +1,12 @@
 #迟到的Volley源码解析
-# 前言
-
-笔者其实之前其实早就想对Volley源码解析，但是由于笔者基础不好，理解源码有一定困难，加上不够重视，于是便不了了之了。 在近期笔试面试的经历中，发现网络实践这一块实在重要，于是打算亡羊补牢。也是祭奠下失去的腾讯实习offer(三面+加面，挂在加面)，我们无法责怪运气，能做的只是提高自我。
+#前言 笔者其实之前其实早就想对Volley源码解析，但是由于笔者基础不好，理解源码有一定困难，加上不够重视，于是便不了了之了。 在近期笔试面试的经历中，发现网络实践这一块实在重要，于是打算亡羊补牢。也是祭奠下失去的腾讯实习offer(三面+加面，挂在加面)，我们无法责怪运气，能做的只是提高自我。
 
 >  
  参考文章： 
    
 
 
-# 简单使用
-
-关于Volley的简单使用主要以下三步： 1、获取RequestQueue对象，如下
+#简单使用 关于Volley的简单使用主要以下三步： 1、获取RequestQueue对象，如下
 
 ```
 RequestQueue mQueue = Volley.newRequestQueue(context);  
@@ -44,9 +40,7 @@ mQueue.add(stringRequest);
 
 在此就不多做累述，如果是初学Volley的读者，推荐看下郭霖前辈的博客： 
 
-# 初始化：newRequestQueue（）
-
-每次使用Volley第一步我们就是定义一个RequestQueue 对象，如下：
+#初始化：newRequestQueue（） 每次使用Volley第一步我们就是定义一个RequestQueue 对象，如下：
 
 ```
 RequestQueue mQueue = Volley.newRequestQueue(context);  
@@ -94,7 +88,7 @@ RequestQueue mQueue = Volley.newRequestQueue(context);
 
 ```
 
-首先了解下什么是HttpStack。 **HttpStack**：处理 Http 请求，返回请求结果。目前 Volley 中有基于 HttpURLConnection 的HurlStack和 基于 Apache HttpClient 的HttpClientStack。 在源码中我们可以看到，如果手机系统版本号是大于9的，则创建一个HurlStack的实例，否则就创建一个HttpClientStack的实例。而HurlStack的内部就是使用HttpURLConnection进行网络通讯的，HttpClientStack的内部则是使用HttpClient进行网络通讯的。
+首先了解下什么是HttpStack。 **HttpStack：**处理 Http 请求，返回请求结果。目前 Volley 中有基于 HttpURLConnection 的HurlStack和 基于 Apache HttpClient 的HttpClientStack。 在源码中我们可以看到，如果手机系统版本号是大于9的，则创建一个HurlStack的实例，否则就创建一个HttpClientStack的实例。而HurlStack的内部就是使用HttpURLConnection进行网络通讯的，HttpClientStack的内部则是使用HttpClient进行网络通讯的。
 
 然后，通过HttpStack生成BasicNetwork对象，接着把BasicNetwork对象传递到RequestQueue这个对象中。 最后调用了start（）方法，代码如下：
 
@@ -150,9 +144,7 @@ public void start() {
  所以默认是开启5个线程，即5个线程并发，1个缓存调度线程，4个网络调度线程。 
 
 
-然后我们就看一下NetworkDispatcher和CacheDispatcher分别干了什么吧。
-
-# 网络调度线程：NetworkDispatcher
+然后我们就看一下NetworkDispatcher和CacheDispatcher分别干了什么吧。 #网络调度线程：NetworkDispatcher
 
 ```
 @Override
@@ -225,7 +217,7 @@ public void start() {
 
 主要逻辑： 1、让线程优先级低于一般的，可以减少对用户界面的影响。 2、启动后会不断从网络请求队列中取请求处理，队列为空则等待 3、通过performRequest()，取到请求后会执行,并返回执行结果，这里的请求就是我们之前定义的StringRequest，JsonRequest等等。 4、通过parseNetworkResponse(),会解析返回的请求结果，并且返回解析后的结果。 5、解析结束后，查看结果是否需要缓存并且是否已经缓存，如果需要缓存，并且没有缓存的，那么就缓存。 6、如果是针对数据量大，并且访问不频繁甚至一次的请求，我们可以设置不需要缓存，在这里就不会缓存。 7、最终把结果传递给ResponseDelivery去执行后续处理。
 
-# 缓存调度线程：CacheDispatcher
+#缓存调度线程：CacheDispatcher
 
 ```
  @Override
@@ -311,11 +303,7 @@ public void start() {
 
 ```
 
-主要逻辑： 1、不断从缓存请求队列中取请求处理，队列为空则等待 3、当结果未缓存过、缓存失效或缓存需要刷新的情况下，就将该请求放入网络请求队列，在NetworkDispatcher中进行调度处理。 2、如果获取到了缓存，缓存请求处理结果传递给ResponseDelivery去执行后续处理。
-
-# 缓存数据结构
-
-在上面两个调度线程中，我们可以看到缓存对象是mCache，一层一层向上找，我们最终可以在newRequestQueue看到这行代码：
+主要逻辑： 1、不断从缓存请求队列中取请求处理，队列为空则等待 3、当结果未缓存过、缓存失效或缓存需要刷新的情况下，就将该请求放入网络请求队列，在NetworkDispatcher中进行调度处理。 2、如果获取到了缓存，缓存请求处理结果传递给ResponseDelivery去执行后续处理。 #缓存数据结构 在上面两个调度线程中，我们可以看到缓存对象是mCache，一层一层向上找，我们最终可以在newRequestQueue看到这行代码：
 
 ```
 RequestQueue queue = new RequestQueue(new DiskBasedCache(cacheDir), network);
@@ -546,14 +534,10 @@ public abstract class JsonRequest&lt;T&gt; extends Request&lt;T&gt; {
 
 如此其实Volley源码的解析就基本结束了。
 
-# 总结：
+#总结：
 
-最终我们再根据Volley请求流程图概括一下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911754020.png " alt="这里写图片描述">
+最终我们再根据Volley请求流程图概括一下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2530.png" alt="这里写图片描述">
 
-## 流程：
+##流程： 1、调用RequestQueue的add()方法来添加一条请求。 2、请求会先被加入到缓存队列当中，缓存调度线程会从中获取请求。如果获取到了，就会解析并且返回主线程响应。如果获取不到，就会将这条请求放入网络请求队列。 3、网络调度线程会从网络请求队列获取到请求然后处理，发送HTTP请求，解析响应结果，写入缓存，返回主线程响应。
 
-1、调用RequestQueue的add()方法来添加一条请求。 2、请求会先被加入到缓存队列当中，缓存调度线程会从中获取请求。如果获取到了，就会解析并且返回主线程响应。如果获取不到，就会将这条请求放入网络请求队列。 3、网络调度线程会从网络请求队列获取到请求然后处理，发送HTTP请求，解析响应结果，写入缓存，返回主线程响应。
-
-## 要点：
-
-1、缓存调度线程只有一个，不可自定义. 2、网络调度线程默认有4个，可以自定义个数。 3、缓存调度线程和网络调度线程都是使用while（true）不断从队列中读取请求，但是不是死循环，当队列中没有请求的时候，会等待。 4、Volley是默认所有请求都会缓存的，但是针对数据量大，并且访问不频繁甚至一次的请求，我们可以设置不需要缓存。 5、缓存使用的数据结构是双向链表LinkedHashmap。
+##要点： 1、缓存调度线程只有一个，不可自定义. 2、网络调度线程默认有4个，可以自定义个数。 3、缓存调度线程和网络调度线程都是使用while（true）不断从队列中读取请求，但是不是死循环，当队列中没有请求的时候，会等待。 4、Volley是默认所有请求都会缓存的，但是针对数据量大，并且访问不频繁甚至一次的请求，我们可以设置不需要缓存。 5、缓存使用的数据结构是双向链表LinkedHashmap。

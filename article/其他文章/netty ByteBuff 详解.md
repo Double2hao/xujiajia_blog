@@ -71,7 +71,7 @@ ByteBuff扩容最终会走到calculateNewCapacity()方法中，主要过程如�
 
 # ByteBuff读写
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911444930.png " alt="在这里插入图片描述"> ByteBuff被readerIndex和writeerIndex两个索引分成三部分： 1、可丢弃字节 2、可读字节 3、可写字节
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1910.png" alt="在这里插入图片描述"> ByteBuff被readerIndex和writeerIndex两个索引分成三部分： 1、可丢弃字节 2、可读字节 3、可写字节
 
 具体内容根据各个方法作用分析比较容易理解，ByteBuff常用接口如下：
 
@@ -105,7 +105,7 @@ ByteBuff有三种类型：
 
 ### 复合缓冲区（CompositeByteBuf）
 
-拿HTTP协议举例。我们使用HTTP协议的时候，经常header部分不会变动，只会变动主体部分。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911447411.png " alt="在这里插入图片描述"> 一般情况下，我们需要将头部部分拷贝到每次一次发送的ByteBuf中。
+拿HTTP协议举例。我们使用HTTP协议的时候，经常header部分不会变动，只会变动主体部分。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1911.png" alt="在这里插入图片描述"> 一般情况下，我们需要将头部部分拷贝到每次一次发送的ByteBuf中。
 
 如果使用复合缓冲区的话，我们就不需要这么做。复合缓冲区可以将多个ByteBuff组合。 在这种情况下，我们可以将不会变动的HTTP的header单独设置一个ByteBuff，在主体部分的ByteBuff要发送的时候，使用复合缓冲区将两者组合起来一起发送。
 

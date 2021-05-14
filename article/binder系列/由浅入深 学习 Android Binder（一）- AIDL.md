@@ -9,7 +9,7 @@ aidl是常用的android IPC方式，本文将根据一个demo来解析下AIDL的
 
 为了便于读者理解，本文不会探究Binder的实现细节，可以认为Binder在此文的分析中被看做是一个“黑盒”。
 
-有一定经验的读者可以直接到文末看总结，最终流程图如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911915923.png " alt="在这里插入图片描述">
+有一定经验的读者可以直接到文末看总结，最终流程图如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3013.png" alt="在这里插入图片描述">
 
 # Demo
 
@@ -116,7 +116,7 @@ interface IServer {<!-- -->
 
 # aidl自动生成的文件
 
-定义完aidl文件，编译会自动生成一个java接口文件。 这个接口文件在build目录下，具体路径如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911913541.png " width="50%" height="50%">
+定义完aidl文件，编译会自动生成一个java接口文件。 这个接口文件在build目录下，具体路径如下： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3011.png" width="50%" height="50%">
 
 打开文件，我们就可以看到aidl自动生成的代码。
 
@@ -344,7 +344,7 @@ public interface ITestServer extends android.os.IInterface {<!-- -->
 
 # ITestServer 源码解析
 
-通过android studio，可以看到该类的结构如下。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911914522.png " width="50%" height="50%">
+通过android studio，可以看到该类的结构如下。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3012.png" width="50%" height="50%">
 
 接下来我们就主要分析三个类：
 - ITestServer Stub和Proxy都implement了它。 java上层可以使用这个接口来保留Binder的对象。在使用aidl的时候，完全可以只使用这个对象而不用关心这个对象是Stub还是Proxy。- ITestServer.Stub 当前进程的Binder对象。 在onTransact方法中实现了对IPC方法的逻辑，Proxy调用的时候会触发。- ITestServer.Stub.Proxy 当前进程通过Proxy实现了对远端方法的调用。 当前进程调用远端进程方法，实际上是调用了远端Binder的transact方法，最终执行到Stub中的onTransact。
@@ -591,7 +591,7 @@ Proxy调用testFunction，实际上是通过调用mRemote.transact()来触发远
 
 根据上文的分析，aidl自动生成的文件的源码大概可以总结成下图：
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911915923.png " alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/3013.png" alt="在这里插入图片描述">
 
 基本步骤如下：
 1. Client通过ServiceConnection获取到Server的Binder，并且封装成一个Proxy。1. 通过Proxy来同步调用IPC方法。同时通过Parcel将参数传给Binder，最终触发Binder的transact方法。1. Binder的transact方法最终会触发到Server上Stub的onTransact方法。1. Server上Stub的onTransact方法中，会先从Parcel中解析中参数，然后将参数带入真正的方法中执行，然后将结果写入Parcel后传回。1. Client的Ipc方法中，执行Binder的transact时，是阻塞等待的。一直到Server逻辑执行结束后才会继续执行。1. 当Server返回结果后，Client从Parcel中取出返回值，于是实现了一次IPC调用。

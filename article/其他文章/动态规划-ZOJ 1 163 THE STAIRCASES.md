@@ -1,13 +1,13 @@
 #动态规划-ZOJ 1 163 THE STAIRCASES
 # 题目：
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910564050.png " alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/450.png" alt="这里写图片描述">
 
 # 分析：
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910567281.png " alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/451.png" alt="这里写图片描述">
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910569202.png " alt="这里写图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/452.png" alt="这里写图片描述">
 
 ## 代码：
 

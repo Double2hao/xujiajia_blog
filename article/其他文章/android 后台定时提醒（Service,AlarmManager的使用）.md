@@ -7,14 +7,14 @@
  
  **打开后效果：**
  
- <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910883910.png " width="400" height="700" alt="">
+ <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/930.png" width="400" height="700" alt="">
  
  
  **时间到之后有后台提醒：**
  
- <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910887971.png " width="400" height="700" alt="">
+ <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/931.png" width="400" height="700" alt="">
  
- <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910894182.png " width="400" height="700" alt="">
+ <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/932.png" width="400" height="700" alt="">
  
  
  好了，接下来说一下做这样一个APP主要涉及到的知识点：

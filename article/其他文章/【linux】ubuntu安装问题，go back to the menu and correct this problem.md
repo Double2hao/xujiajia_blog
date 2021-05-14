@@ -1,7 +1,7 @@
 #【linux】ubuntu安装问题，go back to the menu and correct this problem
 如题，安装linux系统的时候遇到了如下问题：
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911235010.png " alt=""> 
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1690.png" alt=""> 
 
  
 

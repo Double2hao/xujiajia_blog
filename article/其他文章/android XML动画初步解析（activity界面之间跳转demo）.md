@@ -7,7 +7,7 @@
 
  
 
-<img alt="" class="has" height="500" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910493200.png " width="300"> <img alt="" class="has" height="500" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910496461.png " width="300">  <img alt="" class="has" height="500" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910532342.png " width="300">
+<img alt="" class="has" height="500" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/400.png" width="300"> <img alt="" class="has" height="500" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/401.png" width="300">  <img alt="" class="has" height="500" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/402.png" width="300">
 
  
 
@@ -37,7 +37,7 @@ demo还是比较简单的，仅仅实现的是两个activity之间的跳转，�
 
 贴下代码截图：
 
-<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910539583.png ">
+<img alt="" class="has" src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/403.png">
 
  
 

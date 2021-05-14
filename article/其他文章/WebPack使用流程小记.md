@@ -11,7 +11,7 @@
 
 ### 文件目录（WebStorm）
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911264260.png " alt="这里写图片描述" title="">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1720.png" alt="这里写图片描述" title="">
 
 ### 安装WebPack
 
@@ -82,4 +82,4 @@ module.exports = {
 webpack
 ```
 
-然后运行index.html，最终效果如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911265581.png " alt="这里写图片描述" title="">
+然后运行index.html，最终效果如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/1721.png" alt="这里写图片描述" title="">

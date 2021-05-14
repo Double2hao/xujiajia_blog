@@ -9,7 +9,7 @@
  我们要展示一个ListView，ListView中的数据和布局都是我们网络获取的，我们预先并不知道。 
 
 
-以往的我们使用一个Listview一般都是为了展示一类布局相同的信息，这种情况下，我们可以通过adapter的getView（）方法中的convertView来实现View的复用，使View不用反复创建。  比如以下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911841130.png " alt="这里写图片描述" title="">  但是倘若ListView的每个Item布局都不相同，并且布局可能是网络动态获取的，我们并不能预先得知。这种情况就不能使用convertView了，那要怎么处理呢。笔者使用的便是异步创建View的方式。
+以往的我们使用一个Listview一般都是为了展示一类布局相同的信息，这种情况下，我们可以通过adapter的getView（）方法中的convertView来实现View的复用，使View不用反复创建。  比如以下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2760.png" alt="这里写图片描述" title="">  但是倘若ListView的每个Item布局都不相同，并且布局可能是网络动态获取的，我们并不能预先得知。这种情况就不能使用convertView了，那要怎么处理呢。笔者使用的便是异步创建View的方式。
 
 # 异步创建View
 
@@ -19,13 +19,13 @@
 
 ## 各个类的主要逻辑
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911845141.png " alt="这里写图片描述" title="">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2761.png" alt="这里写图片描述" title="">
 
 **CreateThreadPoolExecutor**：  线程池，每当有线程需要创建View的时候，就将任务交给他执行。  **HalControlListAdapter**：  继承自BaseAdapter。在getView（）中获取View的时候首先去HalControlListviewPool中获取，如果没有获取到，就主线程自己创建。一般情况下，如果是主线程创建的，说明是第一次创建，所以要放入回收池回收，以便让回收池创建副本。  **HalControlListviewPool**：  使用HashMap和LinkedList的数据格式来回收，存取View。  如果有View传进来，就为这个View创建arraySize个副本，以供后面的View获取。（在demo中 arraySize=1）
 
 # 示例（源码在文章结尾）
 
-每个Item随机创建TextView或者EditView，如果在主线程创建的，就设置Text“主线程xxx”，如果是异步创建的，就不设置text，如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911848142.png " alt="这里写图片描述" title="">  笔者为了演示，设置在回收池中每个View的副本只创建一个（arraySize=1），如果设置较多，基本不会再主线程创建View。  当然，即使是只有一个副本，可以看到，大部分的View还是异步创建的。  这样就能节省很多主线程的资源。
+每个Item随机创建TextView或者EditView，如果在主线程创建的，就设置Text“主线程xxx”，如果是异步创建的，就不设置text，如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2762.png" alt="这里写图片描述" title="">  笔者为了演示，设置在回收池中每个View的副本只创建一个（arraySize=1），如果设置较多，基本不会再主线程创建View。  当然，即使是只有一个副本，可以看到，大部分的View还是异步创建的。  这样就能节省很多主线程的资源。
 
 # 代码
 

@@ -13,7 +13,7 @@
 1. client进程 通过IPC 通知AMS进程去bindService1. AMS进程 通过IPC 通知server进程去bindService1. server进程 通过IPC 通知AMS进程bindService结果1. AMS进程 通过IPC 告诉client进程bindService结果
 本文就选择”client通知AMS进程“的过程继续作深入，来探究下java层的binder究竟是什么。(附上前文流程图)
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911692840.png " alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2370.png" alt="在这里插入图片描述">
 
 # ContextImpl.bindServiceCommon()
 

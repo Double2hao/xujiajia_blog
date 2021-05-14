@@ -5,7 +5,7 @@
  本文参考： 
 
 
-每个开发者多少都接触过git的diff功能，如下图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911884020.png " alt="在这里插入图片描述">
+每个开发者多少都接触过git的diff功能，如下图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2970.png" alt="在这里插入图片描述">
 
 该功能能够展示出某个文件的改动信息，非常便于开发者的日常开发。 本文将探讨下此功能实现的原理。
 
@@ -122,6 +122,6 @@ myers diff 中引入了k和d 两个概念来方便计算最短路径。
  k: k=x-y，x与y分别是横竖方向上的位置 d: 走的步数 ，走斜线不算步数 
 
 
-根据这两个参数可以得到下图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911887251.png " alt="在这里插入图片描述">
+根据这两个参数可以得到下图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2971.png" alt="在这里插入图片描述">
 
 在d相同的情况下，k越小，越接近终点。 因此最优解也就可以筛选出来了。

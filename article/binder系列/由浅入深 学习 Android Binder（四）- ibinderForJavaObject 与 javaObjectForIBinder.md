@@ -17,7 +17,7 @@
 
 java与native之间通过JNI来实现数据的传递与交互。 主要就是通过native层的ibinderForJavaObject与javaObjectForIBinder方法。 整个流程大概就是下面两张图，先列出便于读者有一个整理的认知.
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910588622.png " alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910592123.png " alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/512.png" alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/513.png" alt="在这里插入图片描述">
 
 # android_util_Binder.ibinderForJavaObject
 
@@ -274,4 +274,4 @@ BinderProxyNativeData* getBPNativeData(JNIEnv* env, jobject obj) {
 # ibinderForJavaObject 与 javaObjectForIBinder总结
 
 要点：
-- java层直接与native层交互的对象有两个——Binder对象与BinderProxy对象。 Binder对应“Binder在本进程”的场景，BinderProxy对应“Binder在其他进程”的场景。- native层javaBBinder与java层的Binder一一对应。 native层的BinderProxyNativeData与java层的BinderProxy一一对应。- 在native层，gBinderProxyOffsets(binderproxy_offsets_t)存储了java层binderProxy的对象与需要调用的方法和属性。gBinderOffsets(binderproxy_offsets_t)存储了java层binder的对象与需要调用的方法和属性。- ibinderForJavaObject负责通过java的Binder或者BinderProxy对象，找到并返回native层的IBinder对象。- javaObjectForIBinder通过native层的IBinder对象，找到或者封装成java对象返回。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910588622.png " alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910592123.png " alt="在这里插入图片描述">
+- java层直接与native层交互的对象有两个——Binder对象与BinderProxy对象。 Binder对应“Binder在本进程”的场景，BinderProxy对应“Binder在其他进程”的场景。- native层javaBBinder与java层的Binder一一对应。 native层的BinderProxyNativeData与java层的BinderProxy一一对应。- 在native层，gBinderProxyOffsets(binderproxy_offsets_t)存储了java层binderProxy的对象与需要调用的方法和属性。gBinderOffsets(binderproxy_offsets_t)存储了java层binder的对象与需要调用的方法和属性。- ibinderForJavaObject负责通过java的Binder或者BinderProxy对象，找到并返回native层的IBinder对象。- javaObjectForIBinder通过native层的IBinder对象，找到或者封装成java对象返回。 <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/512.png" alt="在这里插入图片描述"> <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/513.png" alt="在这里插入图片描述">

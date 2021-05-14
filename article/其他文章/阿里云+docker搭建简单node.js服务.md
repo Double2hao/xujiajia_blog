@@ -5,7 +5,7 @@
 
 # 最终效果
 
-主要是提供HTTP服务器，直接通过IP访问，提供两个示例：(已停用)      <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910460670.png " alt="这里写图片描述" title="">  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910462761.png " alt="这里写图片描述" title="">
+主要是提供HTTP服务器，直接通过IP访问，提供两个示例：(已停用)      <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/380.png" alt="这里写图片描述" title="">  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/381.png" alt="这里写图片描述" title="">
 
 # 主要步骤
 
@@ -15,7 +15,7 @@
 
 1、主要express提供服务器  2、数据库使用sqlite  3、图片上传服务器使用到connect-multiparty
 
-主要目录如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910463472.png " alt="这里写图片描述" title="">  主要文件只有server.js，代码在下方：
+主要目录如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/382.png" alt="这里写图片描述" title="">  主要文件只有server.js，代码在下方：
 
 ```
 var express = require('express');
@@ -133,7 +133,7 @@ var server = app.listen(80, function () {<!-- -->
 
 # 拷贝代码到服务器
 
-笔者使用xshell模拟终端，直接通过图形化界面操作，截图如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910464113.png " alt="这里写图片描述" title="">  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910465804.png " alt="这里写图片描述" title="">
+笔者使用xshell模拟终端，直接通过图形化界面操作，截图如下：  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/383.png" alt="这里写图片描述" title="">  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/384.png" alt="这里写图片描述" title="">
 
 # 通过dockefile创建image并且搭建服务
 
@@ -160,7 +160,7 @@ CMD npm install
 docker image -t build my_node .
 ```
 
--t参数用来指定 image 文件的名字，后面还可以用冒号指定标签。  构建完毕后，我们可以用docker image ls指令查看image。  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910467495.png " alt="这里写图片描述" title="">
+-t参数用来指定 image 文件的名字，后面还可以用冒号指定标签。  构建完毕后，我们可以用docker image ls指令查看image。  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/385.png" alt="这里写图片描述" title="">
 
 image构建完毕，直接通过image创建container，指令如下：
 
@@ -174,4 +174,4 @@ docker run -p 80:80 -it my_node /bin/bash
  -p参数：容器的 80端口映射到本机的 80端口。  -it参数：容器的 Shell 映射到当前的 Shell，然后你在本机窗口输入的命令，就会传入容器。  my_node：image 文件的名字（如果有标签，还需要提供标签，默认是 latest 标签）。  /bin/bash：容器启动以后，内部第一个执行的命令。这里是启动 Bash，保证用户可以使用 Shell。 
 
 
-构建完container之后，容器的Shell映射到了当前的Shell，直接通过node server.js运行服务，服务搭建成功。  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910469106.png " alt="这里写图片描述" title="">
+构建完container之后，容器的Shell映射到了当前的Shell，直接通过node server.js运行服务，服务搭建成功。  <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/386.png" alt="这里写图片描述" title="">

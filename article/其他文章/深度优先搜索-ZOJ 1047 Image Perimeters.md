@@ -1,7 +1,7 @@
 #深度优先搜索-ZOJ 1047 Image Perimeters
 # 大致题意
 
-给你一张图，图上有‘X’和‘.’。‘X’可以八个方向连通，这些连起来的‘X’成为一个块。问：输入一个坐标，这个坐标所在的块的周长是多少。 如图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209910799850.png " alt="这里写图片描述">
+给你一张图，图上有‘X’和‘.’。‘X’可以八个方向连通，这些连起来的‘X’成为一个块。问：输入一个坐标，这个坐标所在的块的周长是多少。 如图： <img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/860.png" alt="这里写图片描述">
 
 # 分析
 

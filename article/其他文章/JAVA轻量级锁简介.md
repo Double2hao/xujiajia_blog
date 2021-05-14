@@ -33,7 +33,7 @@
 
 # 画图理解
 
-<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/16209911694260.png " alt="在这里插入图片描述">
+<img src="https://raw.githubusercontent.com/Double2hao/xujiajia_blog/main/img/2380.png" alt="在这里插入图片描述">
 
 ## 加锁
 
